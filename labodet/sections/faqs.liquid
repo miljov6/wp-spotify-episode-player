@@ -1,0 +1,74 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-03-17T17:51:08+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  120105
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            cb08ff15ba1539adbc07f98d8ce2bd47
+//      Signature:      eyJpdiI6Im5vR0pWM3NQVitYdjZBUVM2Mkd3YlE9PSIsInZhbHVlIjoidEhFTU96aVFoTTkrRFM0alF5bVJxc2FPeXBkVDFtYXRHZ1gzcnptakU0dis2a3F2NERUdkluREJxSnRBdTIzekJDXC9vSWozWTFZbU5ndWluaVJtVUk4cENpZnZOa2l3Sk9tRXZsa2lXSXI3VGFweFNHaXJJazdWSlY4VXI0TDQxYW5VN3Q4b3hLRUl4a3plTkZIVEpWNU5sd1N2Uk9WWkU5bk5QVExIMnA0VkgrcDVRYWRadndJQXB2WGVRN3NuT1hodVdQRVplaXVJcG5HbVd1Zk1UVUxLY1kyVmhnbzVaZmdoQ2ZtRmZDVzFHcFhBWWNSN2txOEk2ZTdNOW1rbXhnYzBCeUY3dk5xWVZoSDFwc21VRyt6QWlXNjNwMFBiNHBYRmJBTnVTNzJxaVBFOVNpY2lKRjRjQ3hIdzVwYmh2b2MyYzRmNVwvSzN1TTNlS2ZTekx3WEdDeXVJalBhS2dMczBpWG01WTBXVkxGRmFKeGh2SWJYOGZFVUNaSVF4QnFTK05mTEdYN1EwM0FxOGNpXC9HZDZXZz09IiwibWFjIjoiZGVjNTM4Yzg5MjYwMzEzNTFkMjUxM2I1NDhlNDFiMThlOWMwNmFhNjc4ZmM0MGNjZjY1NzdkZTkyY2Q4ZTM0MyJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% assign num_columns = 2 | times: 1.0 %}
+{% assign num_blocks = section.blocks.size %}
+{% assign num_blocks_per_column = num_blocks | divided_by: num_columns | ceil %}
+
+<div class="col">
+  {% for block in section.blocks %}
+
+    {% capture faq_id %}faq_{{ forloop.index }}{% endcapture %}
+
+    <div class="faq" {{ block.shopify_attributes }}>
+      <a class="question collapsed" data-toggle="collapse" href="#{{ faq_id }}">
+        {{ block.settings.title }}
+         <div class="arrow-icon">
+        		<span class="left-bar"></span>
+        		<span class="right-bar"></span>
+      		</div>
+      </a>
+      <div class="answer collapse" id="{{ faq_id }}">
+        <div class="answer-inner">
+          {{ block.settings.answer }}
+        </div>
+      </div>
+    </div>
+  
+  	{% if forloop.index == num_blocks_per_column %}
+		</div>
+		<div class="col">
+  	{% endif %}
+
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "FAQs",
+	"class": "section-faqs",
+    "blocks": [
+      {
+        "type": "faq",
+        "name": "FAQ",
+        "settings": [
+          	{
+				"type": "text",
+              	"id": "title",
+              	"label": "Question"
+          	},{
+				"type": "richtext",
+   				"id": "answer",
+   				"label": "Answer"
+			}
+        ]
+      }
+    ]
+  }
+{% endschema %}

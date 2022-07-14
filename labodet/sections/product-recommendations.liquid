@@ -1,0 +1,320 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:15:27+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            f58c54dd790ff67628f9f466fdac5ce4
+//      Signature:      eyJpdiI6IktjRUNGQ3p0RXhrQVA5VXJHdUttS1E9PSIsInZhbHVlIjoiV2VRVEdaWHhDZ09XSWRtYzd2eHRhUTFUWUNoOWI5YnNDditJZW9YQlBiXC83eDRSZGorcmlDXC9BMno5S0FqcElUbVNNRHFnbVVJUGx1em9pMkttRFFsaXlGQ1wvMGo0UHVBUmhvd1Rva0dSRDkxQWlUTWs3OGJwY2FHWjYzNU5XaVdDSGVMc2ZyRVdxbU5lQU1LT2ZDUkRRNzA4K0VjZ2MyenpPT01ERDNFSTF1Nm5YcjVvNGpGa2NWenJyUlhoTHh2WlNpbnM0QTFYS0tBb1p1WEMzcllrcEhNcWc5d1J6T1U2a29QejB3dmtQRCsrdlRsXC95QTBXTWxjUFdZR3lXSXNiSVd5aFZTeFd0YVhNS1p3cHJPeElQaFZrYTNRZzRyb0liR2wxNWRGSGNoU1JIWHpQbGpEcGtzWHJSRExtTjYrVm9UZFwvSHFYeDBpREVqZmFVWUMxY2pVbUxUMGVkd3Jkb0xHZnpDa0pKS21oVW1CeDdzVGxYMlQ1dFJ2TWFFRnMrSllNeUlzT3VXWWpHNlRzMTRRZTB1anhBRzZMYUp1eCtaSzR5UVNuMTdnPSIsIm1hYyI6IjI4MWQwODhlM2NjOWZkZWVkODdmYjQzY2U1ODI0YjVmODAzODU1ZmE1ZTQ3YzFiNjczYzczNmM0ZjBmMmEyYzAifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{%- if section.settings.show_product_recommendations -%}
+  {%- if recommendations.performed -%}
+    {%- if recommendations.products_count > 0 -%}
+      <section class="labo-product-recommendations {% comment %}hidemobile{% endcomment %} py-5 border-0 mt-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              {%- if section.settings.heading != blank -%}
+                <h2 class="mb-3 labo-add-matching-items-h2">{{ section.settings.heading | escape }}</h2>
+              {%- endif -%}
+              {% comment %}<svg class="labo-slider-arprev" width="43.23" height="43.23" viewBox="0 0 63 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M31.571 61.5711L7.43604 31L31.571 0.428931" stroke="black"/>
+              </svg>{% endcomment %}
+              <div id = "recommendation-grid" class="prod-list labo-product-recommendations-slider owl-carousel owl-theme {% comment %}slick-section-{{ section.id }}{% endcomment %}">
+                {% for product in recommendations.products limit: 4 %}
+                  {% if product.variants.size > 1 %}
+                    {% for variant in product.variants limit: 1 %}
+                      <div class="labo-collection-page-grid labo-recom-prod-grid-new h-100 mx-1">
+                        <a href="{{ product.url }}" class="d-block labo-collectopn-page-image w-100 labo-cart-100">
+                          <img class="w-100 d-block" {% comment %}loading="lazy" src="{{ 'dedede.jpg' | asset_url }}" data-{% endcomment %}src="{{ product.featured_media.preview_image | img_url: '500x' }}">
+                        </a>
+                        <div class="product-info labo-collection-page-pinfo w-100 labo-cart-100">
+                          <a class="d-flex px-3 my-3 text-dark" href="{{ product.url }}">
+                            <h3 class="labo-collection-page-ptitle">
+                              {{ product.metafields.custom_fields["categorytype"] }}{% if product.title contains 'Case' %} Case{% endif %}
+                            </h3>
+                            <div class="prod-type">
+                              {% include 'device-name' %}
+                            </div>
+                            {% if product.metafields.custom_fields["animal_skin"] != blank %}
+                              <div class="prod-type">{{ product.metafields.custom_fields["animal_skin"] }}</div>
+                            {% endif %}
+                            {% if product.variants.size > 1 %}
+                              {% for option in product.options %}
+                                {% if option == "Color" or option == "Colour" %}
+                                  {% assign colorcount = 0 %}
+                                  {% assign index = forloop.index0 %}
+                                  {% assign colorlist = '' %}
+                                  {% assign color = '' %}
+                                  {% for variant in product.variants %}
+                                    {% capture color %}
+                                      {{ variant.options[index] }}
+                                    {% endcapture %}
+                                    {% unless colorlist contains color %}
+                                      {% assign colorcount = colorcount | plus:1 %}
+                                      {% capture tempList %}
+                                        {{ colorlist | append: color | append: ' ' }}
+                                      {% endcapture %}
+                                      {% assign colorlist = tempList %}
+                                    {% endunless %}
+                                  {% endfor %}
+                                {% endif %}
+                              {% endfor %}
+                              <div class="prod-color">{{ colorcount }} colors</div>
+                            {% endif %}
+                            <p>{% include 'currency-view-price' %}</p>
+                            {% for variant in product.variants %}
+                              {% assign itemvariant = variant.id %}
+                            {% endfor %}
+                            <!-- <a href="#" class="labo-recommended-add-button" onclick="addThisItem({{ itemvariant }}{% if product.metafields.custom_fields["cart_status"] != blank %}, '{{ product.metafields.custom_fields["cart_status"] }}'{% endif %}, '{% include 'device-name' %}')">+ Add</a> -->
+                          </a>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+              {% comment %}<svg class="labo-slider-arnext" width="43.23" height="43.23" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M31.5706 1.00022L55.7056 31.5713L31.5706 62.1424" stroke="black"/>
+              </svg>{% endcomment %}
+            </div>
+          </div>
+        </div>
+      </section>
+    {%- endif -%}
+  {%- else  -%}
+    <div data-base-url="{{ routes.product_recommendations_url }}" data-product-id="{{ product.id }}" data-section-id="{{ section.id }}" data-section-type="product-recommendations"></div>
+  {%- endif -%}
+{%- endif -%}
+{% comment %}{%- if section.settings.show_product_recommendations -%}
+  {%- if recommendations.performed -%}
+    {%- if recommendations.products_count > 0 -%}
+      <section class="labo-product-recommendations hidedesktop pt-5 pb-0 border-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              {%- if section.settings.heading != blank -%}
+                <h2 class="mb-3 labo-add-matching-items-h2">{{ section.settings.heading | escape }}</h2>
+              {%- endif -%}
+              <div class="swiper-container labo-product-recommendations-slider slick-mobile-section-{{ section.id }}">
+                <div class="swiper-wrapper">
+                  {%- for product in recommendations.products limit: 10 -%}
+                    <div class="swiper-slide labo-collection-page-grid h-100">
+                      <a href="{{ product.url }}" class="d-block labo-collectopn-page-image w-100 labo-cart-100">
+                        <img class="w-100 d-block" src="{{ product.featured_media.preview_image | img_url: '500x' }}">
+                      </a>
+                      <div class="product-info labo-collection-page-pinfo w-100 labo-cart-100">
+                        <a class="d-flex px-3 my-3 text-dark" href="{{ product.url }}">
+                          <h3 class="labo-collection-page-ptitle mb-auto">
+                            {{ product.metafields.custom_fields["categorytype"] }}{% if product.title contains 'Case' %} Case{% endif %}
+                          </h3>
+                          <div class="prod-type">
+                            {% include 'device-name' %}
+                          </div>
+                          {% if product.metafields.custom_fields["animal_skin"] != blank %}
+                            <div class="prod-type">{{ product.metafields.custom_fields["animal_skin"] }}</div>
+                          {% endif %}
+                          {% if product.variants.size > 1 %}
+                            {% for option in product.options %}
+                              {% if option == "Color" or option == "Colour" %}
+                                {% assign colorcount = 0 %}
+                                {% assign index = forloop.index0 %}
+                                {% assign colorlist = '' %}
+                                {% assign color = '' %}
+                                {% for variant in product.variants %}
+                                  {% capture color %}
+                                    {{ variant.options[index] }}
+                                  {% endcapture %}
+                                  {% unless colorlist contains color %}
+                                    {% assign colorcount = colorcount | plus:1 %}
+                                    {% capture tempList %}
+                                      {{colorlist | append: color | append: ' '}}
+                                    {% endcapture %}
+                                    {% assign colorlist = tempList %}
+                                  {% endunless %}
+                                {% endfor %}
+                              {% endif %}
+                            {% endfor %}
+                            <div class="prod-color">{{ colorcount }} colors</div>
+                          {% endif %}
+                          <p>{{ product.price | money_without_trailing_zeros }}</p>
+                          {% for variant in product.variants %}
+                            {% assign itemvariant = variant.id %}
+                          {% endfor %}
+                          <!-- <a href="#" class="labo-recommended-add-button" onclick="addThisItem({{ itemvariant }}{% if product.metafields.custom_fields["cart_status"] != blank %}, '{{ product.metafields.custom_fields["cart_status"] }}'{% endif %}, '{% include 'device-name' %}')">+ Add</a> -->
+                        </a>
+                      </div>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    {%- endif -%}
+  {%- else  -%}
+  {%- endif -%}
+{%- endif -%}{% endcomment %}
+<script>
+  $(document).ready(function() {
+    /*$('.slick-section-{{ section.id }}').not('.slick-initialized').slick({
+      arrows: true,
+      dots: false,
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      prevArrow: $('.labo-slider-arprev'),
+      nextArrow: $('.labo-slider-arnext')
+    });*/
+    if($(window).width() > 768) {
+      $('.labo-product-recommendations-slider').owlCarousel({
+      loop: true,
+      nav: true,
+      autoplay: true,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        768: {
+          items: 4
+        }
+      }
+    });
+    } else {
+      $('#recommendation-grid').removeClass('owl-carousel');
+    }
+    /*$('.slick-mobile-section-{{ section.id }}').not('.slick-initialized').slick({
+      arrows: false,
+      dots: false,
+      infinite: true,
+      slidesToShow: 2,
+      slidesToScroll: 1
+    });*/
+  });
+</script>
+{% schema %}
+{
+"name": {
+"da": "Produktanbefalinger",
+"de": "Produktempfehlungen",
+"en": "Product Recommendations",
+"es": "Recomendaciones de productos",
+"fi": "Tuotesuositukset",
+"fr": "Recommandations de produits",
+"hi": "उत्पाद की अनुशंसाएं",
+"it": "Raccomandazioni sui prodotti",
+"ja": "商品の推奨",
+"ko": "제품 권장 사항",
+"nb": "Produktanbefalinger",
+"nl": "Productaanbevelingen",
+"pt-BR": "Recomendações de produtos",
+"pt-PT": "Recomendações de produtos",
+"sv": "Produktrekommendationer",
+"th": "คำแนะนำสินค้า",
+"zh-CN": "产品推荐",
+"zh-TW": "商品推薦"
+},
+"settings": [
+{
+"type": "checkbox",
+"id": "show_product_recommendations",
+"label": {
+"da": "Vis dynamiske anbefalinger",
+"de": "Dynamische Empfehlungen anzeigen",
+"en": "Show dynamic recommendations",
+"es": "Mostrar recomendaciones dinámicas",
+"fi": "Näytä dynaamiset suositukset",
+"fr": "Afficher les recommandations dynamiques",
+"hi": "डायनेमिक सुझाव दिखाएं",
+"it": "Mostra raccomandazioni dinamiche",
+"ja": "動的推奨を表示する",
+"ko": "동적 권장 사항 표시",
+"nb": "Vis dynamiske anbefalinger",
+"nl": "Dynamische aanbevelingen weergeven",
+"pt-BR": "Exibir recomendações dinâmicas",
+"pt-PT": "Mostrar recomendações dinâmicas",
+"sv": "Visa dynamiska rekommendationer",
+"th": "แสดงคำแนะนำแบบไดนามิก",
+"zh-CN": "显示动态推荐",
+"zh-TW": "顯示動態推薦"
+},
+"info": {
+"da": "Dynamiske anbefalinger ændres og forbedres med tiden. [Få mere at vide](https://help.shopify.com/en/themes/development/recommended-products)",
+"de": "Dynamische Empfehlungen werden im Laufe der Zeit angepasst und verbessert. [Mehr Informationen](https://help.shopify.com/en/themes/development/recommended-products)",
+"en": "Dynamic recommendations change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)",
+"es": "Las recomendaciones dinámicas cambian y mejoran con el tiempo. [Más información](https://help.shopify.com/en/themes/development/recommended-products)",
+"fi": "Dynaamiset suositukset muuttuvat ja paranevat ajan myötä. [Lisätietoja](https://help.shopify.com/en/themes/development/recommended-products)",
+"fr": "Les recommandations dynamiques changent et s'améliorent avec le temps. [En savoir plus](https://help.shopify.com/en/themes/development/recommended-products)",
+"hi": "समय के साथ डायनेमिक सुझाव परिवर्तन और सुधार. [अधिक जानें](https://help.shopify.com/en/themes/development/recommended-products)",
+"it": "Le raccomandazioni dinamiche cambiano e migliorano nel tempo. [Maggiori informazioni](https://help.shopify.com/en/themes/development/recommended-products)",
+"ja": "動的推奨は時間とともに変化し改善します。[詳しくはこちら](https://help.shopify.com/en/themes/development/recommended-products)",
+"ko": "동적 권장 사항은 시간이 지나면서 변하고 개선됩니다. [자세히 알아보기](https://help.shopify.com/en/themes/development/recommended-products)",
+"nb": "Dynamiske anbefalinger endrer seg og forbedres med tiden. [Finn ut mer](https://help.shopify.com/en/themes/development/recommended-products)",
+"nl": "Dynamische aanbevelingen veranderen en verbeteren mettertijd. [Meer informatie](https://help.shopify.com/en/themes/development/recommended-products)",
+"pt-BR": "As recomendações dinâmicas mudam e melhoram com o tempo. [Saiba mais](https://help.shopify.com/en/themes/development/recommended-products)",
+"pt-PT": "As recomendações dinâmicas mudam e melhoram com o tempo. [Saiba mais](https://help.shopify.com/en/themes/development/recommended-products)",
+"sv": "Dynamiska rekommendationer ändras och förbättras med tiden. [Läs mer](https://help.shopify.com/en/themes/development/recommended-products)",
+"th": "คำแนะนำแบบไดนามิกนั้นเปลี่ยนแปลงและถูกปรับปรุงให้ดีขึ้นตลอดเวลา [ดูข้อมูลเพิ่มเติม](https://help.shopify.com/en/themes/development/recommended-products)",
+"zh-CN": "动态推荐会随着时间而变化和改进。[了解详细信息](https://help.shopify.com/en/themes/development/recommended-products)",
+"zh-TW": "動態推薦會隨著時間改變與改進。[深入瞭解](https://help.shopify.com/en/themes/development/recommended-products)"
+},
+"default": true
+},
+{
+"type": "text",
+"id": "heading",
+"label": {
+"da": "Overskrift",
+"de": "Überschrift",
+"en": "Heading",
+"es": "Título",
+"fi": "Otsake",
+"fr": "En-tête",
+"hi": "शीर्षक",
+"it": "Heading",
+"ja": "見出し",
+"ko": "제목",
+"nb": "Overskrift",
+"nl": "Kop",
+"pt-BR": "Título",
+"pt-PT": "Título",
+"sv": "Rubrik",
+"th": "ส่วนหัว",
+"zh-CN": "标题",
+"zh-TW": "標題"
+},
+"default": {
+"da": "Du vil muligvis også synes om",
+"de": "Das könnte dir auch gefallen",
+"en": "Add matching items",
+"es": "También te puede interesar",
+"fi": "Saatat pitää myös näistä",
+"fr": "Vous pourriez aimer également",
+"hi": "आप शायद इसे भी पसंद करें",
+"it": "Potrebbero interessarti anche",
+"ja": "あなたへのおすすめ",
+"ko": "회원님도 좋아할 것입니다.",
+"nb": "Kanskje du også liker",
+"nl": "Wellicht vind je dit ook leuk",
+"pt-BR": "Talvez você também goste de",
+"pt-PT": "Também poderá gostar de",
+"sv": "Du kanske också gillar",
+"th": "คุณอาจจะชอบ",
+"zh-CN": "您可能还喜欢",
+"zh-TW": "您也可能喜歡"
+}
+}
+]
+}
+{% endschema %}

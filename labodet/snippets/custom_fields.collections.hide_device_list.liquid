@@ -1,0 +1,36 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:25+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            9a473e4dd3fdc3e111d2341e83295849
+//      Signature:      eyJpdiI6ImNidzd1bE5mWjg1b2RwMFdoeTQxa0E9PSIsInZhbHVlIjoiZ3FDdkw5SGZRWmZZZlNPa2xZOFg4cHZqNlh6NWtFTVhMOVZEa1RMa2FNQ1Jyb0Vna2VEeEVcL0dpYVlueGQ5MDYzb0U5TlZXRzJsYUNmbTVNR040TmM5NGNNcFFrTVRkTHQrc0IxS1ZidVwvcENWcjYzQWIyWnc0elh4ZWxNeGhaZkJ2SlhZOTNpVEVjUmRVRGdWVmhvOHJ6aUFjT1FkNTJXelRVOUVYZWRCY2RKYk4ySEZLSEJWQU9CQm90empPSXJsV3F0WkhkaXZ4eGNaUDR4SnpEam5ZQTc0NXJzSCs0ZXRVSDlPRWxkWE9lTUdWcXNlZWk4aUszQzE2Yytrek1IQjJsTVBuNlBNbXRPVytEeHhHbUtONGFVRVQ3QXhhaWkzZ2tUSFFvaVZOaTh1VUhGcmU4ZjkzdUljM0pzK2FOa0FkUitmNkJRNzZXc3Z3bVhmeGF4WE9kb1VrV25DVDFlS2JjYlpSRFNoSnRXY0pZZTBPaWhkOTM1d2lSWkZodUc0XC9jODgzWDhuQzJzNjFaRzR4OW16bEpcL1Z1YVE2U3VvZzdYUllpYzgrdEJxeVVtdGtTWElFWFlMYzlHTFlZS3giLCJtYWMiOiJlZWYxNzdiYzM0ZmQxOWQ4MmM0M2JkNTc0MWM4NWRkOGJiZjNjZWViYzcwYjZlZDY5YjU2Yzk5MTQ0MTgzYTE2In0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/labodet-store.myshopify.com/collections/configure/208268/edit
+{% endcomment %}
+{% if collection.metafields.custom_fields["hide_device_list"] != blank %}
+  <div class="custom-field custom-field__hide-device-list custom-field__type--checkbox">
+    <h3 class="custom-field--title">Hide device list?</h3>
+    <div class="custom-field--value">
+      {% if collection.metafields.custom_fields["hide_device_list"] == 1 %}
+        TRUE
+      {% else %}
+        FALSE
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

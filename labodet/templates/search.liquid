@@ -1,0 +1,66 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:15:17+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            c7a15000fb7b304f31b9621c595fa0d4
+//      Signature:      eyJpdiI6InhWNEVNbnRDU3ZjYys5RHYzb3R1WFE9PSIsInZhbHVlIjoiWkF3RUlIZWFyVVZCVEJGODVqQUQ2RjMzMGhNMjVUYitsYkVHWjdybGJFNitcL2Jic0JNd1ZVSEVSeUhJXC9lUDJRMVNRa0VKTnNCcFNCd3I4bGpPRnV2ZkVoa2RjYk0zME5IMExlVFEzKzYxUWRXVlwvNkdTSHFcLzA2VW1oVFwvVzBDVnNmQml3bm1lSVhhN2U0TjdSblAxaER1dlNVXC9GVVlESGhxeVpDYVFFSzlUczdzamRHTlBheTY4emdERzJSS2lxbG5WKzVlcndYak5pbE9XUWk0V2JIbjhaemRZU1oxdjVXcEtnd3VyR1pzTm9XcnAxa1dNcUJwRzQ4VUJQeGdua1BqU0Q0dDFZWnFSdVp3OTdQT3BKb3k1djFxbDVmdmNYaktIVllMcFQwSFd4bVwvSURLWldTVXZkWVlOUjZQWndPRms3aVhiYWdBWHJWUzJrd2tBTWhDMWdYQTNLYlwvMjI4Q1laanhmWGdCMDU4UjNLd1ZJRFwvakNrWDR4UFpHaHFzVVBsalBjZEYrc3prVXFydHp0WHBMdz09IiwibWFjIjoiMWNjZDNhOTU0MGNkNmU5N2FhYmYyNGJjOGRmZTNhODRmMWQ3NTIxZWU4NTRmODc4YzM1YTY2N2Y0OTc4MjY5NiJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% paginate search.results by 100 %}
+<div class="container" style="min-height: calc(100vh - 392.94px)">
+  <div class="title-area search-title">
+    <h1 class="page-title">
+      {% if search.performed %}
+        "{{ search.terms | escape }}" ({{ search.results_count }})
+      {% else %}
+        Search
+      {% endif %}
+    </h1>
+  </div>
+  
+  {% if search.performed %}
+    {% if search.results == empty %}  
+      <p>Your search for "{{search.terms | escape}}" did not yield any results</p>              
+    {% else %}  
+  		<div class="prod-list">
+        {% for item in search.results %}
+          {% if item.object_type == 'product' %}
+            {% render 'card-product', product: item %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      
+      <div class="page-list">
+        {% for item in search.results %}
+          {% if item.object_type != 'product' %}
+            <div class="page-list__card">
+              <h3 class="page-list__term">{{ search.terms | escape }}</h3>
+              <h2 class="page-list__title">
+                {{ item.title }}
+              </h2>
+              <a class="page-list__link" href="{{ item.url | split:'?' | first }}">
+                {{ shop.domain }}{{ item.url | split:'?' | first }}
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% else %}
+  	<div class="search-form-area">
+      {% render 'form-search' %}
+    </div>
+  {% endif %}
+</div>
+{% endpaginate %}

@@ -1,0 +1,219 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:13:58+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            19b7ade72959ad90c518eedf3a78c939
+//      Signature:      eyJpdiI6Im03WXgyd0Z3enZPN1BlZHR0TUdTdWc9PSIsInZhbHVlIjoiRnBiQWthSFMrcE1XMnF5Rmg1a2t2Z1JLRkp1ODJpSGRHdmluZWZONTlxWVRXREpvVEdkbHhmbEc1K3c3dXB0UmpjMHRIQ1BZSlRsUytWVkYzMXY1dVB6K1pZSmNTdFF6WHNMTlg4aXd6UE9Dc1VNNlQxMm13RStUYWFIMkYxN0poRHlzYmtkR1BXaDZadU1lVVlnc3FGdENIaVwvSHRWTXA0ZWNsaEF0SVptRElOSWhFQ0VKRHpzNHEzTjlBUjRaNlBSTFdcL0tHUVVlVHBZRmp6YWJtalR1azF3NXVPUDBUM0g5clJaZzB4R2lsMzFObGZGVE9TUU5wRDQ0TUhtd0xlbFNneGQyaGdxVHEwNjREN3dpQ0JHdElTUnh0YmlYR0M4N1BhTld2QzJFaHJNaHNxV05cL3RMUzl5UUlkWEg3dUZjK0JRQzJ6dmtWcDZTc2UrTEErVW9QQjhBQXpVY3k0SWZIMFhubFp4VEJ2NU9uR1RKd011ZXNCd0hibVwvNmpBVHR6RnRiMU5CR1lOYVhZZHdMOGtkN3c9PSIsIm1hYyI6Ijc0MTE2MjgzNTZkMGM4YjQxYmM2MmE1NTcxYjcxOTRkZDgxZjY4ZjE0NDE2OTQ3YjA3YmM5MGVkMDkzMzI1MzUifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+  Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
+{% endcomment %}
+
+{% assign file_extension = 'png' %}
+
+{% if swatch == blank %}
+<div class="swatch error">
+  <p>You must include the snippet swatch.liquid with the name of a product option.</p> 
+  <p>Use: <code>{% raw %}{% include 'swatch' with 'name of your product option here' %}{% endraw %}</code></p>
+  <p>Example: <code>{% raw %}{% include 'swatch' with 'Color' %}{% endraw %}</code></p>
+</div>
+{% else %}
+
+{% assign found_option = false %}
+{% assign is_color = false %}
+{% assign option_index = 0 %}
+
+{% for option in product.options %}
+  {% if option == swatch %}
+    {% assign found_option = true %}
+    {% assign option_index = forloop.index0 %}
+    <style>
+      label[for="product-select-option-{{ option_index }}"] { display: none; }
+      #product-select-option-{{ option_index }} { display: none; }
+      #product-select-option-{{ option_index }} + .custom-style-select-box { display: none !important; }
+    </style>
+    <script>$(window).on('load', function(){ $('.selector-wrapper:eq({{ option_index }})').hide(); });</script>
+    {% assign downcased_option = swatch | downcase %}
+    {% if downcased_option contains 'color' or downcased_option contains 'colour' or downcased_option contains 'metalware' or downcased_option contains 'metalware' %}
+      {% assign is_color = true %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% assign downcasedop = swatch | downcase %}
+{% if downcasedop contains 'color' %}
+{% assign swatch = 'Color' %}
+{% assign swatchname = 'Color' %}
+{% elsif downcasedop contains 'colour' %}
+{% assign swatch = 'Color' %}
+{% assign swatchname = 'Color' %}
+{% elsif downcasedop contains 'metalware' %}
+{% assign swatch = 'Metalware' %}
+{% assign swatchname = 'Metalware' %}
+{% elsif downcasedop contains 'metalware' %}
+{% assign swatch = 'Metalware' %}
+{% assign swatchname = 'Metalware' %}
+{% endif %}
+
+{% unless found_option %}
+<div class="swatch error">
+  <p>You included the snippet swatch.liquid with the name of a product option — <code>'{{ swatch }}'</code> — that does not belong to your product.</p>
+  <p>Use <code>{% raw %}{% include 'swatch' with 'name of your product option here' %}{% endraw %}</code></p>
+  <p>Example: <code>{% raw %}{% include 'swatch' with 'Color' %}{% endraw %}</code></p>
+  <p><strong>This is case-sensitive!</strong> Do not put in <code>'color'</code> if your product option name is <code>'Color'</code>.</p>
+</div>
+{% else %}
+
+{% capture alvals %}
+      {% assign valuesnew = '' %}
+       {% for variant in product.variants %}
+        {% assign value = variant.options[option_index] %}
+        {% unless valuesnew contains value %}
+          {% assign valuesnew = valuesnew | join: ',' %}
+          {% assign valuesnew = valuesnew | append: ',' | append: value %} 
+          {% assign valuesnew = valuesnew | split: ',' %}
+          {{valuesnew.size | minus: 1}},
+          {% endunless %}
+        {% endfor %}
+        {% endcapture %}
+        {% assign alvalsarr = alvals | split: ',' %}
+        {% assign valssize = alvalsarr.size | minus: 1 %}
+
+<div id="labo-{{ swatch }}-swatch" class="swatch mobilecar labo-{{ swatch }}-swatch labo-{{ swatch }}-swatch--one-line clearfix" data-option-index="{{ option_index }}">
+  <div class="labo-{{ swatch }}-swatch__container" data-swatch-responsive-wrap-check>
+    <div class="labo-{{ swatch }}-swatch__inner-container">
+      <div class="labo-swatch-header d-none d-md-block header">{{ swatchname }}: <span id="labo-product-current-{{ swatch }}">{{ product.selected_or_first_available_variant.title }}</span></div>
+      {% assign values = '' %}
+      {% if valssize > 10 %}<div class="all-var-wrapper">{% else %}<div class="all-var-wrapper-lessten">{% endif %} 
+
+      {% for variant in product.variants %}
+        {% assign value = variant.options[option_index] %}
+        {% unless values contains value %}
+          {% assign values = values | join: ',' %}
+          {% assign values = values | append: ',' | append: value %} 
+          {% assign values = values | split: ',' %}
+    
+          <div  {% if product.variants[forloop.index0].inventory_quantity > 0 %}onclick="$('.js-go-cart-add-to-cart').prop('disabled', false);"{% else %}onclick="$('.js-go-cart-add-to-cart').prop('disabled', true);"{% endif %} data-value="{{ value | escape }}" class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}" id="elem{{value | handle }}{{forloop.index}}" >
+            {% if shop.metafields.custom_fields["colors"] != blank %}
+            {% assign separator = "|###|" %}
+            {% assign color_name_array = shop.metafields.custom_fields["color_name"] | split: separator %}
+            {% assign color_code_array = shop.metafields.custom_fields["color_code"] | split: separator %}
+            {% assign color_image_array = shop.metafields.custom_fields["color_image"] | split: separator %}
+            {% assign fc_keys = shop.metafields.custom_fields["colors"] | split: "," %}
+            {% endif %}
+            {% if is_color %}
+            <div class="tooltip">{{ value }}</div>
+            {% endif %}
+            <input id="swatch-{{ option_index }}-{{ value | handle }}" type="radio" name="option-{{ option_index }}" value="{{ value | escape }}"{% if product.options_with_values[option_index].selected_value == value %} checked{% elsif forloop.first %} checked{% endif %} {% unless variant.available %}disabled{% endunless %} />
+            {% if is_color %}
+            <label data-variant="{{ value | escape }}" for="swatch-{{ option_index }}-{{ value | handle }}">
+              <span class="swatch-{{ option_index }}--color" style="background-color: {{ value | split: ' ' | last | handle }};{% for i in fc_keys %}{% assign index = i | plus: 0 %}{% if color_name_array[index] == value %}{% unless color_code_array[index] == blank %} background-color: {{ color_code_array[index] }}{% endunless %}{% unless color_image_array[index] == blank %} background-image: url({{ color_image_array[index] }}){% endunless %}{% endif %}{% endfor %}"></span>
+              <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
+            </label>
+            {% else %}
+            <label for="swatch-{{ option_index }}-{{ value | handle }}">
+              {{ value }}
+              <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
+            </label>
+            {% endif %}
+          </div>
+        {% endunless %}
+      {% endfor %}
+     </div>
+
+
+{% for variant in product.variants %}
+        {% if variant.available %}
+        <script>
+          jQuery('.swatch[data-option-index="{{ option_index }}"] .{{ value | handle }}').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
+        </script>
+        {% else %}
+        
+        {% endif %}
+      {% endfor %}
+
+      <script>
+        $(document).ready(function() {
+          var laboSWATCH{{ swatch }} = $("#labo-product-current-{{ swatch }}.swatch input:checked").val();
+          $("#labo-product-current-{{ swatch }}").text(" " + laboSWATCH{{ swatch }});
+          var favorite = [];
+          $.each($(".labo-{{ swatch }}-swatch input:checked"), function() {
+            favorite.push($(this).val());
+          });
+          $("#labo-product-current-{{ swatch }}").text(" " + favorite.join(", "));
+          $(".labo-{{ swatch }}-swatch input").click(function() {
+            var str = $(this).val();
+            $("#labo-product-current-{{ swatch }}").text(" " + str);
+          });
+        });
+      </script>
+    </div>
+  </div>
+</div>
+
+{% endunless %}
+
+{% endif %}
+
+{%- unless valssize > 10 -%}
+  <style>
+    @media only screen and (max-width:767px){
+      .labo-Color-swatch__inner-container {
+        display: flex;
+        justify-content: flex-start !important;
+      }
+
+      .labo-Color-swatch__container {
+        margin-left: 0 !important;
+        left: 0;
+      }
+    }
+  </style>
+{%- endunless -%}
+  <style>
+    @media only screen and (max-width:767px){
+      div#labo-Metalware-swatch {
+        display: flex;
+        justify-content: flex-start;
+      } 
+    }
+  </style>
+{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}
+<script>
+setTimeout(function(){
+$('.js-go-cart-add-to-cart').prop('disabled', false);
+}, 1200);
+</script>
+{% else %}
+<script>
+setTimeout(function(){
+$('.js-go-cart-add-to-cart').prop('disabled', true);
+}, 1200);
+</script>
+{% endif %}
+{% comment %} <script>
+if ($(window).width() < 767){
+  $('.all-var-wrapper').scroll(function(){
+      var scrollPercentage = 100 * this.scrollLeft / (this.scrollWidth-this.clientWidth);
+      let curscroll = scrollPercentage.toFixed(2);
+      if (curscroll > 60){
+        $('.all-var-wrapper').addClass('all-var-wrapper-right');
+      } else {
+        $('.all-var-wrapper').removeClass('all-var-wrapper-right');
+      }
+      console.log(scrollPercentage.toFixed(2)+'%');
+  });
+}
+</script> {% endcomment %}

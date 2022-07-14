@@ -1,0 +1,263 @@
+<div class="lb_third_section">
+    <div class="lb_third_section_position">
+        <h2>{{ section.settings.lb_ts_head }}</h2>
+        <div class="lbt_subhead">{{ section.settings.lb_ts_subhead }}</div>
+        <div id="video_container" class="lb_ts_video">
+            <video preload="none" controls id="video" poster="{{ section.settings.lb_ts_poster | img_url: 'master'}}" >
+                <source src="https://cdn.shopify.com/s/files/1/0459/2051/8296/files/Labodet_NFT_001.mp4?v=1621878725">
+            </video>
+            <div id="buttonplay" class="lb_ts_playbutton"><img src="{{section.settings.lb_ts_playbutton | img_url: 'master'}}"></div>
+        </div>
+        <div class="lbt_subhead_mobile">{{ section.settings.lb_ts_subhead }}</div>
+        <div class="lb_t_process_block">
+            {% for block in section.blocks %}
+            <div class="lb_t_process">
+                <img src="{{ block.settings.lb_ts_process_img | img_url: '391x'}}" srcset="{{ block.settings.lb_ts_process_img | img_url: 'master'}}" alt="{{ block.settings.lb_ts_process_img.alt | escape }}">
+                <span>{{ block.settings.lb_ts_process_information }}</span>
+            </div>
+            {% endfor %} 
+        </div>
+    </div>
+</div>
+
+<style>
+    .lb_third_section{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #000000;
+    }
+    .lb_third_section_position{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 0 60px;
+        padding: 53px 0 44px 0;
+    }
+    .lb_third_section_position h2{
+        font-size: 45px;
+        line-height: 50px;
+        font-weight: 800 !important;
+        color: #ffffff;
+        margin:0 0 20px;
+        font-family: "NeueHaasUnicaProBold";
+    }
+    .lbt_subhead{
+        font-size: 20px;
+        line-height: 27px;
+        font-family: "NeueHaasUnicaProRegular";
+        color: #E1E1E1;
+        margin: 0 0 46px;
+    }
+    .lbt_subhead_mobile{
+        display: none;
+        font-size: 16px;
+        line-height: 23px;
+        font-family: "NeueHaasUnicaProRegular";
+        color: #E1E1E1;
+        margin: 30px 0 0 21px;
+    }
+    .lb_third_section_position video{
+        width: 100%;
+    }
+    video::-webkit-media-controls-play-button {
+        display: none;
+    }
+    .lb_ts_video{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+    .lb_ts_playbutton{
+        position: absolute;
+        width: 12%;
+        cursor: pointer;
+    }
+    .lb_ts_playbutton img{
+        width: 100%;
+    }
+    .lb_t_process_block{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-top: 58px;
+    }
+    .lb_t_process{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        max-width: 391px;
+        width: 30%;
+    }
+    .lb_t_process img{
+        width: 100%;
+    }
+    .lb_t_process span{
+        font-size: 20px;
+        line-height: 27px;
+        color:#E1E1E1;;
+        margin: 30px 0 0;
+        font-family: "NeueHaasUnicaProMedium";
+    }
+    @media screen and (max-width:768px){
+        .lb_third_section_position{
+            margin: 0 23px;
+        }
+        #buttonplay{
+            display: none;
+        }
+        .lb_t_process_block{
+            flex-direction: column;
+            margin-top: 4px;
+        }
+        .lb_t_process{
+            width: 100%;
+            max-width: unset;
+            align-items: center;
+            margin-top: 46px;
+        }
+        .lb_t_process img{
+            max-width: 328px;
+        }
+    }
+    @media screen and (max-width:500px){
+        .lb_third_section_position{
+            margin: 0;
+            padding: 30px 0 35px 0;
+        }
+        .lbt_subhead_mobile{
+            display: block;
+        }
+        .lbt_subhead{
+            display: none;
+        }
+        .lb_t_process span{
+            font-size: 16px;
+            line-height: 23px;
+        }
+        .lb_third_section_position h2{
+            font-weight: 800;
+            font-size: 33px;
+            line-height: 40px;
+            margin: 0 0 30px 21px;
+        }
+        .lb_t_process_block{
+            padding: 0 21px;
+        }
+        .lb_t_process img{
+            max-width: none;
+        }
+        .lbt_subhead{
+            margin: 0 23px 46px;
+        }
+    }
+</style>
+
+
+<script defer>
+    var playButton = document.getElementById("video");
+    var playVideo = false;
+    document.getElementById("buttonplay").addEventListener("click", play_video);
+    buttonplay.addEventListener("click", function () {
+
+
+        if ( !playVideo){
+            document.getElementById("buttonplay").style.opacity = '0';
+            playVideo = true;
+            console.log(1)
+        } else{
+            document.getElementById("buttonplay").style.opacity = '1';
+            playVideo = false;
+            console.log(2)
+
+
+        }
+    });
+    playButton.addEventListener("click", function () {
+
+
+        if ( !playVideo){
+            document.getElementById("buttonplay").style.opacity = '0';
+            playVideo = true;
+            console.log(1)
+        } else{
+            document.getElementById("buttonplay").style.opacity = '1';
+            playVideo = false;
+            console.log(2)
+
+
+        }
+    });
+    function play_video()
+        {
+        if (video.paused) {
+            video.play();
+            buttonplay.style.opacity = "0";
+        } else {
+            video.pause();
+            buttonplay.style.opacity = "1";
+        }
+        };
+</script>
+
+
+{% schema %}
+{
+    "name": "Third Section",
+    "settings": [
+        {
+            "id":"lb_ts_head",
+            "type":"text",
+            "label":"Head"
+        },
+        {
+            "id":"lb_ts_subhead",
+            "type":"text",
+            "label":"Sub Head"
+        },
+        {
+            "id":"lb_ts_poster",
+            "type":"image_picker",
+            "label":"Video Image Preview"
+        },
+        {
+            "id":"lb_ts_playbutton",
+            "type":"image_picker",
+            "label":"Play Button"
+        }
+    ],
+    "blocks": [
+    {
+        "type":"select",
+        "name":"Information Item",
+        "settings":[
+        {
+            "id":"lb_ts_process_img",
+            "type":"image_picker",
+            "label":"Image"
+        },
+        {
+            "id":"lb_ts_process_information",
+            "type":"textarea",
+            "label":"Info"
+        }
+        ]
+    }
+    ],
+    "presets": [
+    {
+        "name": "Third Section",
+        "category": "Custom"
+    }
+    ]
+}
+{% endschema %}

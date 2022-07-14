@@ -1,0 +1,32 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:29+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            6ea55413d54938ac69050c6126161672
+//      Signature:      eyJpdiI6IlFhREpLenVYeWR2TUhkbHVvekpta1E9PSIsInZhbHVlIjoiTkh1WHZFZzBZTTk5bW1aemJSRGxlK3FEVFVWVUJaa3lBdzQxRTRmMUdQckMrK3FEa1JBelwvYUxpU2NaRWJVNmVUREhFeEU0UWVpdW0xNVd4eWI3ekdISnZBUll3SDNCVnRRakVvTnV5SnpvMmpwRXpYc1hEZWF1YlBGZ0RzVlJoaE8xeXZaaXR3TDZBNkFWRldsZUN6aElSalwvdVJ2eHpXb1luWGhTXC9oTXNKazM3aXpuY3NVUHlVczNLSUNJRUI0djE2VnlCVkZVcVRhS29PUGQzRWZaV0xZMjgwSUhPTzEyN3BIeWs1VGxBOEY5aWo2OFZ3MTIxYzYyMFRpdno0aWZxV2hqOGJXR3lvMUJ3S29hbVhsR1gzd1c5d3lDdWdWbVViYlJnaXBzSGRBSFoxNGp2aEsrZGRhbkNxanhOcWhvb3d4RGM3YUdcL2tsSmxsQzFjeStYR1ltXC9NXC9RbWlZWXJNM0JEaGxaSnlpUjRFZUw5TWxhZklZaDRtbUdBcCt0QjBkeW12YStZWUpSQTVpT21oaUVURWwwazFmTDI0TDJmMUhLRGVZNTNWQVNQeUZBbk1MTXRPNXJFQ0RkZXdxSCIsIm1hYyI6ImFkYThlYmVmYjE4ZDRiY2EyZTZiZjkzYTRmYTEwYjg3YWNjZDA1N2RjNzk0MzMyNzQ5YTEwYjNiODk3Yzc3NzcifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/labodet-store.myshopify.com/products/configure/207575/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["categorytype"] != blank %}
+  <div class="custom-field custom-field__categorytype custom-field__type--text">
+    <h3 class="custom-field--title">Category/Type</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["categorytype"] }}
+    </div>
+  </div>
+{% endif %}

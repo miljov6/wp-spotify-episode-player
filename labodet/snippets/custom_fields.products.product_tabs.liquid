@@ -1,0 +1,46 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:26+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            2de847cd0f814f4d20279656d2ec5f8a
+//      Signature:      eyJpdiI6IlNvWWxSaG5nMEpJMzdFZ3dRcXppc2c9PSIsInZhbHVlIjoiU1o5aGJsRXpWT3JUdjdGRytQU2pRc1FiTU1aMXR4ZmZiUGRNU3dKNWFGYzZySGpmaFlzXC9TZWEzWUxVU3RJcUdjYklWNFZ5ZUpQMFdkS3RSaFM1SzZjWUJTaE4rYStyMk1mV2h3MFkrSjg4MjkwYlBHS2RBamVqR21aQkZNeGJocDFrQ1NTT2hqVFlEZDFlSGM5VFU3RFdOd01uRktERktPQjY4UHFRTlRIVDY3NEhzNUZKNEhteTA4UGJlQjVTMDNHY1N5MlF4dG8zcUFGZlFsbDZPNHc2a2d2S2NhTXgxNGp5XC85R1ZGelpRelRtT1d0a1wvdXNGSzFWWU1JY3FualdvYzd1bmVPbzk4eXNyOE1oR3l1UVBhOFwvcGJOMHNGYjdXaHg1cTZIN0w3YUFqcTNmXC82REpzeEhON0FldzZSV2FqY21QamdPY25iZW02cHZibU5ISHdzWDArR1dYQlpXaTI1dm1icEdlYTN3RVplWHVBUGpUelJPVHQ3cmxtS0pyYUxEWU8xcDhwVWpBMENubFpwQVNkK3dnMnhnWHdlYklDXC9rTnErMVNTQ2xUWmk3THNMR3NSMFRUZVI5RkczbiIsIm1hYyI6ImZlODBiNTk1MDQ5YTVhOGVkNTJjNGRkYTBkMTczOTc0ZjhmZTc2NTU2NmVlMjlkZWRlYzlkNTE2MWM2ZWI0YjgifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/labodet-store.myshopify.com/products/configure/208531/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["product_tabs"] != blank %}
+  <div class="custom-field custom-field__product-tabs custom-field__type--field-collection">
+    <h3 class="custom-field--title">Product Tabs</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign tab_title_array = product.metafields.custom_fields["tab_title"] | split: separator %}
+      {% assign tab_content_array = product.metafields.custom_fields["tab_content"] | split: separator %}
+      {% assign fc_keys = product.metafields.custom_fields["product_tabs"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item--tab fc-index--{{ index }}">
+          <div class="fc-field field__tab-title">
+            {{ tab_title_array[index] }}
+          </div>
+          <div class="fc-field field__tab-content">
+            {{ tab_content_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

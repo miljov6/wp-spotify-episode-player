@@ -1,0 +1,92 @@
+<div class="nft_bottom_section">
+    <div class="nft_bottom_position">
+        <h2>{{ section.settings.nft_bs_head }}</h2>
+        <span>{{ section.settings.nft_bs_info }}</span>
+    </div>
+</div>
+
+<style>
+.nft_bottom_section{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    padding: 45px 60px 15px;
+    margin-bottom: -1px;
+}
+.nft_bottom_position{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 39px;
+    border-bottom: 1px solid #595959;
+    max-width: 1320px;
+}
+.nft_bottom_position h2{
+    font-size: 45px;
+    line-height: 50px;
+    font-weight: 800 !important;
+    font-family: "NeueHaasUnicaProBold";
+    color: #FFFFFF;
+}
+.nft_bottom_position span{
+    font-size: 20px;
+    line-height: 27px;
+    font-family: "NeueHaasUnicaProMedium";
+    color: #E1E1E1;
+    max-width: 659px;
+}
+@media screen and (max-width:1000px){
+    .nft_bottom_section{
+        padding: 45px 60px 15px;
+    }
+    .nft_bottom_position{
+        flex-direction: column;
+        padding-bottom: 29px;
+    }
+    .nft_bottom_position h2{
+        margin-bottom: 30px;
+    }
+}
+@media screen and (max-width:450px){
+    .nft_bottom_section{
+        padding: 30px 23px 7px;
+    }
+    .nft_bottom_position h2{
+        font-size: 33px;
+        line-height: 40px;
+    }
+    .nft_bottom_position span{
+        font-size: 16px;
+        line-height: 23px;
+    }
+}
+</style>
+
+{% schema %}
+{
+    "name": "Bottom Section",
+    "settings": [
+        {
+            "id":"nft_bs_head",
+            "type":"text",
+            "label":"Head"
+        },
+        {
+            "id":"nft_bs_info",
+            "type":"textarea",
+            "label":"Info"
+        }
+    ],
+    "presets": [
+    {
+        "name": "Bottom Section",
+        "category": "Custom"
+    }
+    ]
+}
+{% endschema %}

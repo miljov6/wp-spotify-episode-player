@@ -1,0 +1,53 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:38+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            99c9ab85f3c3c08724d523c8ae803f48
+//      Signature:      eyJpdiI6IktLbnJkT3JHd1wvOFVUODRFVEdPMUhRPT0iLCJ2YWx1ZSI6InZrQTFmYkZzbzIxNWNuZUo4VlVrZHVJTTNIWDY1Y05xOUsxNEhFcXp3cTNQSG9iZVpmR1hKWkREYWFpeFZ1ZVBqdmJiWjNITk9RQXlQNCtWcDZmNmg3S2NLQWIweVYzMnFYcUNFOFpIUG5LVHVPc0NGQ093NTN0Q1BwR2tSNGVVWGNmRHdneWxlVXlUNldFRVdLXC81VVZGTDJpQkc2bW9iaXFOd3dtYVZCZWI0VmczQ0pMVVZRenZlQVYyM0RteHlWN09jVDE5d3JrN1BreFlnOFVRb1pJbWhOcWtGYWl1RW5zZ1M5TWlOT2N6dHU0ZlNCSm80NFlHbEN2NnVSZkt2ZTVQbnhtZXhoeDBQWXAySHFyeWNVelBITkNmZzBjMEtQOENxUFwvOU4yenMyYmJsYmQ2RUFsYlNuVXRwV3B0XC80M1NcL2dXT2VSUkIyNjNhZWtJZ0JnNXdjMm44Zm1Hb3NNQnlhOGdnK0FMY2U0eGNaWnlrQUlDb0wyNTFtY3VjU21BcXpYNU5NSTVvUFFMUlBENTgzcTRRPT0iLCJtYWMiOiJjMzViMzhlZjg1ZjcwNDU5ZjEzMzg1MDIxMTViNzA2MDNjMWQ3ZmUwNWMyZTM3YWUxNjQ0YTA1NDE5YzJmYjczIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<!-- /snippets/social-sharing.liquid -->
+<ul class="social-sharing">
+
+  {% if settings.share_facebook %}
+    <li>
+      <a target="_blank" href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_permalink }}" class="btn btn--small btn--share share-facebook">
+        {% include 'icon-facebook' %}
+        <span class="share-title" aria-hidden="true">{{ 'general.social.share_on_facebook' | t }}</span>
+        <span class="visually-hidden">{{ 'general.social.alt_text.share_on_facebook' | t }}</span>
+      </a>
+    </li>
+  {% endif %}
+
+  {% if settings.share_twitter %}
+    <li>
+      <a target="_blank" href="//twitter.com/share?text={{ share_title | url_param_escape }}&amp;url={{ shop.url | append: share_permalink }}" class="btn btn--small btn--share share-twitter">
+        {% include 'icon-twitter' %}
+        <span class="share-title" aria-hidden="true">{{ 'general.social.share_on_twitter' | t }}</span>
+        <span class="visually-hidden">{{ 'general.social.alt_text.share_on_twitter' | t }}</span>
+      </a>
+    </li>
+  {% endif %}
+
+  {% if settings.share_pinterest %}
+    <li>
+      <a target="_blank" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}" class="btn btn--small btn--share share-pinterest">
+        {% include 'icon-pinterest' %}
+        <span class="share-title" aria-hidden="true">{{ 'general.social.share_on_pinterest' | t }}</span>
+        <span class="visually-hidden">{{ 'general.social.alt_text.share_on_pinterest' | t }}</span>
+      </a>
+    </li>
+  {% endif %}
+
+</ul>

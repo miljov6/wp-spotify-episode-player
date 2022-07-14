@@ -1,0 +1,34 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:14+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            ec4cbfcea2d615e973e9d148d679a5fd
+//      Signature:      eyJpdiI6ImE1RCtMb2xLVHRPdkZ4Z3FFeHVGNXc9PSIsInZhbHVlIjoidnZcL05hcU94SVc5Sm9JaitVSUhHbHlhZFR3TVpWdzFUVW12Q3V3VXlSc3pHOVRyUzFobmVkSWJGczN3ejM2SmFvS2MxNDlSMVNMK091VFBLRCswK2RmekR6T0VNZ0c4UFhlNmlubEZaNmc2QVlZa3lPWjl5YmhEV0VITXBzWXNIeWo3ZFpLUE9EUE5nQXFwQUZ1clZzeFFEY3FYU1wvUzBPXC9tb2NwbEtUREFkM3ZRdzQrbDJHSkNkcmhSODFCSDNIXC9WQ2pwRVc4NkFlRnBvNG5ZSnlNUjRxR1JZYk5rRFd5ajZkakM0ZVY0VlZUTUx6VWF1ajF0WkIwdDhrMFhGYjZPZTR0cjUyY29BNUxoTHpiQTdUK2x6N2hWTFp5WjRcL1BxZW84RjcwNVNhRzN6U3pQVmtxNE8yXC9XOUI4WGU4c0VJRkN0YTYyY3JkdkF1VWpaKzVZc1JNQmtDMlJVaVBhSTFIcDBHMnh4XC9EOXdWMFdaQ1VranVEcWZlZ0hJZ1ROenk2UzgwNjRHRGt0MmNLUHpXWTNycVE9PSIsIm1hYyI6IjNhZWUxNDcwMTlhMTc5ZTNiMzAyMDEzZWFlNDQ1NTljMjE0N2NlMzdmNGUyNzI5YzE5OGJhNWIwOWY2NjkyYzIifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if product.metafields.custom_fields["device_list_repeater"] != blank %}
+  {% assign separator = "|###|" %}
+  {% assign device_name_array = product.metafields.custom_fields["device_name"] | split: separator %}
+  {% assign product_array = product.metafields.custom_fields["product"] | split: separator %}
+  {% assign fc_keys = product.metafields.custom_fields["device_list_repeater"] | split: "," %}
+
+  {% for i2 in fc_keys %}
+    {% assign index2 = i2 | plus: 0 %}
+    {% if product.handle == product_array[index2] %}
+    	{% assign current_product_name = device_name_array[index2] %}
+    {% endif %}
+  {% endfor %}
+
+  {{ current_product_name }}
+{% endif %}

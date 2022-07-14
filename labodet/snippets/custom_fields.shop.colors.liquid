@@ -1,0 +1,50 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:36+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            d2d0c338545e3f9c35ee8691cecaf29d
+//      Signature:      eyJpdiI6InZCd1NTSU5XOWh1aUlQVCticTljNFE9PSIsInZhbHVlIjoiWDgxZHVPSmNqQ2ZJVDR5UUlZd1dxejN4WUozeHhObGx3bWxPVEpTaEk1OEx5UmdzY0EyQ1NMdGZhaytiVElVTUJiR3ViUTdoZmtCM25UN3FxSDZ6T1JmYUYyZkJHZTM0TGRaaWxvK0ttRDN2MnlqNllab1hYaG90UmR5Y2hJMzJBbEM1Wm5keFJrRXlZSVFMeGlTUllSQ0RZSk8zMk9acnlmUGoyMjRValRORTlxeXFNbTRqMGllRU11SWtGWHBEbFhaZndGeFBnQ2Q2VjRtdjNPRjlIRFwvVmFjRXhmTVlibUpBYzZIXC9ReXlJVEdJWjcxdStkK2JPZFFFOE5IOWlxYStPbGlLVEtZQnNlVEorRiswM0tHZ1MybzFYYmNOS3d5K1NTVmdrK1RsbVFRZ3lHOEh4aDBcL01qREtOT0ZzSEpMVU1JMDBOenlrQVRtaXMyOFJMMDVBY085MmxDMGczaXlqcHVwRHBRY1N2TDhJZFF2cEpOXC90SVU1dFZsRVQxZ0RENmFEZzcwekVLYVBXaXhRa3N2dCs2YzkxeDNpeVJxZHFFc0owNTUySG89IiwibWFjIjoiOWRjNjk1M2UxZDdlMmYyNjg5NGYxOWM3ZTE3MzZjMGZiMTI2NmFjNzQ2OGI0MTA4ODI4ZWFlMzIyNzExYmVlMiJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/labodet-store.myshopify.com/globals/configure/213013/edit
+{% endcomment %}
+{% if shop.metafields.custom_fields["colors"] != blank %}
+  <div class="custom-field custom-field__colors custom-field__type--field-collection">
+    <h3 class="custom-field--title">Colors</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign color_name_array = shop.metafields.custom_fields["color_name"] | split: separator %}
+      {% assign color_code_array = shop.metafields.custom_fields["color_code"] | split: separator %}
+      {% assign color_image_array = shop.metafields.custom_fields["color_image"] | split: separator %}
+      {% assign fc_keys = shop.metafields.custom_fields["colors"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item--color fc-index--{{ index }}">
+          <div class="fc-field field__color-name">
+            {{ color_name_array[index] }}
+          </div>
+          <div class="fc-field field__color-code">
+            {{ color_code_array[index] }}
+          </div>
+          <div class="fc-field field__color-image">
+            {{ color_image_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

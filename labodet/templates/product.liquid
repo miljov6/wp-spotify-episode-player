@@ -1,0 +1,332 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:15:11+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            09f9f4bdcdf4eb436d8d60bf9075028c
+//      Signature:      eyJpdiI6IlhlZFpoQlA1WjRcLzBUa3JWYWdqWnhRPT0iLCJ2YWx1ZSI6IkkxcUJZekhmdVZNaElGR1ZINUMreFZWZmU5OVpZbzg5b2ZQa1g0R3RcL3pqUHNxbnVtajBDXC9xbnVvcVhLY2VaK2hmQ2I1SHB2UGc1a2t6c2JIcEhFOUFGOTNGTVIyb216bkFRWkZxbXJYNkgwdlBWNmNHS2I0aGNCSE1ENEZKN0U3SFNYbG8wdEdcLzhjYitHME5LVHhNK1BmNzBkMldoTWdKUkNSdFpKbml3VEdjSExUbjBIYks3eUd3TENzR0xVaVRCTCswY2NKN3pxeXk5dGQ0SjF2YTFSOWdrZ3lXOGpjWkFxbUtFaWdKeVRhR0JTc0JNTWJTR1U2NGg4OUE4NTZ6WlF4SlhLeVRDcERtYnJMWVRYTVI4U0VYV3NCTnNyTjRVV1BkZjIyVUhlU2NSbEtZYWNUMXpPUENLNzJzN3RjNm9wZUlNZDJDSVhiY0hlUlBXeU1KVGJLVjdiQm9FWWwyMUJOQ25Sd0RXZWZ4WXU4R1wvbFFcL3lWM0FRTHNaYmNtNkV2SnNON1lvdmgyT0dqRFUydGF4UT09IiwibWFjIjoiMjU0OTEzNDM3ZWM5Y2E4MWU4ZGQ3MGU0YzRkNTQ2NjUyNjA4ZjIzMTE1MGQ0MTMxMzRiMzQ1Mjg0NDU1YzIzNCJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% section 'product-template' %}
+{% section 'product-advanced-sections' %}
+{% section 'product-recommendations' %}
+<section class="labo-product-page-breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="labo-product-breadcrumb">
+          <a href="/">Home</a> / <a href="{{ product.collections[0].url }}">{{ product.collections[0].title }}</a> / <span class="labo-current-breadcrumb-item">{{ product.title }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  }
+</script>
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "url": {{ shop.url | append: product.url | json }},
+  {%- if product.featured_media -%}
+    {%- assign media_size = product.featured_media.preview_image.width | append: 'x' -%}
+    "image": [
+      {{ product.featured_media | img_url: media_size | prepend: "https:" | json }}
+    ],
+  {%- endif -%}
+  "description": {{ product.description | strip_html | json }},
+  {%- if current_variant.sku != blank -%}
+    "sku": {{ current_variant.sku | json }},
+  {%- endif -%}
+  "brand": {
+    "@type": "Thing",
+    "name": {{ product.vendor | json }}
+  },
+  "offers": [
+    {%- for variant in product.variants -%}
+      {
+        "@type" : "Offer",
+        {%- if variant.sku != blank -%}
+          "sku": {{ variant.sku | json }},
+        {%- endif -%}
+        "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+        "price" : {{ variant.price | divided_by: 100.00 | json }},
+        "priceCurrency" : {{ cart.currency.iso_code | json }},
+        "url" : {{ shop.url | append: variant.url | json }}
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>
+<script>
+  // New Currency Formating
+
+function NewMoneyFormat(currency,price) {
+	if (currency == 'EUR') {
+		return String(price.toLocaleString().replace(',',' ') + ' €');
+	}
+  else if (currency == 'USD') {
+		return String('$'+price.toLocaleString().replace(',',' '));
+	}
+	else if (currency == 'GBP') {
+		return String('£ '+price.toLocaleString());
+	}
+	else if (currency == 'CAD') {
+		return String('CAD$  '+price.toLocaleString());
+	}
+	else if (currency == 'AED') {
+		return String('AED '+price.toLocaleString());
+	}
+    else if (currency == 'JPY') {
+		return String('¥ '+price.toLocaleString());
+	}
+    else if (currency == 'KRW') {
+		return String('₩ '+price.toLocaleString());
+	}
+    else if (currency == 'QAR') {
+		return String(price+' QAR');
+	}
+    else if (currency == 'SAR') {
+		return String('SAR '+price.toLocaleString());
+	}
+    else if (currency == 'HKD') {
+		return String('HK$ '+price.toLocaleString());
+	}
+    else if (currency == 'MXN') {
+		return String(price.toLocaleString().replace(',',' ') + ' MEX$');
+	}
+    else if (currency == 'THB') {
+		return String('฿ '+price.toLocaleString());
+	}
+    else if (currency == 'TWD') {
+		return String('NT$ '+price.toLocaleString());
+	}
+    else if (currency == 'AUD') {
+		return String('AUD$ '+price.toLocaleString());
+	}
+    else if (currency == 'CHF') {
+		return String(price.toLocaleString().replace(',',' ') + ' CHF');
+	}
+    else if (currency == 'SGD') {
+		return String('S$ '+price.toLocaleString());
+	}
+    else if (currency == 'VND') {
+		return String('VND '+price.toLocaleString());
+	}
+    else if (currency == 'KHR') {
+		return String(price.toLocaleString().replace(',',' ') + ' KHR');
+	}
+    else if (currency == 'ILS') {
+		return String('₪ '+price.toLocaleString());
+	}
+    else if (currency == 'CZK') {
+		return String(price.toLocaleString().replace(',',' ') + ' Kč');
+	}
+    else if (currency == 'RON') {
+		return String(price.toLocaleString().replace(',',' ') + ' Lei');
+	}
+    else if (currency == 'BRL') {
+		return String('R$ '+price.toLocaleString());
+	}
+    else if (currency == 'TRY') {
+        return String(price.toLocaleString().replace(',','.') + ' TL');
+	}
+    else if (currency == 'MYR') {
+        return String('RM '+price.toLocaleString());
+	}
+    else if (currency == 'INR') {
+        return String('₹  '+price);
+	}
+    else if (currency == 'RUB') {
+        return String(price.toLocaleString().replace(',',' ') + ' pyб.');
+	}
+    else if (currency == 'UAH') {
+        return String(price.toLocaleString().replace(',',' ') + ' грн');
+	}
+    else if (currency == 'IDR') {
+        return String('Rp '+price.toLocaleString());
+	}
+    else if (currency == 'PLN') {
+        return String(price.toLocaleString().replace(',',' ') + ' zł');
+	}
+    else if (currency == 'DKK') {
+        return String(price.toLocaleString().replace(',','.') + ' kr');
+	}
+    else if (currency == 'PHP') {
+        return String('₱ ' + price.toLocaleString());
+	}
+    else if (currency == 'BGN') {
+        return String(price.toLocaleString().replace(',','.') + ' BGN');
+	}
+    else if (currency == 'BGN') {
+        return String(price.toLocaleString()+ ' EGP');
+	}
+    else if (currency == 'SEK') {
+        return String(price.toLocaleString().replace(',','.')+ ' kr');
+	}
+    else if (currency == 'AZN') {
+        return String(price + ' AZN');
+	}
+   else {
+     return(String(price));
+   }
+}
+  var updateUrl = function(variant) {
+
+    var currentUrl = location.origin + location.pathname;
+    var currentParams = location.search;
+
+    var searchParams = new URLSearchParams(currentParams);
+
+    var currentVariant = searchParams.get("variant");
+
+    if (currentVariant != variant.id) {
+      searchParams.set("variant", variant.id);
+
+      var newParams = searchParams.toString();
+      var newUrl = currentUrl + "?" + newParams;
+
+      history.replaceState({}, "", newUrl);
+    }
+  }
+
+
+  // <![CDATA[
+  var selectCallback = function(variant, selector) {
+
+    if (variant) {
+      var form = jQuery('#' + selector.domIdPrefix).closest('form');
+      for (var i=0,length=variant.options.length; i<length; i++) {
+        var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
+        if (radioButton.length) {
+          radioButton.get(0).checked = true;
+        }
+      }
+
+      updateUrl(variant);
+    }
+    var StockText = $('#labo_is_stock_or_not').attr('data-stock');
+    var OutStockText = $('#labo_is_stock_or_not').attr('data-out');
+    if (variant) {
+      if (variant.available) {
+        // Selected a valid variant that is available.
+        $('#labo_is_stock_or_not').removeClass('labo_stock_off_text').addClass('labo_stock_on_text').html(StockText);
+        $('#add').removeClass('disabled').removeAttr('disabled').val('Add to Bag').fadeTo(200,1);
+        }
+      else {
+        // Variant is sold out.
+        $('#labo_is_stock_or_not').removeClass('labo_stock_on_text').addClass('labo_stock_off_text').html(OutStockText);
+        $('#add').val('Sold Out').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
+      }
+      // Whether the variant is in stock or not, we can update the price and compare at price.
+      var price1 = $("#product-select").find(":selected").text().trim().split('-');
+      var price_n = String(variant.price);
+      var variant_price =  parseInt(price_n.slice(0,-2));
+      var compare1 = String(variant.compare_at_price);
+      var compare_price = parseInt(compare1.slice(0,-2));
+      var price2 = String(variant.price);
+      var var_price = parseInt(price2.slice(0,-2));
+      var currency = $("#currentCurrency").attr('data-currency').trim();
+      if ( variant_price < compare_price ) {
+        //$('#labo-price-field').html('<span class="product-price on-sale">'+Shopify.formatMoney(variant.price, "").replace(".00", "").replace("$", "{{ cart.currency.symbol }}") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "").replace(".00", "").replace("$", "{{ cart.currency.symbol }}") + '</s>');
+        $('#labo-price-field').html('<span class="product-price on-sale">'+NewMoneyFormat(currency,var_price) +'</span>'+'&nbsp;<s class="product-compare-price">'+NewMoneyFormat(currency,compare_price) + '</s>');
+      }
+      else {
+        //$('#labo-price-field').html('<span class="product-price on-sale">'+Shopify.formatMoney(variant.price, "").replace(".00", "").replace("$", "{{ cart.currency.symbol }}") +'</span>');
+        $('#labo-price-field').html('<span class="product-price on-sale">'+NewMoneyFormat(currency,var_price) +'</span>');
+      }
+
+      $('span.product-price.on-sale').text($('span.product-price.on-sale').text());
+      $('s.product-compare-price').text(NewMoneyFormat(currency,compare_price));
+    }
+    else {
+      // variant doesn't exist.
+      $('#labo_is_stock_or_not').removeClass('labo_stock_on_text').addClass('labo_stock_off_text').html(OutStockText);
+      $('#add').val('Unavailable').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
+    }
+  }
+  // initialize multi selector for product
+  jQuery(function($) {
+    new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+  });
+  // ]]>
+</script>
+<script>
+jQuery(function() {
+  jQuery('.swatch :radio').change(function() {
+    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+    var optionValue = jQuery(this).val();
+    jQuery(this)
+      .closest('form')
+      .find('.single-option-selector')
+      .eq(optionIndex)
+      .val(optionValue)
+      .trigger('change');
+  });
+});
+</script>
+<script type="text/javascript">
+  var _learnq = _learnq || [];
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+</script>
+<script>
+$(document).ready(function(){  
+  $('.shopify-product-form').click(function(){
+    $('.product-compare-price').hide();
+    var price = parseInt($('.product-price').text());
+    var compare = parseInt($('.product-compare-price').text());
+    if (price < compare) {
+      $('.product-compare-price').show();
+    }
+  });
+})
+</script>

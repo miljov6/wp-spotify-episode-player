@@ -1,0 +1,78 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:06+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            0b9ad93bf0c263cb2cc7bf0b34df18fc
+//      Signature:      eyJpdiI6IjhNWjlKUU9iME5TTWxzbmVyaXFpV0E9PSIsInZhbHVlIjoiM1lEVVdHXC9YSkhZOFNQc1wvUWlFMUErVDVWenRpajlsSlUyTStXZFVGakp0VFNCWlZSRkpoeVwvcnhcL3ZwRStyVkxId0hxT0laNTZsdndWZ21jUE1LOGhmeEdmN2xIN0R0T1dnQXRjc0t5SnZpd0lOQTBBNWZHb2VXY0NUVFJNeWw5NjNoMktub1NBMXdzbEFcL05nZGY2Tk9sYVpcL2FRYjRqbVRvN0dBWlVqWURubnU5aTBtZkV3U0JEbVdueGxMbE1HVnFCODRmRGppaWttWXIrYTREazFsdDZDNHpRWTF6eEczeE53UHJ0UWViUHZMZk12XC9NVjJTRFNtc0hTWWlYSXp5a05wQlQrNWtpeERjeFBKR3VtQUkrRUlNUU1Lakd3ODExck1JbWlmV0ZoMk1kazF0RW5oNWEwaFFnOTgzNVRGQlZXY0RBamFCRkpVSnlvM01aSklVSVRpUTdZZDF3dXltTVBYZlNkZUUya0JBbk1BVmFQVVhoS1YydUNwNU9uQnduSStocUdsZDkyYTlyU2lnSzAramc9PSIsIm1hYyI6IjVmZmZiZmI5YzFkMzliYWQ5YzYzZDU1NThkMGZhMzQzYjZlNWIxZmRiNDQ5NzY5Y2ZjYWViYzk5YjcwZGQ4MjkifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{%- for option in product.options -%}
+	{%- if option == 'Color' -%}
+    	{%- assign option_index = forloop.index0 -%}
+	{%- endif -%}
+{%- endfor -%}
+
+{%- assign values = '' -%}
+
+<ul class="color-options" id="ul-{{product.id}}">
+{%- for variant in product.variants -%}
+    {%- assign value = variant.options[option_index] -%}
+  
+  	{%- unless values contains value -%}
+      	{%- assign values = values | join: ',' -%}
+      	{%- assign values = values | append: ',' | append: value -%} 
+      	{%- assign values = values | split: ',' -%}
+  
+  		{%- if shop.metafields.custom_fields["colors"] != blank -%}
+          	{%- assign separator = "|###|" -%}
+            {%- assign color_name_array = shop.metafields.custom_fields["color_name"] | split: separator -%}
+            {%- assign color_code_array = shop.metafields.custom_fields["color_code"] | split: separator -%}
+            {%- assign color_image_array = shop.metafields.custom_fields["color_image"] | split: separator -%}
+            {%- assign fc_keys = shop.metafields.custom_fields["colors"] | split: "," -%}
+  		{%- endif -%}
+  
+  		{%- assign background_color = false -%}
+  		{%- assign color_image_url = false -%}
+  
+        {%- for i in fc_keys -%}
+          {%- assign index = i | plus: 0 -%}
+          {%- if color_name_array[index] == value -%}
+          	{%- unless color_code_array[index] == blank -%}
+          		{%- assign background_color = color_code_array[index] -%}
+          	{%- endunless -%}
+          	{%- unless color_image_array[index] == blank -%}
+          		{%- assign color_image_url = color_image_array[index] -%}
+          	{%- endunless -%}
+          {%- endif -%}
+        {%- endfor -%}
+		
+  		<li data-value="{{ value | escape }}" data-image="{{ variant.featured_image | img_url: '1000x' }}" data-price="{%- assign current_currency=cart.currency.iso_code -%}{%- case current_currency -%}{%- when 'EUR' -%}{%- assign eur_price=variant.price | money_without_currency -%}{{eur_price | replace: ',', ' '| split: '.00'}}€{%- when 'GBP' -%}{%- assign gbp_price=variant.price | money_without_currency -%}£{{gbp_price | split: '.00'}}{%- when 'CAD' -%}{%- assign gbp_price=variant.price | money_without_currency -%}CAD${{gbp_price | split: '.00'}}{%- when 'AED' -%}{%- assign aed_price=variant.price | money_without_currency -%}AED{{aed_price | split: '.00'}}{%- when 'JPY' -%}{%- assign jpy_price=variant.price | money_without_currency -%}¥{{jpy_price}}{%- when 'KRW' -%}{%- assign krw_price=variant.price | money_without_currency -%}₩{{krw_price}}{%- when 'QAR' -%}{%- assign qar_price=variant.price | money_without_currency -%}{{qar_price | replace: '.', '' | split: ',00'}}QAR{%- when 'SAR' -%}{%- assign sar_price=variant.price | money_without_currency -%}SAR{{sar_price | split: '.00'}}{%- when 'HKD' -%}{%- assign hkd_price=variant.price | money_without_currency -%}HK${{hkd_price | split: '.00'}}{%- when 'MXN' -%}{%- assign mxn_price=variant.price | money_without_currency -%}{{mxn_price | replace: ',', ' '| split: '.00'}}MEX${%- when 'THB' -%}{%- assign thb_price=variant.price | money_without_currency -%}฿{{thb_price | split: '.00'}}{%- when 'TWD' -%}{%- assign twd_price=variant.price | money_without_currency -%}NT${{twd_price | split: '.00'}}{%- when 'AUD' -%}{%- assign aud_price=variant.price | money_without_currency -%}AUD${{aud_price | split: '.00'}}{%- when 'CHF' -%}{%- assign chf_price=variant.price | money_without_currency -%}{{chf_price | replace: ',', ' '| split: '.00'}}CHF{%- when 'SGD' -%}{%- assign sgd_price=variant.price | money_without_currency -%}S${{sgd_price | split: '.00'}}{%- when 'VND' -%}{%- assign vnd_price=variant.price | money_without_currency -%}VND{{vnd_price | replace: '.', ','}}{%- when 'KHR' -%}{%- assign khr_price=variant.price | money_without_currency -%}{{khr_price | replace: ',', ' '| split: '.00'}}KHR{%- when 'ILS' -%}{%- assign ils_price=variant.price | money_without_currency -%}₪{{ils_price | split: '.00'}}{%- when 'CZK' -%}{%- assign czk_price=variant.price | money_without_currency -%}{{czk_price | replace: '.', ' '| split: ',00'}}Kč{%- when 'RON' -%}{%- assign ron_price=variant.price | money_without_currency -%}{{ron_price | replace: '.', ' '| split: ',00'}}Lei{%- when 'BRL' -%}{%- assign brl_price=variant.price | money_without_currency -%}R${{brl_price | split: ',00'}}{%- when 'TRY' -%}{%- assign try_price=variant.price | money_without_currency -%}{{try_price | replace: ',', '.' | split: '.00'}}TL{%- when 'MYR' -%}{%- assign myr_price=variant.price | money_without_currency -%}RM{{myr_price | split: '.00'}}{%- when 'INR' -%}{%- assign inr_price=variant.price | money_without_currency -%}₹{{inr_price | replace: ',', '' | split: '.00'}}{%- when 'RUB' -%}{%- assign rub_price=variant.price | money -%}{{rub_price | replace: '.', ' '| split: ',00'}}{%- when 'UAH' -%}{%- assign uah_price=variant.price | money -%}{{uah_price | replace: ',', ' '| split: '.00'}}{%- when 'IDR' -%}{%- assign idr_price=variant.price | money_without_trailing_zeros -%}{{idr_price | replace: '.', ','}}{%- when 'PLN' -%}{%- assign pln_price=variant.price | money_without_currency -%}{{pln_price | replace: '.', ' '| split: ',00'}}zł{%- when 'DKK' -%}{%- assign dkk_price=variant.price | money_without_currency -%}{{dkk_price | split: ',00'}}kr{%- when 'PHP' -%}{%- assign php_price=variant.price | money_without_currency -%}₱{{php_price | split: '.00'}}{%- when 'BGN' -%}{%- assign bgn_price=variant.price | money -%}{{bgn_price | replace: ',', ' '| split: '.00'}}{%- when 'EGP' -%}{%- assign egp_price=variant.price | money -%}{{egp_price | split: '.00'}}{%- when 'SEK' -%}{%- assign sek_price=variant.price | money -%}{{sek_price | replace: ',', ' '}}{%- when 'AZN' -%}{%- assign azn_price=variant.price | money_without_currency -%}{{azn_price | replace: ',', '' | split: '.00'}}AZN{%- else -%}{{variant.price | money | split: '.00'}}{%- endcase -%}" class="option {{ value | handle }} {%- if forloop.index == 1 -%}selected{%- endif -%} {%- if variant.available -%}available{%- else -%}soldout{%- endif -%}">
+          
+          {%- assign product_url = product.url | within: collection -%}
+          
+          {%- unless product_url contains 'variant' -%}
+          	{%- capture product_url -%}{{ product_url }}?variant={{ variant.id }}{%- endcapture-%}
+          {%- endunless -%}
+          
+          <a href="{{ product_url }}">
+            {%- if color_image_url != false -%}
+            	<img class="color-image" src="{{ color_image_url }}" alt="{{ value }}" />
+            {%- endif -%}
+          </a>
+                
+        </li>
+  
+  	{%- endunless -%}
+{%- endfor -%}
+</ul>

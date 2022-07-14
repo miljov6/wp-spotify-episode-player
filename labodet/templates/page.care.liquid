@@ -1,0 +1,102 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:15:21+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            6edc165365958605c91cb8e520a154b1
+//      Signature:      eyJpdiI6IlFFOHFXYzh6cmUxWU9oWUxPQ0JuN3c9PSIsInZhbHVlIjoiS2FyTVV2bFk0bG1wM3R4dG01VkZUdjhIajVYRTZudG51clpoSWtrM1wvSTl4dkNtdjlpcXVxRmd5MEc2dE95c3FMRUx4TGhwWXJMbCtLejc5aUl2TFpLSWlHc1hMQThDcFhBcFg5Z3h6XC9XclZtdWdVZCtkdnlvN0JBU2JMNTExdGRjWlwvazRHaHFSUFpJcktKZWlYUGRtMUJyVGJHQW0ydzZLU0lYaEJIbE4yaUEySm85dnR4YlozR0VLZ1wvZkIyajhXRUprbnJKYW5qb1RPVUFrQWRabitoUzN2M3RRZVNwR2JFazhHYmVKakM3cjI2SkszWjYyMGhvaDVMcTdiVEhtZEdVNHIweU1NZkQ5SGlpejFvaE1lUFVZOXRjOHNXQWsrUmloNDg4S1JlQms2djhLdTU5c1IxU2FTajFnM1ptMVFidGg2V1wvMlgxTjc3U1U1M2lHQjNKdEpNa0VJZVh3XC94UnJiSit4cmFJUlwva3BXZkljY3duekI0cGdHTlRQTUI5cEFNaWtJa1I3am5WXC83WlFHT0Z3PT0iLCJtYWMiOiJkNTk2NGYzODk0MGZkNjk1YWIwYWQ0NjcxNjRiOTE5MGEyYmE0OWIxZGFhNzIzMDA2NWZiNmQ3MjIyN2ZlOGYwIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<section class="labo-standard-page-main">
+    <div class="container">
+      <div class="row pb-5">
+        <div class="labo-standard-page__title-wrapper col-md-12">
+          <h1 class="labo-standard-page-title labo-det-lheight-62 mt-0 border-bottom">
+            {{ page.title }}
+          </h1>
+        </div>
+  
+        <div class="labo-standard-page__content-wrapper">
+          <div class="labo-standard-page-content">
+            {{ page.content }}
+          </div>
+        </div>
+  
+        {%- comment -%}Spacer?{%- endcomment -%}
+        <div class="col-md-2"></div>
+  
+        <div class="labo-standard-page__grey-bg-wrapper col-md-5">
+          {% if page.metafields.custom_fields["right_column_content"] != blank %}
+            <div class="labo-product-page-grey-bg h-100 align-items-center justify-content-center py-4 p-md-5">
+              {{ page.metafields.custom_fields["right_column_content"] }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  {% section 'page-advanced-sections' %}
+  
+  <!------  mobile media query------------------->
+  
+  <style>
+
+    @media screen and (min-width: 768px) {
+
+        .labo-standard-page-content {
+        display: grid;
+        row-gap: 10px;
+        grid-template-columns: repeat(2, 1fr); 
+        column-gap: 200px;
+    }
+
+        .labo-standard-page-content div:nth-child(3) {
+        background: #FAFAFA;
+        padding: 30px 70px 20px;
+    }
+    }
+
+    @media only screen and (max-width: 767px) {
+   
+      
+      .labo-standard-page-title {
+     
+      display: block;
+     
+      text-align: center;
+  }
+      
+      
+  }
+    
+    
+    
+    /*************ipad media query of page*****************************/
+    
+    @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px)  {
+  
+        .labo-standard-page-title {
+      display: block;
+      text-align: center;
+  }
+  
+  }
+    
+    
+  </style>
+  
+  
+  <!------  mobile media query------------------->

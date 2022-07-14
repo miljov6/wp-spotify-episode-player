@@ -1,0 +1,1055 @@
+{
+  "current": {
+    "currency__delay": 4,
+    "signup__delay": 10,
+    "color_text": "#3a3a3a",
+    "color_body_text": "#333232",
+    "color_sale_text": "#ea0606",
+    "color_button": "#3a3a3a",
+    "color_button_text": "#ffffff",
+    "color_small_button_text_border": "#3a3a3a",
+    "color_text_field_text": "#000000",
+    "color_text_field_border": "#cccccc",
+    "color_text_field": "#ffffff",
+    "color_image_overlay_text": "#ffffff",
+    "color_image_overlay": "#685858",
+    "image_overlay_opacity": 40,
+    "color_borders": "#ebebeb",
+    "color_body_bg": "#ffffff",
+    "type_header_font": "neue_haas_unica_n5",
+    "type_header_base_size": 26,
+    "type_base_font": "neue_haas_unica_n4",
+    "type_base_size": 15,
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "favicon": "shopify:\/\/shop_images\/Labodet_Favicon.png",
+    "enable_ajax": true,
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/labodet_checkout2.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#000000",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#e32c2b",
+    "announcement_1": "<p>Exclusive offers in your inbox. <a title=\"Contact Us\" href=\"\/pages\/contact-us\">Subscribe<\/a><\/p>",
+    "announcement_2": "<p>New iPhone 12 Cases Launching Soon! <a title=\"iPhone 12 Pro\" href=\"\/collections\/iphone-12-pro\">Pre-order<\/a><\/p>",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "background_color": "#ffffff",
+          "color": "#000000",
+          "show_announcement": false,
+          "an_background_color": "#000000",
+          "an_color": "#ffffff",
+          "insta": "https:\/\/www.instagram.com\/labodet",
+          "fb": "https:\/\/www.facebook.com\/labodetofficial",
+          "tw": "https:\/\/twitter.com\/labodetofficial",
+          "tik": "https:\/\/www.tiktok.com\/@labodet",
+          "logo": "shopify:\/\/shop_images\/log.png",
+          "main_menu": "main-menu",
+          "currency_menu": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1597159324260": {
+            "type": "menu",
+            "settings": {
+              "title": "About",
+              "menu": "footer"
+            }
+          },
+          "1597159406641": {
+            "type": "menu",
+            "settings": {
+              "title": "Support",
+              "menu": "footer-menu-2"
+            }
+          }
+        },
+        "block_order": [
+          "1597159324260",
+          "1597159406641"
+        ],
+        "settings": {
+          "background_color": "#000000",
+          "color": "#ffffff",
+          "col1text": "100% Made in France",
+          "insta": "https:\/\/www.instagram.com\/labodet",
+          "fb": "https:\/\/www.facebook.com\/labodetofficial",
+          "tw": "https:\/\/twitter.com\/labodetofficial",
+          "tik": "https:\/\/www.tiktok.com\/@labodet",
+          "copyright": "© 2021 <a href=\"\/\">LABODET<\/a>, 27 Avenue de l'Opéra, Paris, 75001, France. <span style=\"white-space:nowrap;\">All rights reserved<\/span>.",
+          "footer_legal": "footer-legal-menu"
+        }
+      },
+      "1597313164420": {
+        "type": "labo-collection-grid",
+        "blocks": {
+          "1597313164420-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "iphone-cases",
+              "image": "shopify:\/\/shop_images\/Webp.net-resizeimage.jpg"
+            }
+          },
+          "1fbdacee-d3e1-4f1d-9a8a-0494cd8f9797": {
+            "type": "collection",
+            "disabled": true,
+            "settings": {
+              "collection": "limited-editions"
+            }
+          },
+          "1597313164420-3": {
+            "type": "collection",
+            "settings": {
+              "collection": "accessories"
+            }
+          },
+          "1597313164420-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "airpods-cases"
+            }
+          },
+          "1597313164420-2": {
+            "type": "collection",
+            "settings": {
+              "collection": "watch-straps"
+            }
+          },
+          "2a0b7293-ea5e-4635-b97c-ee5f6baf8e4a": {
+            "type": "collection",
+            "settings": {
+              "collection": "ipad-cases"
+            }
+          }
+        },
+        "block_order": [
+          "1597313164420-0",
+          "1fbdacee-d3e1-4f1d-9a8a-0494cd8f9797",
+          "1597313164420-3",
+          "1597313164420-1",
+          "1597313164420-2",
+          "2a0b7293-ea5e-4635-b97c-ee5f6baf8e4a"
+        ],
+        "settings": {}
+      },
+      "consent": {
+        "type": "consent",
+        "settings": {
+          "cc_enable": false,
+          "cc_position": "",
+          "cc_static": false,
+          "cc_type": "",
+          "cc_theme": "",
+          "cc_popup_background_color": "#ffffff",
+          "cc_popup_text_color": "#000000",
+          "cc_button_background_color": "#000000",
+          "cc_button_text_color": "#ffffff",
+          "cc_link_type": true,
+          "cc_link_page": "privacy-policy"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 4,
+          "rows": 2,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "blocks": {
+          "1598875318410": {
+            "type": "accordions",
+            "settings": {
+              "title": "Materials & Care",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            }
+          },
+          "1598875496966": {
+            "type": "accordions",
+            "settings": {
+              "title": "Delivery & Returns",
+              "text": "This is Test"
+            }
+          }
+        },
+        "block_order": [
+          "1598875318410",
+          "1598875496966"
+        ],
+        "settings": {
+          "show_back_to_collection": true,
+          "made_in_country": "Made in France",
+          "stock_text": "<strong>In Stock.<\/strong> Ships in 3-5 days from Paris, France. Free worldwide shiping.",
+          "out_text": "<strong>Out of Stock.<\/strong>"
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like"
+        }
+      },
+      "product-advanced-sections": {
+        "type": "product-advanced-sections",
+        "settings": {
+          "show_advanced_section": true
+        }
+      },
+      "faqs": {
+        "type": "faqs",
+        "blocks": {
+          "640101d9-53be-44d8-ba58-f922d7dff0ec": {
+            "type": "faq",
+            "settings": {
+              "title": "Which products does Labodet.com produce?",
+              "answer": "<p>Labodét offers accessories for tech gadgets such as iPhone cases, AirPods and AirPods Pro cases, Apple Watch straps, and a range of small leather goods including cardholders, glasses cases, passport covers, and wallets. All Labodét items are crafted with genuine leathers of alligator, calf, ostrich, or python.<\/p><p><\/p>"
+            }
+          },
+          "f90f4c37-a78f-4069-bd1c-31ed41b3733f": {
+            "type": "faq",
+            "settings": {
+              "title": "What does Made to Order mean?",
+              "answer": "<p>Each product at Labodet.com has a specific label of availability: <strong>Made to Order<\/strong> or <strong>Pre-Order<\/strong>.<br\/><br\/>Most of the items are <strong>made to order<\/strong>. Production of such items starts immediately after the order has been placed and the transaction confirmed. These items take up to 15 business days to craft and dispatch after order confirmation. Making items to order ensures your specific order gets the full attention of the craftsmen and their skill.<br\/><br\/>Items labeled as <strong>Pre-Order<\/strong> have not yet been released and will become available at a later date. The dispatch and shipping information of such items is available on their product page. Once a pre-order is placed, we will charge the amount on your card and send an order confirmation email. <\/p>"
+            }
+          },
+          "a4c35d71-667a-40b0-b4cc-5ae9347077e1": {
+            "type": "faq",
+            "settings": {
+              "title": "Where are Labodét products made?",
+              "answer": "<p>Labodét leather goods are produced at the workshop located in Paris, France. All orders placed at Labodet.com are shipped from the workshop in Paris, France.<\/p>"
+            }
+          },
+          "738e39aa-f5cb-425e-8873-e5f9590a47ec": {
+            "type": "faq",
+            "settings": {
+              "title": "Do Labodét accessories for gadgets work with wireless charging?",
+              "answer": "<p>Labodét iPhone cases allow for wireless charging, excluding Card and Folio cases.<\/p><p>AirPods and AirPods Pro cases allow for wireless charging.<\/p>"
+            }
+          },
+          "d1edea02-2eee-482f-8b85-8b2a61b93c04": {
+            "type": "faq",
+            "settings": {
+              "title": "Are Labodét iPhone cases equipped with MagSafe technology?",
+              "answer": "<p>iPhone cases by Labodét are not compatible with the MagSafe Charger and other MagSafe accessories. <\/p>"
+            }
+          },
+          "a2ffe3f9-4f1c-4ad3-8427-0db2aac4d65a": {
+            "type": "faq",
+            "settings": {
+              "title": "How do I know if a product I have is authentic?",
+              "answer": "<p>Labodét guarantees the authenticity of all products sold on Labodet.com. Each Labodét item is issued an Authenticity Certificate with a unique serial number enclosed to the item. Expert artisans craft Labodét products from highest-grade natural materials with extreme care and quality standards. All items are crafted in Paris, France, following the methods of traditional leather-making.<\/p>"
+            }
+          },
+          "7e6ec7d3-17df-427e-8825-4bafdeea74f8": {
+            "type": "faq",
+            "settings": {
+              "title": "How do I care for my Labodét item?",
+              "answer": "<p>Leather is a natural material which may change its color, get softer, and acquire a patina over time. It should be protected from humidity, overexposure to light or heat. It is not recommended to use manufactured leather care products. The best way to care for your leather accessory is to wipe it with a clean soft and microfiber cloth. For more care tips please read the <a href=\"\/pages\/materials-care\" title=\"Materials &amp; Care\">Materials &amp; Care<\/a> page.<\/p>"
+            }
+          },
+          "05d13e40-2d7c-4d70-8adc-153646bcebeb": {
+            "type": "faq",
+            "settings": {
+              "title": "How can I repair my Labodét product?",
+              "answer": "<p>Labodét items are crafted to the highest standard of quality. Should an item require repair, please contact our Customer Service at <a href=\"mailto:orders@labodet.com\"><span style=\"text-decoration:underline\">orders@labodet.com<\/span><\/a> for detailed information.<\/p>"
+            }
+          },
+          "dae7fdff-c288-4142-80d1-95936c50ba45": {
+            "type": "faq",
+            "settings": {
+              "title": "How accurate is the color display on Labodet.com?",
+              "answer": "<p>The images of products shown at Labodet.com should accurately represent the actual colors and textures. However, they may vary slightly due to two factors:<\/p><p>- the monitor screen settings;<\/p><p>- the minute differences in colors and scales of each natural leather hide.<br\/><\/p>"
+            }
+          },
+          "7e23b149-5e10-4ac8-8237-55c4e43409a6": {
+            "type": "faq",
+            "settings": {
+              "title": "How may I get assistance with my online order?",
+              "answer": "<p>Please contact our Customer Service by email <a href=\"mailto:orders@labodet.com\"><span style=\"text-decoration:underline\">orders@labodet.com<\/span><\/a> or leave a message through the Contact us section and our Customer Service team will gladly assist you.<\/p>"
+            }
+          },
+          "d702233e-c46f-45f1-98c5-fc79a07066ce": {
+            "type": "faq",
+            "settings": {
+              "title": "How has Labodét committed to sustainability and responsible shopping?",
+              "answer": "<p>Sustainable production is a crucial issue for the industry. At Labodét, we are committed to sustainable manufacturing practices and partner only with certified suppliers who conform to the ethical use of natural resources.<\/p>"
+            }
+          },
+          "57f610bd-0aa2-415f-b562-adbb32af419c": {
+            "type": "faq",
+            "settings": {
+              "title": "What payment methods do you accept?",
+              "answer": "<p>At labodet.com, we accept major credit and debit cards (American Express, Visa, MasterCard, Discover, JCB, Diners Club), Apple Pay, and Google Pay. <\/p><p>If your payment is declined, please contact your bank or service provider for assistance.<\/p><p><br\/><\/p>"
+            }
+          },
+          "09815252-7223-4b7d-ac38-bff0d3958cf7": {
+            "type": "faq",
+            "settings": {
+              "title": "Can I use multiple methods of payment?",
+              "answer": "<p>Only one payment method is accepted per order.<\/p>"
+            }
+          },
+          "e31d13c6-06b7-494c-bf44-a4a0834dd9ff": {
+            "type": "faq",
+            "settings": {
+              "title": "How do I know if my order was placed successfully?",
+              "answer": "<p>After the order is placed and payment is processed, you will receive an order confirmation email with your order&#x27;s details. If you have received an order confirmation email, your order was placed successfully.<\/p>"
+            }
+          },
+          "dac7c83b-cdfc-4781-b805-5c32fc64881e": {
+            "type": "faq",
+            "settings": {
+              "title": "Can I make changes to my order?",
+              "answer": "<p>Changes to an order can be placed within 24 hours at <a href=\"mailto:orders@labodet.com\"><span style=\"text-decoration:underline\">orders@labodet.com<\/span><\/a>. Please include the order number and a detailed description of the changes in your request.<\/p>"
+            }
+          },
+          "4acf8f35-291e-4af4-902b-00add7e3a2be": {
+            "type": "faq",
+            "settings": {
+              "title": "How can I cancel my order?",
+              "answer": "<p>Orders placed on labodet.com are processed quickly to ensure a speedy delivery. Should you decide to cancel your order, please email at <a href=\"mailto:orders@labodet.com\"><span style=\"text-decoration:underline\">orders@labodet.com<\/span><\/a> within 24 hours of your order.<\/p>"
+            }
+          },
+          "63af9b5e-f1e6-4639-babb-717b3ec2d3f8": {
+            "type": "faq",
+            "settings": {
+              "title": "Do I have to pay any additional fees?",
+              "answer": "<p>In some cases, depending on the local Customs office laws of the destination country, import duties and taxes may apply and are to be paid by the customer upon delivery of goods. The customer assumes the responsibility of any applicable fees. Additional documents may be required for some orders and can delay the delivery.<\/p><p>Import duties and taxes do not apply for orders shipped within France and the European Union.<\/p><p>For more information, please contact your local Customs office.<br\/><\/p>"
+            }
+          },
+          "e02444a6-5191-4b73-912a-b1a44b5b6403": {
+            "type": "faq",
+            "settings": {
+              "title": "What should I do if the payment does not go through?",
+              "answer": "<p>If payment fails for some reason at checkout, you might try using another payment method. If payment issues still occur, please email us at <a href=\"mailto:orders@labodet.com\"><span style=\"text-decoration:underline\">orders@labodet.com<\/span><\/a> with the details of your order. Our Customer Service team will gladly assist you.<\/p>"
+            }
+          },
+          "54c4877f-278f-4583-baa3-75749b2df826": {
+            "type": "faq",
+            "settings": {
+              "title": "Does Labodét offer free shipping internationally?",
+              "answer": "<p>Labodét provides free international shipping with DHL Express for all orders placed at Labodet.com. <\/p>"
+            }
+          },
+          "0414cfac-2d8f-4857-953f-720e46627fea": {
+            "type": "faq",
+            "settings": {
+              "title": "Which shipping options are available?",
+              "answer": "<p>Orders are delivered worldwide by courier services, with the following rates:<\/p><p>Standard shipping with DHL Express Courier - 3-7 business days, free.<\/p><p>Fast shipping with FedEx Courier Delivery - 1-5 business days. The price is applied at checkout.<\/p>"
+            }
+          },
+          "b23032c8-0879-4429-996c-ed3b75c6ee62": {
+            "type": "faq",
+            "settings": {
+              "title": "How can I track my order?",
+              "answer": "<p>When your order is released from production and submitted to the delivery service, you will receive an email notification containing a tracking number of your order. <\/p><p>Please note that in some cases, Customs procedures may delay the original shipping time frame.<\/p>"
+            }
+          },
+          "4e3fe17c-27c4-427f-8900-c797130443e4": {
+            "type": "faq",
+            "settings": {
+              "title": "How long does Labodét take to ship?",
+              "answer": "<p>Shipping time depends on the purchased item and the destination country.<\/p><p>Items marked as Made to Order are dispatched to the courier service within up to 10-14 business days.<\/p><p>Shipping information for Pre-Order items is available on their product pages.<\/p><p>Delivery time depends on the destination country and courier service. Standard delivery is between 3-7 business days with DHL Express. Fast delivery is within 1-5 business days with FedEx.<\/p>"
+            }
+          },
+          "8f559fbf-e6e9-44c7-b26d-531404652e63": {
+            "type": "faq",
+            "settings": {
+              "title": "Do I have to sign for my order?",
+              "answer": "<p>The delivered order requires to be signed for upon receipt.<\/p>"
+            }
+          },
+          "0af88bfe-1656-49f0-bb8f-485aeda4c5a8": {
+            "type": "faq",
+            "settings": {
+              "title": "Can I ship to a P.O. Box?",
+              "answer": "<p>Delivery to P.O. Box is unavailable.<\/p>"
+            }
+          },
+          "15bcb5dd-e63f-4e54-92ef-ade6b3a9d283": {
+            "type": "faq",
+            "settings": {
+              "title": "Can I modify my shipping address?",
+              "answer": "<p>If you need to modify your shipping or delivery information after an order has been placed, please contact us as soon as possible at <a href=\"mailto:orders@labodet.com\"><span style=\"text-decoration:underline\">orders@labodet.com<\/span><\/a>. Once your order has been shipped, it is not possible to modify the shipping or delivery information.<\/p>"
+            }
+          },
+          "cae94332-27ee-44a9-ba46-41e67081b29b": {
+            "type": "faq",
+            "settings": {
+              "title": "How can I return an item?",
+              "answer": "<p>Returns are available within 15 days of delivery for the reason of damages only. Items with slight differences of shade between your received item and online images are not subject to a return. <br\/><br\/>If you wish to return a faulty item, please notify us at <a href=\"mailto:orders@labodet.com\">orders@labodet.com<\/a>. Our Customer Service will gladly assist you with the return process. The item must be returned to us within 15 days of your notification.<\/p><p>Please read our <a href=\"https:\/\/www.labodet.com\/policies\/refund-policy\" title=\"Refund Policy\" target=\"_blank\">Refund Policy<\/a> for full information and instructions. <\/p>"
+            }
+          },
+          "5137b35e-1c7d-4e7d-b09c-96b12abe97bd": {
+            "type": "faq",
+            "settings": {
+              "title": "How do I exchange an item?",
+              "answer": "<p>Exchanges are available within 15 days of delivery for the reason of damages only. Items with slight differences of shade between your received item and online images cannot be exchanged. <br\/><br\/>If you wish to exchange an item, it should be sent to us as a return within 15 days from the date of delivery. Once the returned item is received and accepted, we will notify you and process the refund. You can proceed to purchase a new item.<\/p>"
+            }
+          },
+          "6cf80961-c87c-4ec7-bb64-4b590659612d": {
+            "type": "faq",
+            "settings": {
+              "title": "Can I get a delivery refund for sending an item back?",
+              "answer": "<p>The cost of delivering a return item is covered by the customer and is non-refundable. In case an item is accepted as faulty, the cost of delivery is covered by Labodét.<br\/><br\/>Please provide a valid tracking number of the return parcel to Customer Service when sending an item back.<\/p>"
+            }
+          },
+          "f1191c78-702e-4af8-97ac-fbcfb41582c6": {
+            "type": "faq",
+            "settings": {
+              "title": "How long does it take for a refund to be issued?",
+              "answer": "<p>Items returned by mail to the warehouse will be processed within 15 business days from receipt. You will receive an email confirmation when your return has been completed. Refunds will be credited back to the original form of payment.<\/p>"
+            }
+          },
+          "2ce5d35e-9870-40c5-ac17-ee4a81b90581": {
+            "type": "faq",
+            "settings": {
+              "title": "Does Labodét have a store?",
+              "answer": "<p>Labodét operates as an online store with goods available only at Labodet.com.<\/p>"
+            }
+          },
+          "015fe739-3fd8-4550-870b-6b404ec9c50d": {
+            "type": "faq",
+            "settings": {
+              "title": "Can I order corporate gifts on the website?",
+              "answer": "<p>For corporate gifts, please email us at <a href=\"mailto:contact@labodet.com\"><span style=\"text-decoration:underline\">contact@labodet.com<\/span><\/a>. We will gladly assist you with the order.<\/p>"
+            }
+          },
+          "356459c5-0f67-414b-ba5f-e4f7e4031cae": {
+            "type": "faq",
+            "settings": {
+              "title": "How can I place a wholesale order?",
+              "answer": "<p>For wholesale orders, please email us at <a href=\"mailto:contact@labodet.com\"><span style=\"text-decoration:underline\">contact@labodet.com<\/span><\/a>. We will gladly assist you with the order.<\/p>"
+            }
+          },
+          "755018dc-0c44-4160-8972-c4c8b1469d38": {
+            "type": "faq",
+            "settings": {
+              "title": "How can I contact your P.R. team for press inquiries and collaborations?",
+              "answer": "<p>To get in touch with our P.R. department, please email us at <a href=\"mailto:contact@labodet.com\"><span style=\"text-decoration:underline\">contact@labodet.com<\/span><\/a>. We will make sure our team member reverts to you.<\/p>"
+            }
+          },
+          "a0d92bdd-fc2e-42d1-8f1b-073b50bd67ae": {
+            "type": "faq",
+            "settings": {
+              "title": "What are the operating hours of your Customer Service?",
+              "answer": "<p>We will respond to your email within 24 business hours, Monday to Friday, from 10 am to 6 pm CET (Central European Time).<\/p><p>Client Service Bank Holidays are:<\/p><p>• New Year&#x27;s (December 31st and January 1st)<\/p><p>• Easter<\/p><p>• Easter Monday<\/p><p>• Labor Day (May 1st)<\/p><p>• Christmas Day<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "640101d9-53be-44d8-ba58-f922d7dff0ec",
+          "f90f4c37-a78f-4069-bd1c-31ed41b3733f",
+          "a4c35d71-667a-40b0-b4cc-5ae9347077e1",
+          "738e39aa-f5cb-425e-8873-e5f9590a47ec",
+          "d1edea02-2eee-482f-8b85-8b2a61b93c04",
+          "a2ffe3f9-4f1c-4ad3-8427-0db2aac4d65a",
+          "7e6ec7d3-17df-427e-8825-4bafdeea74f8",
+          "05d13e40-2d7c-4d70-8adc-153646bcebeb",
+          "dae7fdff-c288-4142-80d1-95936c50ba45",
+          "7e23b149-5e10-4ac8-8237-55c4e43409a6",
+          "d702233e-c46f-45f1-98c5-fc79a07066ce",
+          "57f610bd-0aa2-415f-b562-adbb32af419c",
+          "09815252-7223-4b7d-ac38-bff0d3958cf7",
+          "e31d13c6-06b7-494c-bf44-a4a0834dd9ff",
+          "dac7c83b-cdfc-4781-b805-5c32fc64881e",
+          "4acf8f35-291e-4af4-902b-00add7e3a2be",
+          "63af9b5e-f1e6-4639-babb-717b3ec2d3f8",
+          "e02444a6-5191-4b73-912a-b1a44b5b6403",
+          "54c4877f-278f-4583-baa3-75749b2df826",
+          "0414cfac-2d8f-4857-953f-720e46627fea",
+          "b23032c8-0879-4429-996c-ed3b75c6ee62",
+          "4e3fe17c-27c4-427f-8900-c797130443e4",
+          "8f559fbf-e6e9-44c7-b26d-531404652e63",
+          "0af88bfe-1656-49f0-bb8f-485aeda4c5a8",
+          "15bcb5dd-e63f-4e54-92ef-ade6b3a9d283",
+          "cae94332-27ee-44a9-ba46-41e67081b29b",
+          "5137b35e-1c7d-4e7d-b09c-96b12abe97bd",
+          "6cf80961-c87c-4ec7-bb64-4b590659612d",
+          "f1191c78-702e-4af8-97ac-fbcfb41582c6",
+          "2ce5d35e-9870-40c5-ac17-ee4a81b90581",
+          "015fe739-3fd8-4550-870b-6b404ec9c50d",
+          "356459c5-0f67-414b-ba5f-e4f7e4031cae",
+          "755018dc-0c44-4160-8972-c4c8b1469d38",
+          "a0d92bdd-fc2e-42d1-8f1b-073b50bd67ae"
+        ],
+        "settings": {}
+      },
+      "email-popup": {
+        "type": "email-popup",
+        "blocks": {
+          "b727deaa-05f9-4904-81fe-8aa6f9001ab1": {
+            "type": "slider_image",
+            "settings": {
+              "slider_image": "shopify:\/\/shop_images\/offer_image_m.jpg"
+            }
+          },
+          "c9f2b3b3-9abe-46f5-ae22-6cc3b0cb7018": {
+            "type": "slider_image",
+            "settings": {
+              "slider_image": "shopify:\/\/shop_images\/offer_image_m.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b727deaa-05f9-4904-81fe-8aa6f9001ab1",
+          "c9f2b3b3-9abe-46f5-ae22-6cc3b0cb7018"
+        ],
+        "settings": {
+          "enable_popup": false,
+          "large_image": "shopify:\/\/shop_images\/offer_img.png",
+          "title": "Exclusive offer",
+          "description": "Enjoy 10% OFF your first order",
+          "show_google_button": false,
+          "show_facebook_button": false,
+          "privacy_note": "*By signing up, you agree to receive emails about LABODÉT collections, releases, latest news, and promotions. See our Privacy Policy for more information.",
+          "thank_you_title": "Thank you for joining us!",
+          "thank_you_description": "Your personal 10% off code is",
+          "discount_code": "LXW20",
+          "button_title": "Start Shopping",
+          "button_link": "shopify:\/\/collections\/iphone-cases"
+        }
+      },
+      "announcements": {
+        "type": "announcements",
+        "blocks": {
+          "317c0060-0b4c-43c7-b6fa-1115c178ee28": {
+            "type": "announcement",
+            "settings": {
+              "body": "<p>Free Worldwide Shipping With DHL Express <\/p>"
+            }
+          },
+          "727eb659-4772-421d-a25f-e29a4cb19679": {
+            "type": "announcement",
+            "settings": {
+              "body": "<p>70% Off iPhone 12 And More <a href=\"https:\/\/www.labodet.com\/collections\/stock-sale\" title=\"https:\/\/www.labodet.com\/collections\/stock-sale\">Shop Now<\/a><\/p>"
+            }
+          },
+          "c9d2bfcd-460a-435a-8220-9759ac8da64a": {
+            "type": "announcement",
+            "settings": {
+              "body": "<p>iPhone 13 Sport Cases <a href=\"https:\/\/www.labodet.com\/products\/iphone-13-pro-sport-case-alligator?variant=42511568011486\" title=\"https:\/\/www.labodet.com\/products\/iphone-13-pro-sport-case-alligator?variant=42511568011486\">Shop Now <\/a><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "317c0060-0b4c-43c7-b6fa-1115c178ee28",
+          "727eb659-4772-421d-a25f-e29a4cb19679",
+          "c9d2bfcd-460a-435a-8220-9759ac8da64a"
+        ],
+        "settings": {
+          "delay": 10
+        }
+      },
+      "sale-popup": {
+        "type": "sale-popup",
+        "blocks": {
+          "3cb17b78-368f-4807-a563-a458914238cd": {
+            "type": "slider_image",
+            "settings": {
+              "slider_image": "shopify:\/\/shop_images\/Himalaya_SALE_Pop-up.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "3cb17b78-368f-4807-a563-a458914238cd"
+        ],
+        "settings": {
+          "enable_popup": false,
+          "large_image": "shopify:\/\/shop_images\/Himalaya-SALE_Pop-up-_S.jpg",
+          "title": "LIMITED OFFER 30% OFF",
+          "sub_title": "",
+          "description": "Up to 30% off iPhone cases in Himalayan crocodile leather, color \"dark\". Until 28 February",
+          "discount_code": "",
+          "button_title": "SHOP NOW",
+          "button_link": "shopify:\/\/collections\/himalayan-crocodile-limited-offer"
+        }
+      },
+      "nft-top-section": {
+        "type": "nft-top-section",
+        "settings": {
+          "lb_fs_img": "shopify:\/\/shop_images\/01.jpg",
+          "lb_fs_head": "The world’s first luxury NFT accessory with Niloticus leather and 18k gold",
+          "lb_fs_information": "Labodét introduces a luxury, first edition non-fungible token (NFT) wallpaper for mobile phones. A hand-crafted luxury item turned into wallpaper and minted as an NFT. This asset shows off your status and appreciation for the finer things — in a new digital form."
+        }
+      },
+      "nft-three-image-section": {
+        "type": "nft-three-image-section",
+        "blocks": {
+          "7ba8daa6-3595-4586-b78c-1cbeae11700e": {
+            "type": "select",
+            "settings": {
+              "lb_ss_head": "A new class of luxury goods",
+              "lb_ss_img": "shopify:\/\/shop_images\/02.jpg",
+              "gif_check": false,
+              "lb_ss_information": "Before, customers were only able to buy and own material luxury goods. Until now. NFT lets you own digital assets and has produced a new class of luxury goods — virtual ones. <i>Labodét 001<\/i> wallpaper is the first, revolutionary non-fungible digital luxury accessory."
+            }
+          },
+          "64c4c572-386d-48e8-879e-844938239901": {
+            "type": "select",
+            "settings": {
+              "lb_ss_head": "Personal yet surprisingly dull",
+              "lb_ss_img": "shopify:\/\/shop_images\/03.jpg",
+              "gif_check": false,
+              "lb_ss_information": "Almost nothing is more essential or personal to our daily lives than a mobile phone. It is an accessory like our bags, watches, or shoes. But while these accessories come in a wide variety, your phone has a generic design — just like everyone else’s. Labodét luxury wallpaper makes any standard mobile device, new, old, or even vintage, into a luxury accessory that can be showcased in real life."
+            }
+          },
+          "179e1719-995f-4a54-b2a0-81f2db7cfe84": {
+            "type": "select",
+            "settings": {
+              "lb_ss_head": "Welcome to non-fungible luxury",
+              "gif_check": true,
+              "lb_ss_information": "At Labodét, we design and craft luxury phone cases from various precious materials, out of our headquarters in the heart of Paris, France. Now, we’ve taken it a step further and used new technology and ingenuity to develop a luxury phone wallpaper. Utilizing centuries of experience and true <i>artisanat français<\/i>, we’ve transformed the traditional craft into a new digital form."
+            }
+          }
+        },
+        "block_order": [
+          "7ba8daa6-3595-4586-b78c-1cbeae11700e",
+          "64c4c572-386d-48e8-879e-844938239901",
+          "179e1719-995f-4a54-b2a0-81f2db7cfe84"
+        ],
+        "settings": {}
+      },
+      "nft-process-section": {
+        "type": "nft-process-section",
+        "blocks": {
+          "93c00f09-eacd-4489-9d42-e0dac7632c8e": {
+            "type": "select",
+            "settings": {
+              "lb_ts_process_img": "shopify:\/\/shop_images\/05.1.jpg",
+              "lb_ts_process_information": "The wallpaper features a genuine rare and exotic Niloticus crocodile leather piece which is a staple in high-priced and collectible luxury bags."
+            }
+          },
+          "ce8e6f2c-d843-44ba-a96b-cd85563c5aff": {
+            "type": "select",
+            "settings": {
+              "lb_ts_process_img": "shopify:\/\/shop_images\/05.2.jpg",
+              "lb_ts_process_information": "The plaque is molded from 68 grams of 18k gold and engraved with <i>Labodét 001<\/i>."
+            }
+          },
+          "67113037-72cc-417d-a056-a098d03cbdf2": {
+            "type": "select",
+            "settings": {
+              "lb_ts_process_img": "shopify:\/\/shop_images\/05.3.jpg",
+              "lb_ts_process_information": "The high-resolution photograph of the wallpaper was shot in Paris, France, on May 15th, 2021."
+            }
+          }
+        },
+        "block_order": [
+          "93c00f09-eacd-4489-9d42-e0dac7632c8e",
+          "ce8e6f2c-d843-44ba-a96b-cd85563c5aff",
+          "67113037-72cc-417d-a056-a098d03cbdf2"
+        ],
+        "settings": {
+          "lb_ts_head": "The Process",
+          "lb_ts_subhead": "See how we created the NFT wallpaper.",
+          "lb_ts_poster": "shopify:\/\/shop_images\/video_preview_2.jpg",
+          "lb_ts_playbutton": "shopify:\/\/shop_images\/Group_253.png"
+        }
+      },
+      "nft-card-section": {
+        "type": "nft-card-section",
+        "settings": {
+          "nft_cs_head": "The Product",
+          "nft_cs_image": "shopify:\/\/shop_images\/06.2.jpg",
+          "nft_cs_form_head": "The first luxury NFT wallpaper is minted into NFT at Ethereum.* It is a piece unique, 1\/1 NFT sold at a 10-day auction on <a href=\"https:\/\/opensea.io\/assets\/0x60f80121c31a0d46b5279700f9df786054aa5ee5\/1024721\" target=\"_blank\">opensea.io<\/a>. The auction begins on May 24th and ends on June 3rd.\nAn exclusive unlockable version of the wallpaper will be available to the winning bidder. This version contains an extra visual component to amplify the status of the asset owner. The highest bidder receives a download link hosted on IPFS for the set of .jpeg files, compatible with any smartphone model or tablet.",
+          "nft_cf_button_link": "https:\/\/opensea.io\/assets\/0x60f80121c31a0d46b5279700f9df786054aa5ee5\/1024721",
+          "nft_cf_button_text": "place bid",
+          "nft_cs_note": "*Please note that the auction is for a digital NFT asset and does not include any physical products. The auctioned digital NFT asset is fully adjustable and convertible, can be transferred or resold. With no physical product, the digital NFT asset is everlasting, cannot be destroyed or damaged."
+        }
+      },
+      "go-cart": {
+        "type": "go-cart",
+        "settings": {}
+      },
+      "nft-bottom-section": {
+        "type": "nft-bottom-section",
+        "settings": {
+          "nft_bs_head": "The Future",
+          "nft_bs_info": "<i>Labodét 001<\/i> is the first premiere drop of the collection. At the core of the NFT collection is traditional artisanal craftsmanship and quality materials. A physical prototype is designed and crafted by hand and then transformed into a non-fungible good. More luxury NFT accessories for a variety of devices will be released in the forthcoming months, including collaborations with renowned jewelers and craftsmen to highlight the premium status of the goods."
+        }
+      },
+      "product-template-no-variant": {
+        "type": "product-template-no-variant",
+        "settings": {
+          "show_back_to_collection": true,
+          "made_in_country": "Made in France",
+          "stock_text": "<strong>In Stock.<\/strong> Ships in 3-5 days from Paris, France. Free worldwide shiping.",
+          "out_text": "<strong>Out of Stock.<\/strong>"
+        }
+      },
+      "email-popup2": {
+        "type": "email-popup2",
+        "settings": {
+          "enable_popup2": false,
+          "title": "Join the community of tech and luxury enthusiasts."
+        }
+      }
+    },
+    "content_for_index": [
+      "1597313164420"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero-1": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "large",
+            "text_size": "large"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "feature-columns": {
+          "type": "feature-columns",
+          "blocks": {
+            "feature-columns-0": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-1": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-2": {
+              "type": "text_block",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "feature-columns-0",
+            "feature-columns-1",
+            "feature-columns-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "grid": 4
+          }
+        },
+        "hero-2": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "quotes": {
+          "type": "quotes",
+          "blocks": {
+            "quotes-0": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-1": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-2": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "quotes-0",
+            "quotes-1",
+            "quotes-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "image-bar": {
+          "type": "image-bar",
+          "blocks": {
+            "image-bar-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-1": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-2": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ],
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "hero-1",
+        "feature-row",
+        "feature-columns",
+        "collection",
+        "hero-2",
+        "quotes",
+        "image-bar"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_text_field_border": "#909090",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo": ""
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "slideshow_height": "medium",
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {}
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {}
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {}
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

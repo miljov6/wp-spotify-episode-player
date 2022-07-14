@@ -1,0 +1,32 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:34+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            9e37f3fc9a040c054d9f19011799d91c
+//      Signature:      eyJpdiI6IkVMejJQeDZtcjcrMFhoK3BFYmtnd0E9PSIsInZhbHVlIjoiTUIxT0wzeGt3SGFnckpWRkFUTFJLNGQ4YzV5eTRwMk1rQjg0TTU1RnhlXC95UXpaUHZOTzJJNTJJQXJGK1VBZnJZeDhsNFRcL1dCSW85XC9iM3lOUWtZTkdwbTEyUmNvTzVJcVVldHVHM1wvbWUyYWk5MEdUTkU4ZmFpcllMb1BBM1BPNWpTOHVKd0MybU1KR2gzR2JQOXNZSWs1QndyTTNLNktRZm8xQlV5WDRiMGkzUWlzM1ZcL1wvZjR1UzZidWg1VTIwNVhITWo2RUUzdTNXWTlEOGdBY05Sdjd1RGlWa2NpY205djQycVlCNVBjSmI3VWtTQll0TGxQRVdlXC9ubEtkSUxNU24xOFo4czRxZ0lwUU0wcWw1ZldUYVJNQUMxWXJtMkpabzl1WlpRK3V2NEpLbmlCVmhmMmVoZnBSRktXS0IxaWgrb0FETWh2ME9mSlwvQnhmUEdkRHdoR1JRaGZyQ05JMHRCbTREWXpVeWJHTHErV0VHR29hS3lObU13UFFoUERSWEMzSlltXC9nNWVhZnh2RGk0WlpzUE85b0J6QmorSTMwY1hqTlR4SXRcL1dRNTExaDllQWZaamJZaU5MQ1BHYWQiLCJtYWMiOiI3MDBhNDVhODJhMmMxNTcwYTMzZTFkNjlmYjQ5Y2MyY2U4NmIzZDdjNmFmZjY1MGIxZGQ1NTU3ZDMzM2E3NmQxIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/labodet-store.myshopify.com/products/configure/215572/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["out_of_stock_text"] != blank %}
+  <div class="custom-field custom-field__out-of-stock-text custom-field__type--text">
+    <h3 class="custom-field--title">Out of Stock Text</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["out_of_stock_text"] }}
+    </div>
+  </div>
+{% endif %}

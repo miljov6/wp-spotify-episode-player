@@ -1,0 +1,137 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-03-17T17:51:01+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  120105
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            94a6cbb4b9c2fb4cab728e3fdd288ea9
+//      Signature:      eyJpdiI6IkhHU2tvZkFcL2lDNjZRU0Q0R21MM3BBPT0iLCJ2YWx1ZSI6InZhbDdtdlA4R0FiOUI1emRqUmR0d1FcL2E4T0tncjVtM2FhSHNlK2FtVThWT1BOaDJZMVNcL3Q0dEpVcll1dVpHMjkwR2RvMlJQdDlKano1NGRvaU1HWG50cnp3ODRmRXZVUHFSK1Arb1FQTGtZZlN4dk8xUFlCMDF6Rk90Vzluc3VOQ2lzVGlXNytYdGNvVHNubHFEcThlQnJURjBMSnRhRFR6WDUzdFJVZ3lYOVpQQlZQNWFaTUw3XC9ZSkwxVkFpTTJTMUZwejVOUjdCMWdFSFpuY1FHODNySXNlaGlJaDVDTnl2STNBRThVY0l4YmpmSW42c1hZOWFkZ3ViVlZYZkE0Y0l6NmdxaWlHSFZ1cVwvcngrMWJyU3FXTWQ4bDVVV3RTZFpYK1BjUEZ4UHhPSXlZUlFnaGlvMXRMY1wvRTBrbGdVaFpVRXJDVU42Q2NWd3F0a3pEYmg0WlVrZmVJSTNEXC9JQmJCQ1YxUXVZQzdaYmZFNTA3elpKYUVESEVVSXBtNDNzQ2JvQVpwZHYzYlZkeHgzWjBYbVE9PSIsIm1hYyI6Ijk2ODcxNGEyMDFmMjczZTcxYjNjYzgxZjc0OGMzMmQzZmY0NjljOWZjYTI1ZTA0MjkxMTQyYTQzZGQxYzQ5NjkifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if section.settings.enable_popup2 == true %}
+<div class="inner">
+    <div id="close-popup" class="close js-close--email_popup2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.92888 8.64539L14.2929 15.0094L15 14.3023L8.63599 7.93828L15 1.57429L14.2929 0.867187L7.92888 7.23117L1.56502 0.867262L0.857821 1.57437L7.22178 7.93828L0.857821 14.3022L1.56492 15.0093L7.92888 8.64539Z" fill="white"/>
+        </svg>
+    </div>
+    <div class="title" id="form-title">
+        {% if section.settings.title != blank %}
+            {{ section.settings.title }}
+        {% endif %}
+    </div>
+    <form action="/" class="form" id="popupForm" novalidate>
+        <input type="email" novalidate value="" placeholder="Email Address" id="popupEmail" name="email" required />
+        <button type="submit">Submit</button>
+    </form>
+  <p id="verify" style="display: none; font-size: 10px; line-height: 15px; color: #B9311C;margin-bottom: 0;"></p>
+    <div class="klaviyo-form-Rb2cjd offer-signup" style="margin: 0;"></div>
+</div>
+
+<script>
+function isEmail(email) {
+	var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	return regex.test(email);
+}
+
+document.getElementById('close-popup').addEventListener("click", function() {
+	sessionStorage['showpopup'] = 'no';
+});
+document.querySelector("#popupForm").addEventListener("submit", function(e) {
+	e.preventDefault();
+	var check_email = isEmail(document.getElementById("popupEmail").value);
+	if (check_email != true) {
+    document.getElementById("verify").innerText = 'Invalid email address';
+		document.getElementById("verify").style.display = 'block';
+    document.getElementById("shopify-section-email-popup2").style.paddingBottom = '8px';
+  }
+  else {  
+    document.getElementById("verify").style.display = 'none';
+    document.getElementById("shopify-section-email-popup2").style.paddingBottom = '23px';
+		function setCookie(name, value, days) {
+			var expires = "";
+			if (days) {
+				var date = new Date();
+				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+				expires = "; expires=" + date.toUTCString();
+			}
+			document.cookie = name + "=" + (value || "") + expires + "; path=/";
+		}
+		var cookie_value = document.getElementById("popupEmail").value;
+		setCookie("popup_form", cookie_value, 30);
+		dataLayer.push({
+			'event': 'popup_form_submited',
+			'popup_email': document.querySelector("#popupEmail").value
+		});
+		document.getElementById("popupForm").style.display = 'none';
+		document.getElementById("form-title").innerText = 'Thank you and welcome to the club! You will be the first to know about exclusive releases and special offers.';
+		document.getElementById("form-title").style.paddingRight = '14px';
+		document.getElementById("form-title").style.marginBottom = '16px';
+		var newelement = '<div class="title"><a href="#" id="continue" style="font-size: 16px;line-height: 20px; text-transform: uppercase; color: #fff;  padding: 4px 0;  transition: all .2s ease-in-out;text-decoration:  underline;">Continue to store</a></div>';
+		document.getElementById("form-title").insertAdjacentHTML('afterend', newelement);
+		document.getElementById('continue').addEventListener("click", function() {
+			sessionStorage['showpopup'] = 'no';
+			document.querySelector("#popupForm").submit();
+		});
+	}
+
+});
+  window.addEventListener("klaviyoForms", function(e) {
+    if (e.detail.type == 'submit' && e.detail.formId == 'Rb2cjd') {
+      var emailPopup = document.querySelector('.section-email-popup');
+      emailPopup.classList.add('submitted');
+    }
+  });
+
+  $(document).ready(function() {
+
+    //var cookieKey = 'ep-seen';
+    //var epSeen = getCookie(cookieKey);
+
+    //if (!epSeen) {
+
+
+      $(window).on('load',function() {
+        $('body').addClass('email-popup-open');
+
+        //setCookie(cookieKey, true, 7);
+      });
+    //}
+
+    $('.section-email-popup .labo-times').click(function() {
+      $('body').removeClass('email-popup-open');
+    });
+  });
+</script>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Email popup 2",
+	"class": "section-email-popup section-email-popup2",
+	"tag": "section",
+
+  "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_popup2",
+        "label": "Display pop-up2?",
+        "default": false
+      },
+      {
+		 "type": "text",
+		 "id": "title",
+		 "label": "Title"
+	  }
+	]
+  }
+{% endschema %}

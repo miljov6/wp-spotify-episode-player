@@ -1,0 +1,119 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:05+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            68fe6f219912727183d985da88bfb30f
+//      Signature:      eyJpdiI6ImhNMUxHSjI2VWVDZUNCdUF6bnpnMHc9PSIsInZhbHVlIjoiVGo5dUdoK3FPbVdzTElOZGpHWmdHNXYzenBPRm9DSG1LVFdxa2ZUKzVDZm9zZCtBaWNqRElCaGlGcUI5UWh4N0llYUx1K0tVeEd4d1Qrb29NUTZ2WDNGeXlcL0p1T08rcjIyMm45ek5YbGkzSm1EWlBXOW5vR2hKRWJxR0lkUm1taVVPWGlROWZhVEZHYmxoQXlqRVZ3U01IVmo5dkQzcW9KN2xcL2dJNGV3enFaSHFYcXFvWmc0U3V2SVVacHRlWlVOczJ0VEFTZGNkaGV3MGxvdG5rVmt6dUNZVVhWdmNEY0xud3JvMVo0ZW9ncDFKWGRVMG4zSVUySVZlMnpadVhIZjNlMTNnK0g4T1Z3VnJHRkhFUXltNHB6UkZNUmw1UTR4UXJvSktlSXpaQ3YrTVhidTFHNyt6bFM2QzNcL2ZqbnF2MlVFRmdNY2xxWDQ3dFBGa21PellIenNOZFpxR1M2ZTFtV3JXYkJ0T2VVeEM0OWRCZnR2NnNMVWpMWmt6YVJXS3ByNSt3TFNMdGMrZmxhalA0UVk2NWNodFdoemcwQ3lBVjNMQXVTXC8rY2s9IiwibWFjIjoiNjEwOGQ3ZjMxNmRkOTgyMWUzMTRmMjE0N2U3YzEwZGU3MDJkMjBkNWE2NmU0OWNjNzllY2E1MWEzYjFiNDk5ZSJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if product.metafields.custom_fields["device_list_repeater"] != blank %}
+  {% assign separator = "|###|" %}
+  {% assign device_name_array = product.metafields.custom_fields["device_name"] | split: separator %}
+  {% assign product_array = product.metafields.custom_fields["product"] | split: separator %}
+  {% assign fc_keys = product.metafields.custom_fields["device_list_repeater"] | split: "," %}
+
+  {% for i2 in fc_keys %}
+    {% assign index2 = i2 | plus: 0 %}
+    {% if product.url == all_products[product_array[index2]].url %}
+      {% assign current_product_name = device_name_array[index2] %}
+    {% endif %}
+  {% endfor %}
+
+  {% if current_product_name == blank %}
+    {% assign current_product_name = product.title %}
+  {% endif %}
+
+  <div class="labo-device-list__container position-relative">
+    <!-- <p class="labo-product-device-list labo-mb-selectbox">
+      Device: <strong id="currentDeviceName">{{ current_product_name }}</strong>
+
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="d-inline d-md-none lebo-select-down-arrow">
+        <path d="M15.0711 8.07107L8 13.6535L0.928932 8.07107" stroke="black"/>
+      </svg>
+
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="d-none d-md-inline lebo-select-down-arrow">
+        <path d="M5 10L10 5H0L5 10Z" fill="black"/>
+      </svg>
+    </p> -->
+
+    <div class="labo-product-device-dropdown mob-block">
+      <div class="labo-product-device-list labo-mb-selectbox">
+        Device: <strong>{{ current_product_name }}</strong>
+		<svg class="pc-arrow" width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M5 5L10 0H0L5 5Z" fill="black"/>
+		</svg>
+	
+        <div class="arrow-icon">
+        		<span class="left-bar"></span>
+        		<span class="right-bar"></span>
+      		</div>
+      </div>
+
+      <ul id="device_list" class="labo-product-device-variants">
+        {% for i in fc_keys %}
+          {% assign index = i | plus: 0 %}
+
+          <li{% if product.url == all_products[product_array[index]].url %} class="labo-device-list-active"{% endif %}>
+            <a href="{{ all_products[product_array[index]].url }}">{{ device_name_array[index] }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+    </div>
+    <div class="device-list-labo">
+    <div class="labo-swatch-header d-none d-md-block header">
+      Device: <span>{{ current_product_name }}</span>
+    </div>
+    <div class="labo-device-product-list">
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="{% if product.url == all_products[product_array[index]].url %}labo-device-list-active{% endif %} labo-device-product-item">
+          <a href="{{ all_products[product_array[index]].url }}">{{ device_name_array[index] }}</a>
+        </div>
+      {% endfor %}  
+    </div>
+  </div>
+  </div>
+{% endif %}
+{% comment %}
+<div id="test2">
+  {% assign product_1 = all_products['iphone-12-pro-classic-case-alligator'] %}  
+  {{product_1.title}}
+  {% for products in product_1 %}
+      <p>{{products.title}}</p>  
+      {% endfor %}
+  </div>
+
+  <script>/*
+    jQuery.getJSON('/cart.js', function (cart) {
+      for (let item in cart.items) {
+        var t = cart.items[item].handle;
+          console.log(t);
+          {% capture my_variable %}String(t){% endcapture %}
+          {{ my_variable }}
+          {% assign product1 = all_products[my_variable] %}  
+          console.log('moja varijable');
+          console.log({{my_variable}});
+          console.log({{ all_products[my_variable].title }});
+          var y = {{ my_variable }};
+          var z = {{product_1.title}};
+          console.log('handle', y);
+          console.log('title', z);
+          $('#test2').append('<p>'+z+'</p>'); 
+          {% assign product2 = t %} 
+          $('#test2').append('<p>'+z+'</p>');    
+    }
+  });*/
+  </script>
+  {% endcomment %}

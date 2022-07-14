@@ -1,0 +1,70 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:05+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            19de155a86b827835502edf30ec49d00
+//      Signature:      eyJpdiI6IkhDM08xNThVb1V5eGtQbWVIbUNNYmc9PSIsInZhbHVlIjoiUk5DMk5cLzZhOTN1R0VkdFl2MnpDWVN1V0EyTk1ETTlVbVIrMUJyakdtVlR3ek5udHpqUlNCUWM1dGM3bVwvdkpSZVJ6a3hFcTB5ckRDdWp2eFwveXZVOE1NSWR2ZFpKVDZHWjFFWnVVTmJ4WHRuSWVPV000Y1JHb3Jad1dnUFVyUkNERGdtcVJmYnZaUEFkUzNacDJNU1wva0piNGw0eloxY1Rwb0pINDdkVVdWMnhxVHp6M2V6aEordVZCdjJVS0VSWm1IamxcL2czWlZiR1dLMFRLcWc0ZUp6NGZWZmMwV28rSkphdzZBWjRmSExFWjB6TFI3aU9SMDFDc2wzVlNcL01cL1ZKNm9HTFdLWUF1YmdlWjVNNkNTeW5cL0ZqMXFnZ1wvZ2d1RG8wWFZyYnFpcWxKNWNValNqdTd6ZmRkRlRYMXIzUVc0RFZhSE5OYTBoc09TaXNoelRKbU5VUXdHZVVlZW5LVE8yRmpxWnlSOWJBVU1LdGVMMVNXU1pBYXlLekFIT3Jrb3A5bml3bWl0d0drNUVGYU10ZDVVOEpraWRBdm1vOVwvNVFvQTZIUGtVM0U9IiwibWFjIjoiNDdhYTUwYTVhMjY5ZGQ0N2E0OGU5NGY4MjM0M2RlZGEwZjlmODlkM2U1Zjc4NDc0NWNlMWI4NzllY2U3NWU2OCJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+    Renders a list of products from a collection
+
+    Accepts:
+    - collection: {Object} Collection Liquid object (required)
+
+    Usage:
+    {% include 'collection-grid-item', collection: collection %}
+{% endcomment %}
+{% if collection.image %}
+  {%- assign collection_image = collection.image -%}
+{% elsif collection.products.first and collection.products.first.media != empty %}
+  {%- assign collection_image = collection.products.first.featured_media.preview_image -%}
+{% else %}
+  {% assign collection_image = blank %}
+{% endif %}
+
+<div class="collection-grid-item">
+  <a href="{% if collection.products == empty %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
+    {% unless collection_image == blank %}
+      <div class="collection-grid-item__overlay box ratio-container lazyload js"
+        data-bgset="{% include 'bgset', image: collection_image %}"
+        data-sizes="auto"
+        data-parent-fit="cover"
+        style="background-image: url('{{ collection_image | img_url: '300x300' }}')">
+      </div>
+      <noscript>
+        <div class="collection-grid-item__overlay" style="background-image: url('{{ collection_image | img_url: '1024x1024' }}')"></div>
+      </noscript>
+    {% else %}
+      {% if collection == empty %}
+        <div class="collection-grid-item__overlay">
+          {% capture current %}{% cycle 1, 2, 3 %}{% endcapture %}
+          {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {% else %}
+        <div class="collection-grid-item__overlay" style="background-image: url('{{ collection_image | img_url: '1024x1024' }}')"></div>
+      {% endif %}
+    {% endunless %}
+
+    <div class="collection-grid-item__title-wrapper">
+      <div class="collection-grid-item__title h3">
+        {% if collection.title == blank %}
+          {{ 'homepage.onboarding.collection_title' | t }}
+        {% else %}
+          {{ collection.title }}
+        {% endif %}
+      </div>
+    </div>
+  </a>
+</div>

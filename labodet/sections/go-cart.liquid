@@ -1,0 +1,147 @@
+<!--go cart modal fail-->
+<div class="go-cart__modal go-cart__modal--fail js-go-cart-modal-fail">
+
+    <div class="go-cart-modal">
+
+        <!--go cart modal close-->
+        <div class="go-cart-modal__close js-go-cart-modal-fail-close">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                <path d="M15.89 14.696l-4.734-4.734 4.717-4.717c.4-.4.37-1.085-.03-1.485s-1.085-.43-1.485-.03L9.641 8.447 4.97 3.776c-.4-.4-1.085-.37-1.485.03s-.43 1.085-.03 1.485l4.671 4.671-4.688 4.688c-.4.4-.37 1.085.03 1.485s1.085.43 1.485.03l4.688-4.687 4.734 4.734c.4.4 1.085.37 1.485-.03s.43-1.085.03-1.485z"></path>
+            </svg>
+
+        </div>
+        <!--end go cart modal close-->
+
+        <!--go cart modal content-->
+        <div class="go-cart-modal__content js-go-cart-modal-fail-content">
+            Something went wrong, please contact us!
+        </div>
+        <!--end go cart modal content-->
+
+    </div>
+
+</div>
+<!--end go cart modal fail-->
+
+<!--go cart modal-->
+<div class="go-cart__modal js-go-cart-modal">
+
+    <div class="go-cart-modal">
+
+        <!--go cart modal close-->
+        <div class="go-cart-modal__close js-go-cart-modal-close">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                <path d="M15.89 14.696l-4.734-4.734 4.717-4.717c.4-.4.37-1.085-.03-1.485s-1.085-.43-1.485-.03L9.641 8.447 4.97 3.776c-.4-.4-1.085-.37-1.485.03s-.43 1.085-.03 1.485l4.671 4.671-4.688 4.688c-.4.4-.37 1.085.03 1.485s1.085.43 1.485.03l4.688-4.687 4.734 4.734c.4.4 1.085.37 1.485-.03s.43-1.085.03-1.485z"></path>
+            </svg>
+
+        </div>
+        <!--end go cart modal close-->
+
+        <!--go cart modal content-->
+        <div class="go-cart-modal__content js-go-cart-modal-content"></div>
+        <!--end go cart modal content-->
+
+        <!--go cart modal buttons-->
+        <div class="go-cart-modal__buttons">
+
+            <a class="go-cart__button js-go-cart-modal-close">
+                Continue shopping
+            </a>
+
+            <a href="/cart/" class="go-cart__button">
+                View cart
+            </a>
+
+        </div>
+        <!--end go cart modal buttons-->
+
+    </div>
+
+</div>
+<!--end go cart modal-->
+
+<!--go cart drawer-->
+<div class="go-cart__drawer js-go-cart-drawer">
+
+    <div class="go-cart-drawer">
+
+        <!--go cart drawer close-->
+        <div class="go-cart-drawer__header">
+            <div class="cart-header-content-wrapper">
+            <div class="mini-cart-items-count">Your bag <span class="counter-wrapper">(<span  class="js-go-cart-counter">{{- cart.item_count -}}</span>)</span></div>
+            <div class="go-cart-drawer__close js-go-cart-drawer-close">
+
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.304688" y="1.01465" width="1" height="25" transform="rotate(-45 0.304688 1.01465)" fill="black"/>
+                    <rect x="1.01172" y="18.6924" width="1" height="25" transform="rotate(-135 1.01172 18.6924)" fill="black"/>
+                </svg>
+
+            </div>
+            </div>
+        </div>
+        <!--end go cart drawer close-->
+
+        <!--go cart drawer content-->
+        <div id="goCartContent" class="go-cart-drawer__content js-go-cart-drawer-content"></div>
+        <!--end go cart drawer content-->
+
+        <!--go cart drawer subtotal-->
+        <div id="shippingInfo" class="go-cart-drawer__subtotal">
+            <span>Shipping </span>
+            <span class="go-cart-drawer__subtotal-price">Free</span>
+        </div>
+        <div class="go-cart-drawer__subtotal">
+            <div class="last">
+            <span>Subtotal </span>
+            <span class="go-cart-drawer__subtotal-price js-go-cart-drawer-subtotal"></span>
+            </div>
+        </div>
+        <!--end go cart drawer subtotal-->
+
+        <!--go cart drawer buttons-->
+        <div class="go-cart-drawer__footer js-go-cart-drawer-footer">
+
+            <a href="/checkout/" class="go-cart__button">
+                Check out
+            </a>
+
+        </div>
+        <!--end go cart drawer buttons-->
+
+    </div>
+
+</div>
+<!--end go cart drawer-->
+
+<!--go cart overlay-->
+<div class="go-cart__overlay js-go-cart-overlay">
+</div>
+<!--end go cart overlay-->
+
+<style>
+    .mini-cart-items-count{
+        line-height: 20px;
+        font-weight: 500;
+        text-transform: none;
+        color: #000;
+        font-size: 16px;
+    }
+    .cart-item-option,.cart-item-device{
+        font-size: 14px;
+    }
+    .cart-made-in{
+        font-size: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #8f8f8f;
+        margin-top: 2px;
+    }
+    .go-cart-item__single:first-of-type{
+        border-top: 1px solid #e5e5e5;
+    }
+    .go-cart-item__quantity-label{
+        display: none;
+    }
+</style>

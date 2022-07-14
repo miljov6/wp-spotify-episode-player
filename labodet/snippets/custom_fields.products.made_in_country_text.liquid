@@ -1,0 +1,32 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:16+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            fd41baa94f75d30286e4b5ce70e9c475
+//      Signature:      eyJpdiI6ImlHY3BNbU9zZW42RmV2eFlWdTZRWmc9PSIsInZhbHVlIjoiTDZCRHh1NGlnenBURjBLQTRCZ3k3QVVXSmErc3N0bVVtenF0REUxeHlQUno2NlZKZW4xVG5LUVFGOEdTVzNIOUZrY3hOM01lXC9vY1ZKMnJtMWFqTUh3dHFmQmowVytVcjE1M1RTWlJRSWdDXC90aTgzNndyd2RFRm5ZNjVSZHJhUzNvQ0cyck5Dbm16TTZvK1lQaVNDRVloY2hOOGdWTU5MbStKaXYybVRSR1hJb002TndWR0hMMnZXOFVqMEptRTZZYWk3N3FWcWo0TGlQMFF5Wm93YU9McTBTYlwvMExuNHo2WHpKb1VhaythM1puUUd2SERnYVZKaW5oUzRoS0c0T0VvMjNZa3grd3BuSzlwcnpvNmNhMTcrUEtDY1ZkTjUzVmlpMTRKVUJSWDNGQXF0N01tNGJDT29pZFN6ekFzcjZraVZUZnY0YXhnZDVVQzNrbEthekVXUTBzMTU5YTBXVms0K01vMFIzbXdLdkpVRXpMdGM2TlByQWVLZEYxK2NTelJSSmJ3aFBmeGJnZzg2eXBKY2VjK1ZGTjhuWXNlR3JoZndQXC9NQ1ZVNStqdElsS1R5VEkzeHFKVDUxQkhwRWwiLCJtYWMiOiI3MDA3M2MyMTBjM2I1ZmNkNGZkMjUwMDNhYTc0OThkOTBmOWNjYzM2OTgwODc5M2ViYzQwYzQ0NjAzNWZiYmMwIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/labodet-store.myshopify.com/products/configure/204790/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["made_in_country_text"] != blank %}
+  <div class="custom-field custom-field__made-in-country-text custom-field__type--text">
+    <h3 class="custom-field--title">Made In Country Text</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["made_in_country_text"] }}
+    </div>
+  </div>
+{% endif %}

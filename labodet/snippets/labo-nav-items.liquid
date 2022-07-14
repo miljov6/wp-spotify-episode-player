@@ -1,0 +1,46 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:00+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            c36e21ce8ad6d32722139e7bfc086c7d
+//      Signature:      eyJpdiI6IkpLNjFsVjVxQ0JjZHpEdFczMHZGOUE9PSIsInZhbHVlIjoiY2RDeXE0N3RhQUZQVWpSSmFNdkNlYzVOU3VxWnROMWpOSFViQTRqbjcwdUlmMW9wUTdpYThtQ1JnZGpZdjYyS01nY2l0a0F0SUdIdW53K2dHWm1LTnZJTWwrelcxVXdYXC9iZHdjVXR2TE1Rdkg1UnhhWGZqZnNNQ3Q1TVk3ZUJmaTVmbTk4NUhyeFwva01LNjFrS3p1NzI1Yit1aXlOQ2cybTV2dEd1UzZ2U0M1Z0FiRjA3cmVVOUFwRUE5c2hiZ0ViTVR6RE5cL0VwRmFYYlZVd3pLVU9tSU5UMnExTkxzYVpDWitvaXFOWXMyUGRIaG82bFgzQVZIcEQrckdjamc3VzNlT05RS3R2ZjQ1U005dWk5VjliazloRWhCQSs2R3h0aE1WanR0N0liY1lsYWQydERSUjdOSk9UUEFJYWowYTI2WklcL0JLaVwvWlNyREQxS2FMN0ZRdExIWDE3ak42aVJqVGtieUllTnZ1WVVLZXBhYW10VFc2TTdmbTdHaXBQN09sU0N2QlpUWkQycUFSM1hqUzF6eFZRPT0iLCJtYWMiOiI0YTk3ZGFiNTc0Zjg5MDVhODU2M2I5ODE0ZjQ4NjkwMmE1YzljOGM2ODlkZjM4MmE2ZDdlMjY2M2IzMjdjNDZlIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+<ul class="labo-nav-ul list-unstyled">
+  {% for link in linklists[section.settings.main_menu].links %}
+  {% assign diff = 10 | minus: 1 %}
+  {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: 1 %}
+  <li class="labo-nav-li{% unless link.links == blank %} labo-nav-link-has-child{% if link.active or link.child_active %} labo-nav-first-level-page{% endif %}{% endunless %}">
+    {% unless link.links == blank %}
+    <a href="#" class="labo-nav-link {% if link.active or link.child_active %} labo-nav-first-level-active{% endif %}" data-target="{{ link.title | replace: ' ', '-' }}-{{ randomNumber }}">
+      <svg class="hide labo-nav-back" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.9289 17.0711L7.34653 10L12.9289 2.92893" stroke="black"/>
+      </svg> 
+      {{ link.title }}
+    </a>
+    <ul class="labo-navigation-submenu {{ link.title | replace: ' ', '-' }}-{{ randomNumber }}{% if link.active %}{% elsif link.child_active %}{% else %} hide{% endif %}">
+      {% for clink in link.links %}
+      <li {% if clink.active %}class="labo-nav-second-level-active"{% endif %}>
+        <a href="{{ clink.url }}">
+          {{ clink.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <a href="{{ link.url }}" class="labo-nav-link {% if link.active or link.child_active %} labo-nav-first-level-active{% endif %}">{{ link.title }}</a>
+    {% endunless %}
+  </li>
+  {% endfor %}
+</ul>

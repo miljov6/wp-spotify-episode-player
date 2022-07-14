@@ -1,0 +1,32 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:13:54+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            cb89d7ec2c8b235db7b037d848107a43
+//      Signature:      eyJpdiI6IkpQQmpNcEpPSGNVdklOSWN2RmhnY2c9PSIsInZhbHVlIjoiaHFKUElIK2psS3Y2NjYwbkpIZFh4UlIwbmlzOE4rS0l5ZWEzUXVRXC8zeVVzalNcL0MxMDE1M1QwYlN1QWJTZHdmcldiMm9WdWdXN3EyR2ZzVE9cL2IySE5ubWozWEtQVWJvYWFaWDZpN3JcL3U0XC9WTFRUT1V6SVpaZ0V5T1dFVTZLNTNTKzFkcnMzRkd6dFwvTXVybFl0UWlUeDNLdHNHWERDVDhrODRlOW9SQkVlVWh6R1IyVkZmK29lcVcrUEVOQWlHSm9jVGZvVzZNREtDd002VEdWODZIVElwRzNaWTJpNUdaYmcrM2FFQ1B1bmhMNlQ0bGRxMFBnK2dzaGV6N24yb3U0cjc2UE5MS2JLYTJ2QXVPeWFOVTNDTklZSStFVUtvemZiZHBzYTVVdmJUMFRCakpLWk82VVp3ZDBoTlErdEpiWHgwdXRpakQ0K1VEdGFiRmpUdW5TeEVlYWJDZnoyYzFQc2hFMmZhYXBwWlZ4RUpid2Y2VURMN0NiSGs3OWdzdUtZNWNJMnhPVDFITVBIMXZ2XC96dVBUeE9NeUd4SGNIekZDeG5hMmZPVWh5Q3V5OVQ0d0VyXC9XNGR2WVZZRHFjIiwibWFjIjoiZTdiZWM3ODI4MmE4NTcxMzdiMWIwZGJlNjQ0MTEzNWJjZTBlYTQyMTgwODNjMWVlNjk2ODYzNmY3NzczYThmZSJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/labodet-store.myshopify.com/products/configure/217248/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["cart_status"] != blank %}
+  <div class="custom-field custom-field__cart-status custom-field__type--text">
+    <h3 class="custom-field--title">Cart Status</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["cart_status"] }}
+    </div>
+  </div>
+{% endif %}

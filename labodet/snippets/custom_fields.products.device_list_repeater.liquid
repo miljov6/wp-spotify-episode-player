@@ -1,0 +1,46 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:13:51+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            a3019f7dbc4173d83f32cea73969cb5d
+//      Signature:      eyJpdiI6IlhUd0xlZlhXSm9QTnFhNXprU1wvdGxnPT0iLCJ2YWx1ZSI6IndhRStEaW5DNm9NN09rV3IzamdFaHdJYnVBUGRiOFVtV1dCRndMd3N1Ymt2ck5BNm8wRHViNVA0QzFtNjlUUjhnajQzS05tem1pcDJLV2tIclVcL3BxcmZ1aUZPbzFLV0ZZQTd3ZEtneUJrS1p5bm4zTUJBQ0QwTVp5VHFPK1RlcEdlbjdzZ3YrTUVrMHgyOG85cFpiSDluV3hwdXMwUHI3c0FUM3NsdHZsUVpxd01IbEs0RjJiR05uU2xsYU9tODBaaWtpUTVmV3p2T3FSZmo5eHdFUGNPTkZsN2hpSGNmYjNZakpXTHN5NFwvSG1kXC9OZjZcL0VjR0VpcXZWUktkY1I4Q0ozT3pIbGFackdocW56VkFQNzh1QSt6XC94dDFBN1dpclUrSEo5UXJwYzZsTEdZVGpFTTlEWVwvMjRmQlNSYUkzd2ZiS00ySXpPcHdpU2ZJVWRDZGV4K1M4YXY3eEd2SlArZnlWdmpBVjdrb0p1STRLZG1vU3hYZWR6UStuaVo1aW1OeGZjTU1waWN5TlJuSHM4bEdTQURjWG1IelZWZmw4eGxFTlJIUVRXNkFLVTNtd255aU93QXBVU29jV3p5K0YiLCJtYWMiOiI5ZjFmOTI0YjQyOWM2MmJkYjliYWY4NDAyNDYxMmZiZjA0MDhkN2E3YjNhOTBhZGYwYmZjNTM2YjhjMTQwYzQ1In0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+  DO NOT MODIFY THIS FILE DIRECTLY. THIS FILE WILL BE OVERWRITTEN.
+  YOU CAN MODIFY THE LIQUID CODE FOR THIS CUSTOM FIELD HERE:
+  https://customfields.bonify.io/dashboard/labodet-store.myshopify.com/products/configure/206135/edit
+{% endcomment %}
+{% if product.metafields.custom_fields["device_list_repeater"] != blank %}
+  <div class="custom-field custom-field__device-list-repeater custom-field__type--field-collection">
+    <h3 class="custom-field--title">Device List</h3>
+    <div class="custom-field--value">
+      {% assign separator = "|###|" %}
+      {% assign device_name_array = product.metafields.custom_fields["device_name"] | split: separator %}
+      {% assign product_array = product.metafields.custom_fields["product"] | split: separator %}
+      {% assign fc_keys = product.metafields.custom_fields["device_list_repeater"] | split: "," %}
+      {% for i in fc_keys %}
+        {% assign index = i | plus: 0 %}
+        <div class="fc-item fc-item--device fc-index--{{ index }}">
+          <div class="fc-field field__device-name">
+            {{ device_name_array[index] }}
+          </div>
+          <div class="fc-field field__product">
+            {{ product_array[index] }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

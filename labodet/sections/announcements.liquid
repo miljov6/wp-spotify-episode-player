@@ -1,0 +1,94 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-03-17T17:50:53+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  120105
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            7e5eb732cc157ab9bddc0c0dced97f96
+//      Signature:      eyJpdiI6IlRuZkhQK3pZa2dDUTB1amlObThWRHc9PSIsInZhbHVlIjoic2hYS1JWMm92UjJLRjJhQ1FwVTdSMDZKYmhYVUVUSW56ZXl4Rm1PTk1qc3d2Y0hrcDBPVDRnQXZ4MjZOMGozS1Bpa3JKQWxPZFNBUzNVWGs0dDVFNFQrRGpxbWs4NHltRnF3OUZRT2hhNVFNbkxON0ZQRlNmQ3JJVlZvcEhmd0F6b0loakRUd0QxcDVmcCt0T1JBbjhpWGZveTk0V3hXSnpqMDlcL2pkalR6MTQzaWRHZDFWekNRbVBvRUd4djNCQTgxUnIxOHBoenZoUDhESG50Ymc0a000SzJBTFhtQzJXU0lFdXN0ejFWN0REYWdJSDNMMTV4cW5RSlFFVHVqYUh1eHU0d2Nya3dCYkdsN243b2NCYjdnTFY0SjFjV01JQzJWYjZGWmd2dlwvVmV4OVhNRldRcG1GYnNWRzdCSEFmbnh5S1ZFcXplSitPdlF0Yko3UVVua3RrcUVkeFhJaWxJbXVIcm0xdFZPa3FDamZuNCtaSXZOblRtcUx4SEtnUWMxcDJpTEsyRWlKd0p3ZmlsK1UwVGdRPT0iLCJtYWMiOiI0NjA5ODA1ZWY3MGQzNTcxMGRkZWU4YTIzMjcwZWJjNjA1MDA5M2NjM2MxMjRjOTZiYTdiYzcyYmMxYmZjZTQ2In0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if section.blocks.size > 0 %}
+  {% for block in section.blocks %}
+    <div class="announcement" {{ block.shopify_attributes }}>
+      {{ block.settings.body }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Announcements",
+	"tag": "section",
+	"class":  "announcements-banner",
+	"settings": [
+		{
+          "type": "range",
+          "id": "delay",
+          "min": 5,
+          "max": 60,
+          "step": 5,
+          "label": "Cycle speed (seconds)",
+          "default": 20
+		}
+	],
+	"blocks": [
+		{
+			"type": "announcement",
+			"name": "Announcement",
+			"limit": 3,
+			"settings": [
+				{
+					"type": "richtext",
+   					"id": "body",
+   					"label": "Announcement"
+				}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+<script defer>
+  // TODO CLEAN THIS
+  var interval = null;
+  var announcements = $('.announcements-banner .announcement');
+  var delay = {{ section.settings.delay | times: 1000 }};
+
+  if (announcements.length > 0) {
+    $('body').addClass('announcements-shown');
+  }
+
+  // If more than 1 show them 1 by 1
+  if (announcements.length > 1) {
+    announcements.hide();
+    announcements.eq(0).show();
+
+    var current = 0;
+    var next = 1;
+
+    function cycle() {
+        if (!document.hidden) {
+            announcements.eq(current).fadeOut(1200)
+            announcements.eq(next).delay(800).fadeIn(1200)
+
+            current = current === announcements.length - 1 ? 0 : current + 1
+            next = next === announcements.length - 1 ? 0 : next + 1
+        }
+    };
+
+    clearInterval(interval);
+    interval = setInterval(cycle, delay);
+  }
+
+
+</script>

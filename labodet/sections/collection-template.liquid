@@ -1,0 +1,1227 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-03-23T13:15:03+00:00
+//      Cause:          Commit 424c047b47e9106367511e4c0168c0e16c3abfa4 by luke-bennett
+//      Deployment ID:  120564
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            9ec298b6be756072a1ab79856ca5b61e
+//      Signature:      eyJpdiI6ImkxbmZ0Nk9hWlc3M1RwaktGK1I0OEE9PSIsInZhbHVlIjoiMnM0eUZqRGt4UHYyc0h3cXNhekNUVU9uWWNZM3Z1MzBNSm9VZ3lrUEVvQWNPQ0Q2M25Mb1d0andmcWNLWGR6R2Nnd0lCdXVQVFd0RXpPdWtlY2FaeVZmaXRvc0QyMmlcL3h5OXR3cVwvOU9YaDdKdHNzZmtWZDNScUltXC9JZHAwVE83Y3RYYTV1cFp6eDJZZ1BpSkhoSExUZmhnZytlXC9mRGg3YUVUd1hhNjdPdjZwM2FtWFJPRXQ5dUlCTkZEb3d0UGxHUWxQTTJTd2x4THlPOE5PWkhlZkUwYTh4ZnBmaUpFNmloSk5iME5uTDZKaDdXS253bXoyMTIxXC9JdWtNb3dnOHFWY0VZd1wvMTQrOFJkUFY2NkNKUEFJM1wvalFRQTBSdHB5d3VJN2lPNVJ6K09uTzVsWGQ0Niswc01CK0lTZkdQdVk5YWhKcmNUc1RSbkI1bm9Qd3NTTjkwdXExQkFsM3pcL3ZyUHpSNHpqYWdhQ0tsWlJmSFhxZFh4UmdkbGhTSlwvd09vdHVpUmxZUU1TT1dMNThnekJsc0tKN3llWU1yYUlRSWlQUklGTlwvS3JOUjNGUFhtU01mV1dxZVJ6R2gyXC9qT1QydnhjaHZ5TWdHVXRcL2ljYWIzcEE9PSIsIm1hYyI6IjQ5N2U2NTlkZDQyODEyMjQ2OGNiMGViOTI1YzE0OWZmMmJmYjA1NzkyNDUwZDYzNzlmYjI5ODM2M2FiMmZmOGUifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% case section.settings.grid %}
+  {% when 2 %}
+    {%- assign max_height = 530 -%}
+  {% when 3 %}
+    {%- assign max_height = 345 -%}
+  {% when 4 %}
+    {%- assign max_height = 250 -%}
+  {% when 5 %}
+    {%- assign max_height = 195 -%}
+{% endcase %}
+
+{% if section.settings.layout == 'grid' %}
+  {%- assign limit = section.settings.grid | times: section.settings.rows -%}
+{% else %}
+  {%- assign limit = 16 -%}
+{% endif %}
+{% paginate collection.products by limit %}
+  <section class="labo-collection-page-template-main" data-collection-filters>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 px-0 px-md-3">
+          <h1 class="labo-collection-page-title my-0 py-3 border-bottom">
+            {{ collection.title }}
+          </h1>
+        </div>
+      </div>
+      <div class="row d-flex d-md-none position-relative labo-mobile-collections-filters">
+        {% unless collection.metafields.custom_fields["hide_device_list"] == 1 %}
+        <div class="col py-3">
+          <div class="labo-mobile-collection-filter">
+            <div class="labo-mb-cl-filter-wrap" id="labo-cl-device-dpd">
+              <h3 class="labo-mb-cl-filter-title">Device</h3>
+              <p class="labo-mb-cl-filter-desc" id="labo-cl-device-tt">{{ collection.title }}</p>
+            </div>
+          </div>
+        </div>
+        {% endunless %}
+        <div class="col py-3 border-left{% if collection.metafields.custom_fields["hide_device_list"] == 1 %} order-2{% endif %}">
+          <div class="labo-mobile-collection-filter" id="labo-click-lthr-fltr">
+            <div class="labo-mb-cl-filter-wrap">
+              <h3 class="labo-mb-cl-filter-title">
+                {% if collection.metafields.custom_fields["filter_1_name"] != blank  %}
+                {{ collection.metafields.custom_fields["filter_1_name"] }}
+                {% else %}
+                Leather
+                {% endif %}
+                <span class="labo-count-leather"></span>
+              </h3>
+              <p class="labo-mb-cl-filter-desc" id="labo-cl-lthr-tt">All types</p>
+            </div>
+          </div>
+        </div>
+        <div class="col py-3{% unless collection.metafields.custom_fields["hide_device_list"] == 1 %} border-left{% endunless %}">
+          <div class="labo-mobile-collection-filter" id="labo-click-case-fltr">
+            <div class="labo-mb-cl-filter-wrap">
+              <h3 class="labo-mb-cl-filter-title">
+                {% if collection.metafields.custom_fields["filter_2_name"] != blank %}
+                {{ collection.metafields.custom_fields["filter_2_name"] }}
+                {% else %}
+                Case Type
+                {% endif %}
+                <span class="labo-count-case"></span>
+              </h3>
+              <p class="labo-mb-cl-filter-desc" id="labo-cl-type-tt">All types</p>
+            </div>
+          </div>
+        </div>
+        <div id="labo-prd-fltr-lthr" class="col-12 border-top labo-prd-fltr-mb hide">
+          <div class="labo-product-device-filter-onclick position-relative">
+              <div class="labo-lthr-times-close">
+                <span></span>
+                <span></span>
+              </div>
+              <div class="labo-leather-case-fltr">
+                <div class="labo-filter-checkbox-lis">
+                  {% capture collectionleathers %}{%- paginate collection.products by 1000 -%}{% for product in collection.products %}{{ product.metafields.custom_fields["animal_skin"] }}###{% endfor %}{% endpaginate %}{% endcapture %}
+                  {% assign leathers = collectionleathers | split: "###" | uniq %}
+                  {% for leather in leathers %}
+                  <div class="labo-filter-checkbox">
+                    <input type="checkbox" id="Allmb{{ leather | replace: " ", "-" }}" name="leather" value="{{ leather | replace: " ", "-" }}">
+                    <label for="Allmb{{ leather | replace: " ", "-" }}">{{ leather }}</label>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="labo-filter-buttons">
+                <div class="labo-filter-button apply">
+                  <span>Apply <i class="labo-count-all"></i></span>
+                </div>
+                <div class="labo-filter-button ress">
+                  <a href="{{ collection.url }}" class="btn_reset">Reset</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="labo-prd-fltr-case" class="col-12 border-top labo-prd-fltr-mb hide">
+            <div class="labo-product-device-filter-onclick position-relative">
+              <div class="labo-lthr-times-close">
+                <span></span>
+                <span></span>
+              </div>
+              <div class="labo-leather-case-fltr">
+                <div class="labo-filter-checkbox-lis">
+                  {% capture collectiontype %}{%- paginate collection.products by 1000 -%}{% for product in collection.products %}{% if product.metafields.custom_fields["categorytype"] != blank %}{{ product.metafields.custom_fields["categorytype"] }}###{% endif %}{% endfor %}{% endpaginate %}{% endcapture %}
+                  {% assign categorytypes = collectiontype | split: "###" | uniq %}
+                  {% for categorytype in categorytypes %}
+                  <div class="labo-filter-checkbox">
+                    <input type="checkbox" id="Allmb{{ categorytype | replace: " ", "-" }}" name="categorytype" value="{{ categorytype | replace: " ", "-" }}">
+                    <label for="Allmb{{ categorytype | replace: " ", "-" }}">{{ categorytype }}</label>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="labo-filter-buttons">
+                <div class="labo-filter-button apply">
+                  <span>Apply <i class="labo-count-all"></i></span>
+                </div>
+                <div class="labo-filter-button ress">
+                  <a href="{{ collection.url }}" class="btn_reset">Reset</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="labo-prd-fltr-drp" class="col-12 border-top labo-prd-fltr-mb hide">
+            <div class="labo-product-device-filter-onclick position-relative">
+              <div class="labo-lthr-times-close">
+                <span></span>
+                <span></span>
+              </div>
+              <div class="labo-leather-case-fltr">
+                <div class="labo-filter-checkbox-lis labo-list-dv-fil">
+                  {% if collection.metafields.custom_fields["device_list"] != blank %}
+                  {% assign separator = "|###|" %}
+                  {% assign link_array = collection.metafields.custom_fields["link"] | split: separator %}
+                  {% assign fc_keys = collection.metafields.custom_fields["device_list"] | split: "," %}
+                  {% for i in fc_keys %}
+                  {% assign index = i | plus: 0 %}
+                  {% if collection == collections[link_array[index]] %}
+                  <div class="labo-filter-checkbox labo-fltr-active-device">
+                    <input type="checkbox" id="Allmb{{ collections[link_array[index]].title }}" name="device" value="{{ link_array[index] }}" checked>
+                    <label for="Allmb{{ collections[link_array[index]].title }}">{{ collections[link_array[index]].title }}</label>
+                  </div>
+                  {% else %}
+                  <div class="labo-filter-checkbox">
+                    <input type="checkbox" id="Allmb{{ collections[link_array[index]].title }}" name="device" value="{{ link_array[index] }}">
+                    <label for="Allmb{{ collections[link_array[index]].title }}">{{ collections[link_array[index]].title }}</label>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
+                </div>
+              </div>
+              <div class="labo-filter-buttons">
+                <div class="labo-filter-button">
+
+                </div>
+                <div class="labo-filter-button">
+
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row d-none d-md-flex labo-colllection-filter-header">
+        <div class="col-md-7">
+          {% unless collection.metafields.custom_fields["hide_device_list"] == 1 %}
+          <div class="position-relative labo-collection-dropdown-device">
+            <p class="labo-product-device-list labo-mb-selectbox">
+              Device: <strong class="labo_device_name_light">{{ collection.title }}</strong>
+              {% include 'icon-caret-up' %}
+            </p>
+            <div class="labo-product-device-dropdown hide">
+              <p class="labo-product-device-list">
+                Device: <strong>{{ collection.title }}</strong>
+                {% include 'icon-caret-down' %}
+              </p>
+              {% if collection.metafields.custom_fields["device_list"] != blank %}
+              <ul>
+                {% assign separator = "|###|" %}
+                {% assign link_array = collection.metafields.custom_fields["link"] | split: separator %}
+                {% assign fc_keys = collection.metafields.custom_fields["device_list"] | split: "," %}
+                {% for i in fc_keys %}
+                {% assign index = i | plus: 0 %}
+                <li{% if collection == collections[link_array[index]] %} class="labo-device-list-active"{% endif %}>
+                  <a href="{{ link_array[index] }}">{{ collections[link_array[index]].title }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+          </div>
+          {% endunless %}
+        </div>
+        <div class="col-md-5 d-flex justify-flex-end">
+          <div class="position-relative labo-collection-dropdown-leather">
+            <p class="labo-product-device-list labo-mb-selectbox d-flex justify-content-between">
+              <span>
+                {% if collection.metafields.custom_fields["filter_1_name"] != blank %}
+                {{ collection.metafields.custom_fields["filter_1_name"] }}
+                {% else %}
+                Leather
+                {% endif %}
+                <span class="labo-count-leather"></span>
+                {% include 'icon-caret-up' %}
+              </span>
+              <span class="labo-last-leather-side">
+                {% if collection.metafields.custom_fields["filter_2_name"] != blank %}
+                {{ collection.metafields.custom_fields["filter_2_name"] }}
+                {% else %}
+                Case Type
+                {% endif %}
+                <span class="labo-count-case"></span>
+                {% include 'icon-caret-up' %}
+              </span>
+            </p>
+            <div class="labo-product-device-dropdown hide">
+              <p class="labo-product-device-list d-flex">
+                <span>
+                  {% if collection.metafields.custom_fields["filter_1_name"] != blank %}
+                  {{ collection.metafields.custom_fields["filter_1_name"] }}
+                  {% else %}
+                  Leather
+                  {% endif %}
+                  <span class="labo-count-leather"></span>
+                  {% include 'icon-caret-down' %}
+                </span>
+                <span class="labo-last-leather-side">
+                  {% if collection.metafields.custom_fields["filter_2_name"] != blank %}
+                  {{ collection.metafields.custom_fields["filter_2_name"] }}
+                  {% else %}
+                  Case Type
+                  {% endif %}
+                  <span class="labo-count-case"></span>
+                  {% include 'icon-caret-down' %}
+                </span>
+              </p>
+              <div class="labo-leather-case-filter-checkboxes">
+                <div class="labo-filter-checkbox-list">
+                  <div class="labo-filter-checkbox">
+                    <input type="checkbox" id="AllLEATHERS" name="leather">
+                    <label for="AllLEATHERS">All</label>
+                  </div>
+                  {% for leather in leathers %}
+                  <div class="labo-filter-checkbox">
+                    <input type="checkbox" id="All{{ leather | replace: " ", "-" }}" name="leather" value="{{ leather | replace: " ", "-" }}">
+                    <label for="All{{ leather | replace: " ", "-" }}">{{ leather }}</label>
+                  </div>
+                  {% endfor %}
+                </div>
+                <div class="labo-filter-checkbox-list labo-last-leather-side">
+                  <div class="labo-filter-checkbox">
+                    <input type="checkbox" id="AllCATEGORY" name="categorytype">
+                    <label for="AllCATEGORY">All</label>
+                  </div>
+                  {% for categorytype in categorytypes %}
+                  <div class="labo-filter-checkbox">
+                    <input type="checkbox" id="All{{ categorytype | replace: " ", "-" }}" name="categorytype" value="{{ categorytype | replace: " ", "-" }}">
+                    <label for="All{{ categorytype | replace: " ", "-" }}">{{ categorytype }}</label>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="labo-filter-buttons">
+                <div class="labo-filter-button ress">
+                  <a href="{{ collection.url }}" class="btn_reset">Reset</a>
+                </div>
+                <div class="labo-filter-button apply">
+                  <span class="labo-filter-apply-button">Apply <i class="labo-count-all"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-list animateds">
+        {%- paginate collection.products by 10000 -%}
+        {% for product in collection.products %}
+          {% if forloop.index > 12 %}
+            {% assign hide_for_pagination = true %}
+          {% else %}
+            {% assign hide_for_pagination = false %}
+          {% endif %}
+          {% render 'card-product', product: product, hide: hide_for_pagination %}
+        {% endfor %}
+
+        <div style="display:none;">
+          {{ paginate | default_pagination: next: 'Older', previous: 'Newer' }}
+          {%- endpaginate -%}
+        </div>
+      </div>
+    </div>
+    <div class="text-center" style="visibility:hidden;">
+      <input type="hidden" value="{{ paginate.next.url }}" data-next-url>
+      <input type="hidden" value="{{ paginate.pages }}" data-total-pages>
+      <input type="hidden" value="{{ paginate.current_page  }}" data-current-page>
+      <div class="load-more_wrap">
+        <button class="btn js-load-more">
+          <span load-more-text>Load more</span>
+          <span class="hide" loader>Loading...</span>
+        </button>
+      </div>
+    </div>
+    
+  </section>
+{% endpaginate %}
+{% assign numInOrder = 0 %}
+{% assign animationDelay = 0 %}
+
+
+
+<div id="filter">
+  <p>There are no items that match your selection.<br>
+  Please choose another combination. </p>
+  <div class="labo-filter-button ress">
+    <a href="{{ collection.url }}" class="btn_reset">Reset filter</a>
+  </div>
+</div> 
+  <div class="container collection-main-hidedd">
+    <div class="collection-main-text-body">
+      <div class="collection-main-text-left">
+        <div class="collection-main-text-text">
+         
+        	{{ collection.metafields.custom_fields.seo_left_text }}
+        </div>
+        <div class="r-more">Read more</div>
+      </div>
+      <div class="collection-main-text-right">
+        {{ collection.metafields.custom_fields.seo_right_text }}
+      </div>
+    </div>
+  </div>
+
+<style>
+ .collection-main-text-body .h1, .collection-main-text-body .h2, .collection-main-text-body .h3, .collection-main-text-body .h4, .collection-main-text-body .h5,
+  .collection-main-text-body .h6, .collection-main-text-body h1, .collection-main-text-body h2, .collection-main-text-body h3, .collection-main-text-body h4, .collection-main-text-body h5, .collection-main-text-body h6 {
+    margin-bottom: 1rem;
+        font-size: 1.4666em;
+
+ }
+
+  .collection-main-text-body {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    border-top: 1px solid #00000033;
+    margin-top: -50px;
+    margin-bottom: 50px;
+  }
+  .collection-main-text-left {
+    margin-right: 100px;
+  	width: calc(50% - 50px);
+  }
+  .collection-main-text-text {
+    width:100%;
+    height: 130px;
+    -webkit-transition: height 0.8s;
+    -o-transition: height 0.8s;
+    transition: height 0.8s;
+    overflow: hidden;
+  }
+  .r-more {
+    margin-top: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .collection-main-text-right {
+  	width: calc(50% - 50px);
+    height: 0px;
+    -webkit-transition: height 0.8s;
+    -o-transition: height 0.8s;
+    transition: height 0.8s;
+    overflow: hidden;
+  }
+  .collection-main-text-body  ul {
+    padding-left: 17px;
+    list-style-type: square;
+  }
+
+  @media (max-width:1100px) {
+    .collection-main-text-left {
+      width: calc(50% - 15px);
+      margin-right: 30px;
+    }
+    .collection-main-text-right {
+      width: calc(50% - 15px);
+    }
+  }
+  @media (max-width: 767px) {
+  	.collection-main-text-left {
+      width: 100%;
+      margin-right: 0px;
+    }
+    .collection-main-text-right {
+      width: 100%;
+    }
+    .collection-main-text-body {
+        margin: -50px -15px 50px;
+        padding: 30px 15px 0;
+    }
+    .collection-main-text-right {
+    	margin-bottom: 0px;
+	}
+    .collection-main-text-body .h1, .collection-main-text-body .h2, .collection-main-text-body .h3, .collection-main-text-body .h4, .collection-main-text-body .h5, .collection-main-text-body .h6, .collection-main-text-body h1, .collection-main-text-body h2, .collection-main-text-body h3, .collection-main-text-body h4, .collection-main-text-body h5, .collection-main-text-body h6 {
+   	    margin-bottom: 1rem;
+    	font-size: 16px;
+	}
+	.collection-main-text-text {
+    	width: 100%;
+    	height: 134px;
+    }
+    .collection-main-text-body p, .collection-main-text-body ul li {
+    	font-size:14px;
+    }
+
+  }
+
+ /* #ajaxLoop */
+ #ajaxLoop{
+   display: flex;
+   flex-wrap: wrap;
+ }
+ #ajaxLoop .product{
+   width: 50%;
+   border-right: 1px solid #fff;
+ }
+ .ajaxLoopWrap{
+   position: relative;
+   display: block;
+   padding-bottom: 40px;
+   margin: 0 -15px;
+ }
+ #ajaxLoopPagination{
+   display: block;
+   background: transparent;
+   text-align: center;
+   padding: 40px 0 15px;
+ }
+ #ajaxLoopPagination a{
+   display: block;
+   text-decoration: none;
+ }
+ .labo-collection-page-grid .labo-collectopn-page-image
+ {
+   position: relative;
+ }
+ .collection_item_loader
+ {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 1;
+   background: #DEDEDE;
+ }
+ .cont_custom {
+   /*display: flex;
+   justify-content: space-between;
+   align-items: center;*/
+   max-width: 69px;
+   width: 100%;
+   margin: 0 auto;
+   display: flex !important;
+   position: relative;
+   min-height: 13px;
+ }
+ .cont_custom .owl-item{
+   /*width: 15px !important;
+   height: 15px !important;*/
+ }
+ .circle {
+   width: 13px;
+   height: 13px;
+   /*margin: 4px;*/
+   margin: 0 5px;
+   background: #A2A2A2;
+   /*display: flex;*/
+ }
+ .cont_custom .circle-1{
+   animation: toLeft1 1.5s linear infinite;
+   transform: translate(-50%, -50%) scale(1);
+   position: absolute;
+   top: 50%;
+   left: calc(0% - 5px);
+ }
+ .cont_custom .circle-2{
+   position: absolute;
+   top:50%;
+   left:0%;
+   transform: translate(-50%, -50%);
+   animation: toLeft2 1.5s linear infinite;
+   z-index: 2;
+ }
+ .cont_custom .circle-2:after{
+   content: '';
+   position: absolute;
+   top:50%;
+   left:50%;
+   width: 13px;
+   height: 13px;
+   background: #A2A2A2;
+   margin-left: 5px;
+   transform: translate(100%, -50%);
+ }
+ .cont_custom .circle-3{
+   animation: toLeft3 1.5s linear infinite;
+   position: absolute;
+   transform: translate(-50%, -50%) scale(1);
+   top: 50%;
+   right: 0%;
+   z-index: 1;
+ }
+ @keyframes toLeft1 {
+   0% {
+     transform: translate(-50%, -50%) scale(1);
+   }
+   1%{
+      transform: translate(0%, -50%) scale(0.1);
+   }
+   50% {
+      transform: translate(-50%, -50%) scale(1);
+   }
+   100% {
+      transform: translate(-50%, -50%) scale(1);
+   }
+ }
+ @keyframes toLeft2 {
+   0%{
+     transform: translate(-50%, -50%);
+   }
+   50%
+   {
+     transform: translate(100%, -50%);
+   }
+   99%
+   {
+     transform: translate(100%, -50%);
+   }
+   100%
+   {
+     transform: translate(-50%, -50%);
+   }
+ }
+  @keyframes toLeft3 {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    75% {
+      transform: translate(-75%, -50%) scale(0.1);
+    }
+    100%{
+      transform: translate(-100%, -50%) scale(0);
+    }
+  }
+ @media(min-width: 768px){
+   #ajaxLoop .product{
+     width: 33.333%;
+   }
+   #ajaxLoop .product:nth-child(3n){
+     border-right: 0;
+   }
+   .ajaxLoopWrap{
+     margin: 0;
+   }
+ }
+
+</style>
+
+<style>
+  {% paginate collection.products by 1000 %}
+
+  {% for product in collection.products  %}
+  .prod-list .product.card-product.animateds:nth-of-type({{ numInOrder }}){
+  {% assign numInOrder = numInOrder | plus: 1 %}
+  {% if numInOrder == 18 or numInOrder == 35 or numInOrder == 52 or numInOrder == 69 or numInOrder == 86 or numInOrder == 103 %}
+  {% assign animationDelay = 0 %}
+  {% endif %}
+  {% assign animationDelay = animationDelay | plus: 0.1 %}
+
+    animation-delay: {{animationDelay}}s;
+  }
+  {% endfor %}
+  {% endpaginate %}
+  .prod-list .product.card-product.animateds{
+    opacity: 0;
+    animation: fadein 1s;
+    -moz-animation: fadein 1s; /* Firefox */
+    -webkit-animation: fadein 1s; /* Safari and Chrome */
+    -o-animation: fadein 1s; /* Opera */
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+
+  @keyframes fadein {
+    from {
+      opacity:0;
+    }
+    to {
+      opacity:1 ;
+    }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+    from {
+      opacity:0;
+    }
+    to {
+      opacity:1;
+    }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+      opacity:0;
+    }
+    to {
+      opacity:1;
+    }
+  }
+  @-o-keyframes fadein { /* Opera */
+    from {
+      opacity:0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .dot-carousel {
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+    box-shadow: 9984px 0 0 0 #9880ff, 9999px 0 0 0 #9880ff, 10014px 0 0 0 #9880ff;
+    animation: dotCarousel 1.5s infinite linear;
+  }
+
+  @keyframes dotCarousel {
+    0% {
+      box-shadow: 9984px 0 0 -1px #9880ff, 9999px 0 0 1px #9880ff, 10014px 0 0 -1px #9880ff;
+    }
+    50% {
+      box-shadow: 10014px 0 0 -1px #9880ff, 9984px 0 0 -1px #9880ff, 9999px 0 0 1px #9880ff;
+    }
+    100% {
+      box-shadow: 9999px 0 0 1px #9880ff, 10014px 0 0 -1px #9880ff, 9984px 0 0 -1px #9880ff;
+    }
+  }
+</style>
+
+<style>
+  #filter {
+    text-align: center;
+    text-align: -webkit-center;
+    padding-top: 180px;
+    padding-bottom: 300px;
+  }
+
+  #filter p {
+	  font-family: "Neue Haas Unica";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 23px;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 40px;
+  }
+
+  #filter .labo-filter-button {
+    width: 300px;
+    height: 40px;
+    padding-top: 0px;
+  }
+  #filter .labo-filter-button a{
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  }
+  @media screen and (max-width: 480px) {
+    #filter {
+    padding-top: 96px;
+    padding-bottom: 223px;
+  }
+  #filter p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  }
+</style>
+
+<script defer>
+
+
+
+$( document ).ready(function(){
+   $('.ress').click(function () {
+   });
+   $( ".apply" ).on( "click", function() {
+     	$(".collection-main-text-text").css("height", "134px");
+     	$(".collection-main-text-right").css("height", "0px");
+     	$('.r-more').removeClass('hide');
+   });
+
+});
+
+$(document).ready(function(){
+    $('.r-more').click(function(){
+      $('.collection-main-text-text').animate({height: $(".collection-main-text-text").get(0).scrollHeight}, 100 );
+       $('.collection-main-text-right').animate({height: $(".collection-main-text-right").get(0).scrollHeight}, 80 );
+
+      $(this).addClass('hide');
+      return false;
+    });
+
+
+});
+  // $('.labo-prd-fltr-mb .labo-filter-button:last-of-type').click(function () {
+  //     $('.product.card-product').css("display", "none");
+  //   setTimeout( function () {
+  //
+  //     $('.product.card-product').css("display", "block");
+  //     console.log(2);
+  //   },10)
+  //
+  //
+  // })
+  // $('.labo-prd-fltr-mb .labo-filter-button:first-of-type').click(function () {
+  //
+  //   $(".card-product").each(function(  ) {
+  //     if  ( $(this).css("display") === "block" ){
+  //
+  //       $(this).css("display", "none");
+  //
+  //         $(this).css("display", "block");
+  //       console.log(33);
+  //
+  //     }
+  //   });
+  //
+  //
+  // })
+
+
+ // =========================== FILTERS ANIMATION FOR DESKTOP =======================================
+
+
+
+  $('.labo-product-device-dropdown .labo-filter-button:last-of-type').click(function () {
+    $('.labo-prd-fltr-mb.hide').css("display", "none");
+    $('.prod-list ').removeClass("prod-list-active");
+
+    var animation_counter = 0;
+    var wrapHeight = $( ".prod-list").css("height");
+    $( ".prod-list").css("min-height", wrapHeight);
+    $( ".prod-list .product.card-product" ).each(function( index ) {
+      if( $(this).css("display") === "block"){
+        $(this).css("animation-delay", '' + animation_counter + 's');
+        $(this).css("display", "none");
+
+        animation_counter+= 0.2;
+        setTimeout( ()=>{
+          $(this).css("display", "block");
+          if (animation_counter > 0) {
+            $(".prod-list").css("min-height", "unset");
+          }
+        },10)
+      }
+    });
+  });
+
+  $('.labo-product-device-dropdown .labo-filter-button:first-of-type').click(function () {
+    $('.labo-prd-fltr-mb.hide').css("display", "none");
+    $('.prod-list ').removeClass("prod-list-active");
+    var animation_counter = 0;
+    var wrapHeight = $( ".prod-list").css("height");
+    $( ".prod-list").css("min-height", wrapHeight);
+    console.log(wrapHeight, 'test');
+    $( ".prod-list .product.card-product" ).each(function( index ) {
+      if( $(this).css("display") === "block"){
+        $(this).css("animation-delay", '' + animation_counter + 's');
+        $(this).css("display", "none");
+        animation_counter+= 0.2;
+        setTimeout( ()=>{
+          $(this).css("display", "block");
+          if (animation_counter > 0) {
+            $(".prod-list").css("min-height", "unset");
+          }
+        },10)
+      }
+    });
+  });
+
+
+
+
+ // $('.labo-bars.nav-toggle').click(function () {
+ //   $('.labo-prd-fltr-mb.hide').css("display", "none");
+ //
+ // })
+
+  // -------------------------------------------------------------LOAD MORE START
+//   $( document ).ready(function() {
+//
+//     // $('.product.card-product.animateds').on('touchend click', function(e) {
+//     //   if (event.type == "touchend") {
+//     //    // alert('touch')
+//     //     $(this).click();
+//     //   }
+//     //   if (event.type == "click") {
+//     //     //alert('click')
+//     //   }
+//     // });
+//     // $('.labo-product-device-list')[0].click();
+//
+//   var breakLoading = false;
+//   var itemsLoading = setInterval( function () {
+//     var $this = $(this), totalPages = parseInt($('[data-total-pages]').val()),
+//             currentPage = parseInt($('[data-current-page]').val());
+//     $this.attr('disabled', true);
+//     $this.find('[load-more-text]').addClass('hide');
+//     $this.find('[loader]').removeClass('hide');
+//     currentPage = currentPage + 1;
+//     if ($('[data-next-url]').val() == ''){
+//       breakLoading = true;
+//
+//       if(breakLoading){
+//         clearInterval(itemsLoading);
+//       }
+//     }else{
+//       var nextUrl = $('[data-next-url]').val().replace(/page=[0-9]+/, 'page=' + currentPage);
+//       $('[data-current-page]').val(currentPage);
+//       $.ajax({
+//         url: nextUrl,
+//         type: 'GET',
+//         dataType: 'html',
+//         success: function (responseHTML) {
+//           $('.prod-list').append($(responseHTML).find('.prod-list').html());
+//           if($(responseHTML).find('.prod-list > .product').length === 0){
+//             breakLoading = true;
+//           }
+//         },
+//         complete: function () {
+//           if (currentPage <= totalPages) {
+//             $this.attr('disabled', false);
+//             $this.find('[load-more-text]').removeClass('hide');
+//             $this.find('[loader]').addClass('hide');
+//
+//           }
+//
+//         }
+//       });
+//       // console.log(breakLoading);
+//       if(breakLoading){
+//         clearInterval(itemsLoading);
+//       }
+//     }
+//
+//   }, 1000);
+// })
+
+  // -------------------------------------------------------------LOAD MORE END
+  // Shortcircuit variable
+
+  // let triggered = false;
+  //
+  // function ScrollExecute() {
+  //   // Locate loadmore button
+  //   let moreButon = $('#more').last();
+  //
+  //   // Get URL from the loadmore button
+  //   let nextUrl = $(moreButon).find('a').attr("href");
+  //
+  //
+  //   if (moreButon.length) {
+  //     // Button position when AJAX call should be made one time
+  //
+  //
+  //       // Trigger shortcircuit to ensure AJAX only fires once
+  //       triggered = true;
+  //
+  //       // Make ajax call to next page for load more data
+  //       $.ajax({
+  //         url: nextUrl,
+  //         type: 'GET',
+  //         beforeSend: function() {
+  //           moreButon.remove();
+  //         }
+  //       })
+  //               .done(function(data) {
+  //                 // Append data
+  //                 $('.prod-list').append($(data).find('.prod-list').html());
+  //
+  //                 // On success, reset shortcircuit
+  //                 triggered = false
+  //               });
+  //       console.log(nextUrl);
+  //
+  //
+  //   }
+  //
+  // }
+  //
+  // $(document).ready(function () {
+  //   setInterval(function (){
+  //     ScrollExecute();
+  //   }, 1000);
+  // });
+
+
+
+  // $('.js-load-more').on('click', function(){
+  //   var $this =$(this),totalPages = parseInt($('[data-total-pages]').val()),currentPage = parseInt($('[data-current-page]').val());
+  //   $this.attr('disabled', true);
+  //   $this.find('[load-more-text]').addClass('hide');
+  //   $this.find('[loader]').removeClass('hide');
+  //   currentPage = currentPage+1;
+  //   var nextUrl = $('[data-next-url]').val().replace(/page=[0-9]+/,'page='+currentPage);
+  //   $('[data-current-page]').val(currentPage);
+  //   $.ajax({
+  //     url: nextUrl,
+  //     type: 'GET',
+  //     dataType: 'html',
+  //     success: function(responseHTML){
+  //       $('.prod-list').append($(responseHTML).find('.prod-list').html());
+  //     },
+  //     complete: function() {
+  //       if(currentPage <= totalPages) {
+  //         $this.attr('disabled', false); $this.find('[load-more-text]').removeClass('hide'); $this.find('[loader]').addClass('hide');
+  //       }
+  //     }
+  //   })
+  // });
+</script>
+<script>
+  //If filter doesn't return any result
+$(document).click(function(){
+  if(($(".prod-list").height()) <= 1) {
+    $("#filter").show();
+  }
+  else {
+    $("#filter").hide();
+  }
+})
+</script>
+{% schema %}
+{
+  "name": {
+    "da": "Kollektionssider",
+    "de": "Kategorie-Seiten",
+    "en": "Collection pages",
+    "es": "Páginas de colección",
+    "fi": "Kokoelman sivut",
+    "fr": "Pages de collections",
+    "hi": "कलेक्शन पेज",
+    "it": "Pagine di collezioni",
+    "ja": "コレクションページ",
+    "ko": "컬렉션 페이지",
+    "nb": "Samlingssider",
+    "nl": "Collectiepagina's",
+    "pt-BR": "Páginas de coleções",
+    "pt-PT": "Páginas de coleções",
+    "sv": "Produktseriesidor",
+    "th": "หน้าคอลเลกชัน",
+    "zh-CN": "产品系列页面",
+    "zh-TW": "商品系列頁面"
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": {
+        "da": "Layout",
+        "de": "Layout",
+        "en": "Layout",
+        "es": "Diseño",
+        "fi": "Asettelu",
+        "fr": "Mise en page",
+        "hi": "लेआउट",
+        "it": "Layout",
+        "ja": "レイアウト",
+        "ko": "레이아웃",
+        "nb": "Oppsett",
+        "nl": "Opmaak",
+        "pt-BR": "Layout",
+        "pt-PT": "Esquema",
+        "sv": "Layout",
+        "th": "เลย์เอาต์",
+        "zh-CN": "布局",
+        "zh-TW": "版面配置"
+      },
+      "default": "grid",
+      "options": [
+        {
+          "value": "grid",
+          "label": {
+            "da": "Gitter",
+            "de": "Raster",
+            "en": "Grid",
+            "es": "Cuadrícula",
+            "fi": "Ruudukko",
+            "fr": "Grille",
+            "hi": "ग्रिड",
+            "it": "Griglia",
+            "ja": "グリッド",
+            "ko": "그리드",
+            "nb": "Rutenett",
+            "nl": "Raster",
+            "pt-BR": "Grade",
+            "pt-PT": "Grelha",
+            "sv": "Rutnät",
+            "th": "กริด",
+            "zh-CN": "网格",
+            "zh-TW": "網格"
+          }
+        },
+        {
+          "value": "list",
+          "label": {
+            "da": "Liste",
+            "de": "Liste",
+            "en": "List",
+            "es": "Lista",
+            "fi": "Luettelo",
+            "fr": "Liste",
+            "hi": "सूची",
+            "it": "Elenco",
+            "ja": "リスト",
+            "ko": "목록",
+            "nb": "Liste",
+            "nl": "Lijst",
+            "pt-BR": "Lista",
+            "pt-PT": "Lista",
+            "sv": "Lista",
+            "th": "รายการ",
+            "zh-CN": "列表",
+            "zh-TW": "清單"
+          }
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": {
+        "da": "Produkter pr. række (kun gitter)",
+        "de": "Produkte per Reihe (nur Raster)",
+        "en": "Products per row (grid only)",
+        "es": "Productos por fila (solo cuadrícula)",
+        "fi": "Tuotteita per rivi (vain ruudukko)",
+        "fr": "Produits par rangée (grille uniquement)",
+        "hi": "उत्पाद प्रति पंक्ति (केवल ग्रिड)",
+        "it": "Prodotti per riga (solo griglia)",
+        "ja": "行あたりの商品数（グリッドのみ）",
+        "ko": "열 별 제품 (그리드 전용)",
+        "nb": "Produkter per rad (kun rutenett)",
+        "nl": "Producten per rij (alleen raster)",
+        "pt-BR": "Produtos por linha (somente grade)",
+        "pt-PT": "Produtos por linha (somente grelha)",
+        "sv": "Produkter per rad (endast rutnät)",
+        "th": "สินค้าต่อแถว (กริดเท่านั้น)",
+        "zh-CN": "每行产品数（仅限网格）",
+        "zh-TW": "每列產品數 (僅限網格)"
+      },
+      "default": 4,
+      "min": 2,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "rows",
+      "label": {
+        "da": "Rækker pr. side (kun gitter)",
+        "de": "Reihen per Seite (nur Raster)",
+        "en": "Rows per page (grid only)",
+        "es": "Filas por página (solo cuadrícula)",
+        "fi": "Rivejä per sivu (vain ruudukko)",
+        "fr": "Rangées par page (grille uniquement)",
+        "hi": "प्रति पृष्ठ पंक्तियां (केवल ग्रिड)",
+        "it": "Righe per pagina (solo griglia)",
+        "ja": "ページあたりの行数（グリッドのみ）",
+        "ko": "페이지 별 열 (그리드 전용)",
+        "nb": "Rader per side (kun rutenett)",
+        "nl": "Rijen per pagina (alleen raster)",
+        "pt-BR": "Linhas por página (somente grade)",
+        "pt-PT": "Linhas por página (somente grelha)",
+        "sv": "Rader per sida (endast rutnät)",
+        "th": "แถวต่อหน้า (กริดเท่านั้น)",
+        "zh-CN": "每行产品数（仅限网格）",
+        "zh-TW": "每頁列數 (僅限網格)"
+      },
+      "default": 2,
+      "min": 2,
+      "max": 8,
+      "step": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_image",
+      "label": {
+        "da": "Vis kollektionsbillede",
+        "de": "Kategorie-Foto anzeigen",
+        "en": "Show collection image",
+        "es": "Mostrar imagen de la colección",
+        "fi": "Näytä kokoelman kuva",
+        "fr": "Afficher l'image de la collection",
+        "hi": "कलेक्शन इमेज दिखाएं",
+        "it": "Mostra immagine collezione",
+        "ja": "コレクションの画像を表示する",
+        "ko": "컬렉션 이미지 표시",
+        "nb": "Vis samlingsbilde",
+        "nl": "Collectieafbeelding weergeven",
+        "pt-BR": "Exibir imagem da coleção",
+        "pt-PT": "Mostrar imagem da coleção",
+        "sv": "Visa produktseriebilder",
+        "th": "แสดงรูปภาพคอลเลกชัน",
+        "zh-CN": "显示产品系列图片",
+        "zh-TW": "顯示商品系列圖片"
+      },
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": {
+        "da": "Vis produktleverandører",
+        "de": "Produkt-Lieferanten anzeigen",
+        "en": "Show product vendors",
+        "es": "Mostrar proveedores del producto",
+        "fi": "Näytä tuotteen myyjät",
+        "fr": "Afficher les vendeurs",
+        "hi": "उत्पाद विक्रेताओं को दिखाएं",
+        "it": "Mostra fornitori prodotto",
+        "ja": "商品の販売元を表示する",
+        "ko": "제품 공급 업체 표시",
+        "nb": "Vis produktleverandører",
+        "nl": "Productleveranciers weergeven",
+        "pt-BR": "Exibir fornecedores do produto",
+        "pt-PT": "Mostrar fornecedores do produto",
+        "sv": "Visa produktleverantörer",
+        "th": "แสดงผู้ขายสินค้า",
+        "zh-CN": "显示产品厂商",
+        "zh-TW": "顯示產品廠商"
+      },
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "sort_enable",
+      "label": {
+        "da": "Aktivér sortering",
+        "de": "Sortieren erlauben",
+        "en": "Enable sorting",
+        "es": "Habilitar la función ordenar",
+        "fi": "Ota lajittelu käyttöön",
+        "fr": "Activer le tri",
+        "hi": "क्रमबद्ध करना सक्षम करें",
+        "it": "Permetti di ordinare",
+        "ja": "並べ替えを有効にする",
+        "ko": "정렬 사용",
+        "nb": "Aktiver sortering",
+        "nl": "Sortering inschakelen",
+        "pt-BR": "Habilitar organização",
+        "pt-PT": "Ativar ordenação",
+        "sv": "Aktivera sortering",
+        "th": "เปิดใช้งานการจัดเรียง",
+        "zh-CN": "启用排序",
+        "zh-TW": "啟用排序"
+      },
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "tags_enable",
+      "label": {
+        "da": "Aktivér tagfiltrering",
+        "de": "Tag-Filtern erlauben",
+        "en": "Enable tag filtering",
+        "es": "Habilitar filtro de etiquetas",
+        "fi": "Ota tunnisteiden suodatus käyttöön",
+        "fr": "Activer le filtrage par balises",
+        "hi": "टैग फ़िल्टर करना सक्षम करें",
+        "it": "Attiva filtro tag",
+        "ja": "タグでの絞り込みを有効にする",
+        "ko": "태그 필터링 사용",
+        "nb": "Aktiver taggfiltrering",
+        "nl": "Filteren op tags inschakelen",
+        "pt-BR": "Habilitar filtragem de tags",
+        "pt-PT": "Ativar filtragem por etiqueta",
+        "sv": "Aktivera taggfiltrering",
+        "th": "เปิดใช้การกรองแท็ก",
+        "zh-CN": "启用标签筛选",
+        "zh-TW": "啟用標籤篩選功能"
+      },
+      "default": true
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,92 @@
+<div class="lb_first_section">
+    <div class="lb_first_section_position">
+        <div class="lb_fs_info">
+            <div class="lb_fs_head"><h2>{{ section.settings.lb_fs_head }}</h2></div>
+            <img src="{{ section.settings.lb_fs_img | img_url: '640x'}}"  srcset="{{ section.settings.lb_fs_img | img_url: 'master'}}" alt="{{ section.settings.lb_fs_img.alt | escape }}">
+            <span>{{ section.settings.lb_fs_information }}</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    .lb_first_section{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background: #000000;
+        margin-top: -1px;
+    }
+    .lb_first_section_position{
+        display: flex;
+        max-width: 640px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 64px 0 51px;
+        margin: 0 21px;
+    }
+    .lb_first_section_position img{
+       width: 100%;
+       margin:30px 0;
+    }
+    .lb_fs_info{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .lb_fs_info span{
+        font-size: 20px;
+        font-family: "NeueHaasUnicaProMedium";
+        line-height: 27px;
+        color: #E1E1E1;
+    }
+    .lb_fs_head h2{
+        font-size: 45px;
+        font-weight: bold;
+        font-family: "NeueHaasUnicaProBold";
+        line-height: 50px;
+        color: #FFFFFF;
+        margin: 0;
+    }
+    @media screen and (max-width:500px){
+        .lb_fs_head h2{
+            font-size: 33px;
+            line-height: 38px;
+        }
+        .lb_fs_info span{
+            font-size: 16px;
+            line-height: 23px;
+        }
+        .lb_first_section_position{
+            padding: 23px 0;
+        }
+    }
+</style>
+
+{% schema %}
+{
+    "name": "First Section",
+    "settings": [
+    {
+        "id":"lb_fs_img",
+        "type":"image_picker",
+        "label":"Main Image"
+    },
+    {
+        "id":"lb_fs_head",
+        "type":"text",
+        "label":"Head"
+    },
+    {
+        "id":"lb_fs_information",
+        "type":"textarea",
+        "label":"Info"
+    }
+    ]
+}
+
+{% endschema %}

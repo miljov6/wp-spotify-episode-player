@@ -1,0 +1,245 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-03-17T17:51:01+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  120105
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            94a6cbb4b9c2fb4cab728e3fdd288ea9
+//      Signature:      eyJpdiI6IkhHU2tvZkFcL2lDNjZRU0Q0R21MM3BBPT0iLCJ2YWx1ZSI6InZhbDdtdlA4R0FiOUI1emRqUmR0d1FcL2E4T0tncjVtM2FhSHNlK2FtVThWT1BOaDJZMVNcL3Q0dEpVcll1dVpHMjkwR2RvMlJQdDlKano1NGRvaU1HWG50cnp3ODRmRXZVUHFSK1Arb1FQTGtZZlN4dk8xUFlCMDF6Rk90Vzluc3VOQ2lzVGlXNytYdGNvVHNubHFEcThlQnJURjBMSnRhRFR6WDUzdFJVZ3lYOVpQQlZQNWFaTUw3XC9ZSkwxVkFpTTJTMUZwejVOUjdCMWdFSFpuY1FHODNySXNlaGlJaDVDTnl2STNBRThVY0l4YmpmSW42c1hZOWFkZ3ViVlZYZkE0Y0l6NmdxaWlHSFZ1cVwvcngrMWJyU3FXTWQ4bDVVV3RTZFpYK1BjUEZ4UHhPSXlZUlFnaGlvMXRMY1wvRTBrbGdVaFpVRXJDVU42Q2NWd3F0a3pEYmg0WlVrZmVJSTNEXC9JQmJCQ1YxUXVZQzdaYmZFNTA3elpKYUVESEVVSXBtNDNzQ2JvQVpwZHYzYlZkeHgzWjBYbVE9PSIsIm1hYyI6Ijk2ODcxNGEyMDFmMjczZTcxYjNjYzgxZjc0OGMzMmQzZmY0NjljOWZjYTI1ZTA0MjkxMTQyYTQzZGQxYzQ5NjkifQ==
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if section.settings.enable_popup == true %}
+<div class="inner">
+  <div class="header">
+    <img class="logo" src="https://cdn.shopify.com/s/files/1/0459/2051/8296/files/1._icon_mobile_logo_1.svg?v=1600248155" alt="" />
+
+    <a href="#" class="labo-times">
+      <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.304688" y="1.01465" width="1" height="25" transform="rotate(-45 0.304688 1.01465)" fill="black"/>
+        <rect x="1.01172" y="18.6924" width="1" height="25" transform="rotate(-135 1.01172 18.6924)" fill="black"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="images">
+    {% for block in section.blocks %}
+    	{% if block.type == 'slider_image' %}
+    		<img src="{{ block.settings.slider_image | img_url: 'master' }}" alt="" {{ block.shopify_attributes }} />
+    	{% endif %}
+	{% endfor %}
+  </div>
+
+  <div class="single-image">
+    <img src="{{ section.settings.large_image | img_url: 'master' }}" alt="" />
+  </div>
+
+  <div class="content">
+    <a href="#" class="labo-times">
+      <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.304688" y="1.01465" width="1" height="25" transform="rotate(-45 0.304688 1.01465)" fill="black"/>
+        <rect x="1.01172" y="18.6924" width="1" height="25" transform="rotate(-135 1.01172 18.6924)" fill="black"/>
+      </svg>
+    </a>
+    
+    <div class="thank-you-message">
+      
+      {% if section.settings.thank_you_title != blank %}
+        <h3 class="title">
+          {{ section.settings.thank_you_title }}
+        </h3>
+      {% endif %}
+
+      {% if section.settings.thank_you_description != blank %}
+        <p class="description">
+            {{ section.settings.thank_you_description }}
+        </p>
+      {% endif %}
+
+      {% if section.settings.discount_code != blank %}
+        <p class="code">
+            {{ section.settings.discount_code }}
+        </p>
+      {% endif %}
+
+      {% if section.settings.button_title != blank and section.settings.button_link != blank %}
+        <a class="btn btn-black btn-block" href="{{ section.settings.button_link }}">
+          {{ section.settings.button_title }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.settings.title != blank %}
+      <h2 class="title">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+    
+    {% if section.settings.description != blank %}
+      <p class="description">
+        {{ section.settings.description }}
+      </p>
+    {% endif %}
+
+    <div class="klaviyo-form-Rb2cjd offer-signup"></div>
+
+    {% if section.settings.show_google_button == true or section.settings.show_facebook_button == true %}
+      <div class="social-logins">
+        <p class="title">
+          Or continue with
+        </p>
+
+        <div class="buttons">
+          {% if section.settings.show_google_button == true %}
+          	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+          {% endif %}
+          
+          {% if section.settings.show_facebook_button == true %}
+          	<button class="facebook_icon"><img src="{{ 'facebook_icon.png' | asset_img_url: 'master' }}"> Facebook</button>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if section.settings.privacy_note != blank %}
+      <p class="privacy_note">
+        {{ section.settings.privacy_note }}
+      </p>
+    {% endif %}
+  </div>
+  
+</div>
+
+<script>
+  window.addEventListener("klaviyoForms", function(e) {
+    if (e.detail.type == 'submit' && e.detail.formId == 'Rb2cjd') {
+      var emailPopup = document.querySelector('.section-email-popup');
+      emailPopup.classList.add('submitted');
+    }
+  });
+
+  $(document).ready(function() {
+    
+    var cookieKey = 'ep-seen';
+    var epSeen = getCookie(cookieKey);
+    
+    if (!epSeen) {
+      
+      var slider = $('.section-email-popup .images').slick({
+        arrows: false,
+        dots: true,
+        infinite: false
+      });
+
+      $(window).on('load',function() {
+        $('body').addClass('email-popup-open');
+        slider.slick('refresh');
+        
+        setCookie(cookieKey, true, 7);
+      });
+    }
+        
+    $('.section-email-popup .labo-times').click(function() {
+      $('body').removeClass('email-popup-open');
+    });
+  });
+</script>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Email popup",
+	"class": "section-email-popup",
+	"tag": "section",
+	"blocks": [
+		{
+        "type": "slider_image",
+        "name": "Mobile slider image",
+        "settings": [
+				{
+                "type": "image_picker",
+                "id": "slider_image",
+                "label": "Mobile slider image"
+              }
+          ]
+		}
+	],
+  "settings": [
+  {
+    "type": "checkbox",
+    "id": "enable_popup",
+    "label": "Display pop-up?",
+    "default": false
+  },
+		{
+			"type": "image_picker",
+			"id": "large_image",
+			"label": "Desktop image"
+    },
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title"
+		},
+		{
+			"type": "text",
+			"id": "description",
+			"label": "Description"
+		},
+        {
+          "type": "checkbox",
+          "id": "show_google_button",
+          "default": true,
+          "label": "Show Google button"
+        },
+		{
+          "type": "checkbox",
+          "id": "show_facebook_button",
+          "default": true,
+          "label": "Show Facebook button"
+        },
+		{
+          "type": "textarea",
+          "id": "privacy_note",
+          "label": "Privacy note"
+        },
+        {
+          "type": "header",
+          "content": "Thank you message"
+        },
+		{
+			"type": "text",
+			"id": "thank_you_title",
+			"label": "Title"
+		},
+		{
+			"type": "text",
+			"id": "thank_you_description",
+			"label": "Description"
+		},
+		{
+			"type": "text",
+			"id": "discount_code",
+			"label": "Discount code"
+		},
+		{
+			"type": "text",
+			"id": "button_title",
+			"label": "Button title"
+		},
+        {
+          "id": "button_link",
+          "type": "url",
+          "label": "Button link"
+        }
+	]
+  }
+{% endschema %}

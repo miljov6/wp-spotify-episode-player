@@ -1,0 +1,63 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:33+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            9ab417fb70ae13c8cf777e65c3e7239c
+//      Signature:      eyJpdiI6Ik1VeWFEdWRwbmxIeThWZG4xb01FbkE9PSIsInZhbHVlIjoiRVVSRjZoN0c0bmlIR1RGaTVvZGVsOVBRTDJweXBhTkNucFVNelpybkVQc2VOeWlCTkU2QlNpbGRjeWNKalY0NzFSbG94U3Z2VldldE9waDVzSW1wcXJZY2ZpVTlTY3g4Z2o0d2NNblJLRUJJdXFNQW1HVDZqVEVPem9tTjJhSGx6QU5BU1A0VEhWTzBOK2VPNzlpeFdPQzZWQ0NWWGRoWlo5dGg0RDQybTdDS1cxUlpLQWMzWWRza1pFWVpWQnQ4R1B3Sytkck51dDY4SURlTHBCOFBmMk9tSkcyOHQ4aW42NGdJSGIrQ0VGU0R4c0pkZ1QzQzhsdDFtQWYzWVdUM2lhUnJIS0RCSWdQbXQyTTN1ZVZhcFVmOGRNWmx6Q2hSRlwvXC9Sdkw4YXZcL3J2UHNscUJSMVwvdnZncTlLb2hsNnhqTWppM1gralJIUXVGeVZ0am5RaEJaRlNyMkxNQ3laUU0yekVcL1JpYWI2VDNtTmU3dUViUVZyM2MzMWJZY05iSzBIbm5kVlRQU1hqa003ck11dmROeDJnPT0iLCJtYWMiOiJlMTgzZTI3YjM1YWEzZGE3Mzg2ZDZjMmM3MmY5NTQxYWVmMjdmYWViOTUyYjYzZTNiMTI3ZTQyMjBlMmMyODYyIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% comment %}
+    Renders a pagination bar
+
+    Accepts:
+    - paginate: {Object} Paginate Liquid object (required)
+
+    Usage:
+    {% include 'pagination', paginate: paginate %}
+{% endcomment %}
+<ul class="list--inline pagination">
+  {% unless paginate.previous.is_link %}
+    <li aria-hidden="true">
+      <button class="btn btn--tertiary btn--narrow" disabled>
+        {% include 'icon-arrow-left' %}
+        <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
+      </button>
+    </li>
+    {% else %}
+    <li>
+      <a href="{{ paginate.previous.url }}" class="btn btn--tertiary btn--narrow">
+        {% include 'icon-arrow-left' %}
+        <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
+      </a>
+    </li>
+  {% endunless %}
+  <li class="pagination__text">
+    {{ 'general.pagination.current_page' | t: current: paginate.current_page, total: paginate.pages }}
+  </li>
+  {% unless paginate.next.is_link %}
+    <li aria-hidden="true">
+      <button class="btn btn--tertiary btn--narrow" disabled>
+        {% include 'icon-arrow-right' %}
+        <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
+      </button>
+    </li>
+  {% else %}
+    <li>
+      <a href="{{ paginate.next.url }}" class="btn btn--tertiary btn--narrow">
+        {% include 'icon-arrow-right' %}
+        <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
+      </a>
+    </li>
+  {% endunless %}
+</ul>

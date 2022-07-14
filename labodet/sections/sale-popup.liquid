@@ -1,0 +1,175 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-03-17T17:51:00+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  120105
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            290715c6cc48acf62c7152d498eb0823
+//      Signature:      eyJpdiI6IkFLVVZ3WUdjV2lmM0R1NGNLVVwvUnZRPT0iLCJ2YWx1ZSI6IkY2Q21Ia2dENlRGQVF6dXZPZU9BV2czcmx0TDJsbml0dTFJenl3OUxMQWdhWjJjeFVBbEJpQXFtVE9ZOWV6b0xHaXRVd1JqYXdLUFZSUTdqK3MyZGN1QmtNZEpNa25vR3pHZnpNQVRUMitRUCtuV043VHJLZjB3SmtvYXBzUE1CNkNNWk16UWJSN1RzWEdSSG1PQWo2dGMwMVJBSHZWN3ZGOTNUeTdvNXVGY3Zkcnc2NkZMaXV2b0pTb1RNT1pLTmd2UnU4bFVhVm1Ha0JVeEIwRlc5S2ZQTnI4Vk5kWVR4WE1KT0doMXZPVzVEWW5HVTN2dE9TRXY0akJmMVNhSWNXMHNUblk1cUZFZ0xaQzhQeVo2aHBWZlpZRTY3YzZlY3R1REZnOVlqY1l4T1FOa3UyU2NyZk9tbzVaMXUxdWZIeUtPeERQOUFIaFA5NG1qRkpvMDlacU9FV0tcL3hHV3M2dzk1aUI1SHJWOUU0Z214QWpHeDRxWTNFWGRrQzBGQWpFcndBXC9jZ2RRVmFjZ0FLb1F2U3BPQT09IiwibWFjIjoiNmIyN2NmZmVlYjY0NzA4Y2MzOGRkZGZmZmUwNDkyMDE5MWNjOTBmMjI2Mjg0ODY1YmQ2ZTYyOWQzNzY2YjE2OCJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if section.settings.enable_popup == true %}
+<div class="inner">
+  <div class="header">
+    <img class="logo" src="https://cdn.shopify.com/s/files/1/0459/2051/8296/files/1._icon_mobile_logo_1.svg?v=1600248155" alt="" />
+
+    <a href="#" class="labo-times">
+      <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.304688" y="1.01465" width="1" height="25" transform="rotate(-45 0.304688 1.01465)" fill="black"/>
+        <rect x="1.01172" y="18.6924" width="1" height="25" transform="rotate(-135 1.01172 18.6924)" fill="black"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="images">
+    {% for block in section.blocks %}
+    	{% if block.type == 'slider_image' %}
+    		<img src="{{ block.settings.slider_image | img_url: 'master' }}" alt="" {{ block.shopify_attributes }} />
+    	{% endif %}
+	{% endfor %}
+  </div>
+
+  <div class="single-image">
+    <img src="{{ section.settings.large_image | img_url: 'master' }}" alt="" />
+  </div>
+
+  <div class="content">
+    <a href="#" class="labo-times">
+      <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.304688" y="1.01465" width="1" height="25" transform="rotate(-45 0.304688 1.01465)" fill="black"/>
+        <rect x="1.01172" y="18.6924" width="1" height="25" transform="rotate(-135 1.01172 18.6924)" fill="black"/>
+      </svg>
+    </a>
+
+    {% if section.settings.title != blank %}
+      <h2 class="title">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+    
+    {% if section.settings.sub_title != blank %}
+      <h3 class="sub-title">
+        {{ section.settings.sub_title }}
+      </h3>
+    {% endif %}
+    
+    {% if section.settings.description != blank %}
+      <p class="description">
+        {{ section.settings.description }}
+      </p>
+    {% endif %}
+    
+    {% if section.settings.discount_code != blank %}
+      <p class="discount-code">
+        Use code <span class="code">{{ section.settings.discount_code }}</span>
+      </p>
+    {% endif %}
+    
+    {% if section.settings.button_title != blank and section.settings.button_link != blank %}
+      <a class="btn btn-black btn-block" href="{{ section.settings.button_link }}">
+        {{ section.settings.button_title }}
+      </a>
+    {% endif %}
+  </div>
+  
+</div>
+
+<script defer>
+  $(document).ready(function() {
+    var cookieKey = 'sp-seen';
+    var seen = getCookie(cookieKey);
+    
+    if (!seen) {
+      var slider = $('.section-sale-popup .images').slick({
+        arrows: false,
+        dots: true,
+        infinite: false
+      });
+
+      setTimeout(function() {
+        $('body').addClass('sale-popup-open');
+        slider.slick('refresh');
+        
+        setCookie(cookieKey, true, 7);
+      }, 5000);
+    }
+        
+    $('.section-sale-popup .labo-times').click(function() {
+      $('body').removeClass('sale-popup-open');
+    });
+  });
+</script>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Sale popup",
+	"class": "section-sale-popup",
+	"tag": "section",
+	"blocks": [
+		{
+      "type": "slider_image",
+			"name": "Slider image",
+      "settings": [
+				{
+          "type": "image_picker",
+          "id": "slider_image",
+          "label": "Slider image"
+        }
+      ]
+		}
+	],
+  "settings": [
+  {
+    "type": "checkbox",
+    "id": "enable_popup",
+    "label": "Display pop-up?",
+    "default": false
+  },
+		{
+			"type": "image_picker",
+			"id": "large_image",
+			"label": "Image"
+		},
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title"
+		},
+		{
+			"type": "text",
+			"id": "sub_title",
+			"label": "Sub title"
+		},
+		{
+			"type": "text",
+			"id": "description",
+			"label": "Description"
+		},
+		{
+			"type": "text",
+			"id": "discount_code",
+			"label": "Discount code"
+		},
+		{
+			"type": "text",
+			"id": "button_title",
+			"label": "Button title"
+		},
+    {
+      "id": "button_link",
+      "type": "url",
+      "label": "Button link"
+    }
+	]
+  }
+{% endschema %}

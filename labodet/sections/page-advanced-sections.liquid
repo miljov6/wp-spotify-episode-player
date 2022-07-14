@@ -1,0 +1,86 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-03-17T17:51:07+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  120105
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            c847db7be04d49e8c39838c05f142efc
+//      Signature:      eyJpdiI6ImF5SW9HNklyWnptUENrcVdwaUc5eGc9PSIsInZhbHVlIjoiWk04VWpDTUlCVjFLeTFxVmpHTzRpQ1ZkUUZsa0xZT0IrMjBqdGNlWnJ2NnhVOGV5Y0ZWaGVRc3kxakYxbXZWMVpsVHRcL2d4ZlNuYmh2TFgwSGJlV0ZiY0dMU1RTNTdMV2NrbTduQlBPOUgwV0xaNm9ma01ueFlFVmVUN2pEdnVRaDFVYUoreWxVbjFGVzcwcVJQNVJkcVRPeGRKQWs2bkMxbGdua3lLcWlWcWIzelIwSUFTcUx4UXR2VEZTYVhYSFdsc2NLMHNqbVRZdUN1dWR4SWUyZ0l4QWZIM2NOTVFEVUluQlM4WXIxRjVBUjdVaTlXSCtnd28xcEZsYnYwOE8yR3l2M3hJMDdLb0dVQ0xPb0FkNUZRXC9ZWUN6aXkrNXh4YUVBV2NrQUtpU09TYzR2TXdHU29KY0dcLytDQU4wM1wvRHNINmtlUHJua1N4T2Fkc0ZJRmY2ZEZaV3k2bjRNdXRpd2JNZys5R0tzRld6dThjN25WRVRpRTRZYTZ2Z05UOE5KR3FYdzZXbFNIVVJFOGFGQVByRVhlZks5TXRBMnVkR01yeHdRTFlGems9IiwibWFjIjoiMjRiYjFhYjE0NjlhMTM3Y2Q2NGY1YTAyZTg5ZDgyY2QxMGUzY2Y0NTM1NDU5MDU5N2RjZGUzMTg3YTc1Y2E4OCJ9
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if page.metafields.custom_fields["advanced_sections"] != blank %}
+<section class="labo-product-advanced-sections mt-md-4 pt-md-2 border-md-bottom">
+  <div class="container">
+    {% assign separator = "|###|" %}
+    {% assign section_title_array = page.metafields.custom_fields["section_title"] | split: separator %}
+    {% assign text_content_array = page.metafields.custom_fields["text_content"] | split: separator %}
+    {% assign image_array = page.metafields.custom_fields["image"] | split: separator %}
+    {% assign video_array = page.metafields.custom_fields["video"] | split: separator %}
+    {% assign style_array = page.metafields.custom_fields["style"] | split: separator %}
+    {% assign fc_keys = page.metafields.custom_fields["advanced_sections"] | split: "," %}
+    {% for i in fc_keys %}
+    {% assign index = i | plus: 0 %}
+    <div class="row">
+      {% if style_array[index] == 'Right Image, Left Text' %}
+      <div class="col-md-6 p-0 py-md-2 px-md-2 labo-css-order-2">
+        <div class="labo-product-page-grey-bg h-100 align-items-center justify-content-center d-flex py-4 px-3 p-md-5">
+          <div class="labo-max-w-378">
+            {% unless section_title_array[index] == blank %}
+            <h2 class="labo-product-advanced-title">{{ section_title_array[index] }}</h2>
+            {% endunless %}
+            {% unless text_content_array[index] == blank %}
+            <p class="m-0">{{ text_content_array[index] | strip_html | strip | strip_newlines }}</p>
+            {% endunless %}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 p-0 py-md-2 px-md-2 labo-css-order-1 img-order">
+        {% unless image_array[index] == blank %}
+        	<img  loading="lazy"  src="{{ image_array[index] }}" data-src="{{ image_array[index] }}" class="d-block w-100">
+        {% endunless %}
+        {% unless video_array[index] == blank %}
+        	{{ video_array[index] }}
+        {% endunless %}
+      </div>
+      {% else %}
+      <div class="col-md-5 p-0 py-md-2 px-md-2 labo-css-order-1 img-order">
+        {% unless image_array[index] == blank %}
+        	<img  loading="lazy"  src="{{ image_array[index] }}" data-src="{{ image_array[index] }}" class="d-block w-100">
+        {% endunless %}
+        {% unless video_array[index] == blank %}
+        	{{ video_array[index] }}
+        {% endunless %}
+      </div>
+      <div class="col-md-7 p-0 py-md-3 px-md-2 labo-css-order-2">
+        <div class="labo-product-page-grey-bg h-100 align-items-center justify-content-center d-flex py-4 px-3 p-md-5">
+          <div class="labo-max-w-378">
+            {% unless section_title_array[index] == blank %}
+            <h2 class="labo-product-advanced-title">{{ section_title_array[index] }}</h2>
+            {% endunless %}
+            {% unless text_content_array[index] == blank %}
+            <p class="m-0">{{ text_content_array[index] | strip_html | strip | strip_newlines }}</p>
+            {% endunless %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

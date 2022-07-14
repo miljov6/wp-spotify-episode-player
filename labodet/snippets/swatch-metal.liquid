@@ -1,0 +1,42 @@
+{%- comment -%}
+//    !!!! - DO NOT MODIFY - !!!!
+//    THIS FILE IS DEPLOYED AUTOMATICALLY BY MATTv2.
+//    CHANGES YOU MAKE MAY BE AUTOMATICALLY OVERWRITTEN AT ANY TIME.
+//
+//    Deployment info:
+//      Updated at:     2021-04-01T16:14:24+00:00
+//      Cause:          Manual deployment.
+//      Deployment ID:  121331
+//      Project:        339
+//      Environment:    741 - master
+//      MD5:            e805a8f2cf39ca0f49f468744693bcda
+//      Signature:      eyJpdiI6IlBnY2Z5b1hieGRKOVIrajFhMzZnbWc9PSIsInZhbHVlIjoiOGhhZlVXVHZXRW9wSklPb1g3V3NSNHl4d1h1blZuaFdYZVdGVG5pMytpOGk3WkpIRTc0TVBRMTFHUEFXSGhPOVQwSG5ScDQ4aU5WcHQ1VTAyZ3BldWl1N3lnMjJOUHd5VVkrOGxxaWhpc1FSNWtFTUVKYlh3cThxbklxRHRpb1NWWVwvdWozUWJFVGRTZUdweEZCTENnUmlaNWdDTEozRHJlcW1DWnJqWmIyTVFQdVFzS3g0eWFBY0NkZjFHTGNjdVwvNnhBbWZQQkpRMWR5VjIyYzN2bUlxSUdocnRJdUU5UkVEZ0Y1ZCtxbTEzbUJGazNpejhURzFCK2J6R0tNenRjNVhPT29jeldyZEJ4bE54ZFFweUpTTFdyWFoxR2ZuRW45K0xGRWJVTUx1QXNhUVdcL0ZDaGgwZkhjSDFuOVUySjBnXC9ET21xVDBoaUdaUFJtdkswdEdQeUxKcUZoVG8zM0JsVTJBUnRHaWJNWnBaVnk0VlwvNlFSbm00dzc1YmJpN0FIU0dieW5oZStPQ2dLeFNCNkhBRkF3PT0iLCJtYWMiOiI5OTVhMjFhZjEzMTIyZWI1Y2YyZDY3MGViNDdiZjI5Mzk5MjU0YThkMzMwNTc2ZDk5MzY3YTIwMjM0YWY1ZTEwIn0=
+//
+//    MATT is an automated theme deployment pipeline for Shopify, built by Eastside Co.
+//    It is used to provide version control and reliable deployment environments.
+//
+//    If you need to modify this file, please contact Eastside Co.
+{%- endcomment -%}
+{% if product.metafields.custom_fields["metalware"] != blank %}
+{% assign separator = "|###|" %}
+{% assign name_array = product.metafields.custom_fields["name"] | split: separator %}
+{% assign color_array = product.metafields.custom_fields["color"] | split: separator %}
+{% assign bg_image_array = product.metafields.custom_fields["bg_image"] | split: separator %}
+{% assign link_array = product.metafields.custom_fields["link"] | split: separator %}
+{% assign is_this_current_product_metal_array = product.metafields.custom_fields["is_this_current_product_metal"] | split: separator %}
+{% assign fc_keys = product.metafields.custom_fields["metalware"] | split: "," %}
+<div id="labo-Metal-swatch" class="swatch hidemobile labo-Color-swatch clearfix" data-option-index="0">
+  <div class="labo-swatch-header d-none d-md-block header">Metalware: <span id="labo-product-current-Metal">{% for ii in fc_keys %}{% assign indexi = ii | plus: 0 %}{% if is_this_current_product_metal_array[indexi] == 'yes' %}{{ name_array[indexi] }}{% endif %}{% endfor %}</span></div>
+  {% for i in fc_keys %}
+  {% assign index = i | plus: 0 %}
+  <div data-value="{{ name_array[index] }}" class="swatch-element color {{ name_array[index] }} available">
+    <div class="tooltip">{{ name_array[index] }}</div>
+    <label{% if is_this_current_product_metal_array[index] == 'yes' %} class="labo-label-active"{% endif %} style="background-color: {{ color_array[index] }};{% unless bg_image_array[index] == blank %} background-image: url({{ bg_image_array[index] }}){% endunless %}">
+      <a href="{{ link_array[index] }}" class="w-100 h-100 d-block">
+        <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}">
+      </a>
+    </label>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}

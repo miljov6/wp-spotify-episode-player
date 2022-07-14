@@ -1,0 +1,108 @@
+ {% assign current_currency = cart.currency.iso_code %}
+    {% case current_currency %}
+        {% when 'EUR' %}
+            {% assign eur_price = product.price | money_without_currency %}
+            {{ eur_price | replace: '.', ' ' | split: ',00' }} €
+        {% when 'GBP' %}
+            {% assign gbp_price = product.price | money_without_currency %}
+            £ {{ gbp_price | split: '.00'}}
+        {% when 'CAD' %}
+            {% assign gbp_price = product.price | money_without_currency %}
+            CAD$ {{ gbp_price | split: '.00'}}
+        {% when 'AED' %}
+            {% assign aed_price = product.price | money_without_currency %}
+            AED {{ aed_price | split: '.00'}}
+        {% when 'JPY' %}
+            {% assign jpy_price = product.price | money_without_currency %}
+            ¥ {{ jpy_price }}
+        {% when 'KRW' %}
+            {% assign krw_price = product.price | money_without_currency %}
+            ₩ {{ krw_price }}
+        {% when 'QAR' %}
+            {% assign qar_price = product.price | money_without_currency %}
+            {{ qar_price | replace: '.', '' | split: ',00' }} QAR
+        {% when 'SAR' %}
+            {% assign sar_price = product.price | money_without_currency %}
+            SAR {{ sar_price | split: '.00'}}
+        {% when 'HKD' %}
+            {% assign hkd_price = product.price | money_without_currency %}
+            HK$ {{ hkd_price | split: '.00'}}
+        {% when 'MXN' %}
+            {% assign mxn_price = product.price | money_without_currency %}
+            {{ mxn_price | replace: ',', ' '| split: '.00' }} MEX$
+        {% when 'THB' %}
+            {% assign thb_price = product.price | money_without_currency %}
+            ฿ {{ thb_price | split: '.00' }}
+        {% when 'TWD' %}
+            {% assign twd_price = product.price | money_without_currency %}
+            NT$ {{ twd_price | split: '.00' }}
+        {% when 'AUD' %}
+            {% assign aud_price = product.price | money_without_currency %}
+            AUD$ {{ aud_price | split: '.00' }}
+        {% when 'CHF' %}
+            {% assign chf_price = product.price | money_without_currency %}
+            {{ chf_price | replace: ',', ' '| split: '.00' }} CHF
+        {% when 'SGD' %}
+            {% assign sgd_price = product.price | money_without_currency %}
+            S$ {{ sgd_price | split: '.00' }}
+        {% when 'VND' %}
+            {% assign vnd_price = product.price | money_without_currency %}
+            VND {{ vnd_price | replace: '.', ',' }}
+        {% when 'KHR' %}
+            {% assign khr_price = product.price | money_without_currency %}
+            {{ khr_price | replace: ',', ' '| split: '.00' }} KHR
+        {% when 'ILS' %}
+            {% assign ils_price = product.price | money_without_currency %}
+            ₪ {{ ils_price | split: '.00' }}
+        {% when 'CZK' %}
+            {% assign czk_price = product.price | money_without_currency %}
+            {{ czk_price | replace: '.', ' '| split: ',00'  }} Kč
+        {% when 'RON' %}
+            {% assign ron_price = product.price | money_without_currency %}
+            {{ ron_price | replace: '.', ' '| split: ',00' }} Lei
+        {% when 'BRL' %}
+            {% assign brl_price = product.price | money_without_currency %}
+            R$ {{ brl_price | split: ',00' }}
+        {% when 'TRY' %}
+            {% assign try_price = product.price | money_without_currency %}
+            {{ try_price | replace: ',', '.' | split: '.00' }} TL
+        {% when 'MYR' %}
+            {% assign myr_price = product.price | money_without_currency %}
+            RM {{ myr_price | split: '.00' }}
+        {% when 'INR' %}
+            {% assign inr_price = product.price | money_without_currency %}
+            ₹ {{ inr_price | replace: ',', '' | split: '.00' }}
+        {% when 'RUB' %}
+            {% assign rub_price = product.price | money_without_currency %}
+            {{ rub_price | replace: '.', ' '| split: ',00' }} ₽
+        {% when 'UAH' %}
+            {% assign uah_price = product.price | money_without_currency %}
+            {{ uah_price | replace: ',', ' '| split: '.00' }} грн
+        {% when 'IDR' %}
+            {% assign idr_price = product.price | money_without_trailing_zeros %}
+            {{ idr_price | replace: '.', ',' }}
+        {% when 'PLN' %}
+            {% assign pln_price = product.price | money_without_currency %}
+            {{ pln_price | replace: '.', ' '| split: ',00' }} zł
+        {% when 'DKK' %}
+            {% assign dkk_price = product.price | money_without_currency %}
+            {{ dkk_price | split: ',00' }} kr
+        {% when 'PHP' %}
+            {% assign php_price = product.price | money_without_currency %}
+            ₱ {{ php_price | split: '.00'  }}
+        {% when 'BGN' %}
+            {% assign bgn_price = product.price | money_without_currency %}
+            {{ bgn_price | replace: ',', ' '| split: '.00'  }} BGN
+        {% when 'EGP' %}
+            {% assign egp_price = product.price | money_without_currency %}
+            {{ egp_price | split: '.00' }} EGP
+        {% when 'SEK' %}
+            {% assign sek_price = product.price | money_without_currency %}
+            {{ sek_price | replace: ',', ' ' }} kr
+        {% when 'AZN' %}
+            {% assign azn_price = product.price | money_without_currency %}
+            {{ azn_price | replace: ',', '' | split: '.00' }} AZN
+        {% else %}
+            {{ product.price | money | split: '.00' }}
+    {% endcase %}
+
